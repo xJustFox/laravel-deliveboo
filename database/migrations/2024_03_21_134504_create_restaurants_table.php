@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('address', 100);
             $table->string('p_iva', 11);
-            $table->string('main_image', 255);
+            $table->text('main_image');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
