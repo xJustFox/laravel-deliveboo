@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('name', 100);
+            $table->string('slug');
             $table->string('address', 100);
             $table->string('p_iva', 11);
             $table->string('main_image', 255);
