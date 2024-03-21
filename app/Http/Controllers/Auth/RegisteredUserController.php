@@ -35,6 +35,12 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+
+            // valido i dati inviati dall'utente
+            'restaurantName' => ['required', 'string', 'max:100'],
+            'address' => ['required', 'string', 'max:100'],
+            'p_iva' => ['required', 'string', 'max:11'],
+            'main_image' => ['required', 'string'],
         ]);
 
         $user = User::create([
