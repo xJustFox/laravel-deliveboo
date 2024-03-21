@@ -6,6 +6,7 @@ use App\Models\Food;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFoodRequest;
 use App\Http\Requests\UpdateFoodRequest;
+use illuminate\Support\Str;
 
 class FoodController extends Controller
 {
@@ -16,7 +17,9 @@ class FoodController extends Controller
      */
     public function index()
     {
-        //
+        $foods = Food::all();
+
+        return view('user.foods.index',compact('foods'));
     }
 
     /**
@@ -26,7 +29,7 @@ class FoodController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.foods.create');
     }
 
     /**
@@ -37,7 +40,17 @@ class FoodController extends Controller
      */
     public function store(StoreFoodRequest $request)
     {
-        //
+        $form_data =$request->all();
+        $food = new Food();
+        
+       
+        $slug = Str::slug($form_data['name'],'-');
+        $form_data['slug']= $slug;
+        $food->fill($form_data);
+        $food-> save();
+
+        
+        return redirect()->route('user.foods.index');
     }
 
     /**
@@ -48,7 +61,7 @@ class FoodController extends Controller
      */
     public function show(Food $food)
     {
-        //
+        return view('user.food.show',compact('food'));
     }
 
     /**
@@ -59,7 +72,7 @@ class FoodController extends Controller
      */
     public function edit(Food $food)
     {
-        //
+        return view('user.foods.edit');
     }
 
     /**
