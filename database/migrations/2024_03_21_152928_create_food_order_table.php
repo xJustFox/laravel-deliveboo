@@ -13,16 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('restaurants', function (Blueprint $table) {
+        Schema::create('food_order', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->string('name', 100);
-            $table->string('slug');
-            $table->string('address', 100);
-            $table->string('p_iva', 11);
-            $table->string('main_image', 255);
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('id_food');
+            $table->unsignedBigInteger('id_order');
+            $table->tinyInteger('quantity')->default(0);
             $table->timestamps();
+
+            $table->foreign('id_food')->references('id')->on('foods');
+            $table->foreign('id_order')->references('id')->on('orders');
         });
     }
 
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restaurants');
+        Schema::dropIfExists('food_order');
     }
 };
