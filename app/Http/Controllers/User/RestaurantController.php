@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRestaurantRequest;
 use App\Http\Requests\UpdateRestaurantRequest;
 
+use Illuminate\Support\Facades\Auth;
+
 class RestaurantController extends Controller
 {
     /**
@@ -16,7 +18,14 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        // recupero i dati dell'utente loggato
+        $user = Auth::user();
+
+        // filtro i ristoranti in base all'id dell'utente loggato
+        $restaurant = Restaurant::where('user_id', $user->id)->get();
+        $restaurant = $restaurant[0];
+
+        return view('user.restaurants.index', compact('user', 'restaurant'));
     }
 
     /**
