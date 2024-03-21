@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Models\Food;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreFoodRequest;
 use App\Http\Requests\UpdateFoodRequest;
 

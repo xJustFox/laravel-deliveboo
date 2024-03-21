@@ -3,6 +3,11 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\User\DashboardController;
+use App\Http\Controllers\User\RestaurantController;
+use App\Http\Controllers\User\FoodController;
+use App\Http\Controllers\User\OrderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +23,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])
+        ->name('user.')
+        ->prefix('user')
+        ->group(function () {
+            Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+            Route::resource('/restaurant', RestaurantController::class)->parameters(['restaurants' => 'restaurant:slug']);
+            Route::resource('/dishes', FoodController::class)->parameters(['foods' => 'food:slug']);
+            Route::resource('/orders', OrderController::class)->parameters(['orders' => 'order:slug']);
+        });
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

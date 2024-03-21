@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
-use App\Models\Genre;
-use Illuminate\Http\Request;
+use App\Models\Restaurant;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreRestaurantRequest;
+use App\Http\Requests\UpdateRestaurantRequest;
 
-class GenreController extends Controller
+class RestaurantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -30,10 +32,10 @@ class GenreController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\StoreRestaurantRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreRestaurantRequest $request)
     {
         //
     }
@@ -41,10 +43,10 @@ class GenreController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Genre  $genre
+     * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function show(Genre $genre)
+    public function show(Restaurant $restaurant)
     {
         //
     }
@@ -52,10 +54,10 @@ class GenreController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Genre  $genre
+     * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function edit(Genre $genre)
+    public function edit(Restaurant $restaurant)
     {
         //
     }
@@ -63,11 +65,11 @@ class GenreController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Genre  $genre
+     * @param  \App\Http\Requests\UpdateRestaurantRequest  $request
+     * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Genre $genre)
+    public function update(UpdateRestaurantRequest $request, Restaurant $restaurant)
     {
         //
     }
@@ -75,10 +77,10 @@ class GenreController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Genre  $genre
+     * @param  \App\Models\Restaurant  $restaurant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Genre $genre)
+    public function destroy(Restaurant $restaurant)
     {
         //
     }
