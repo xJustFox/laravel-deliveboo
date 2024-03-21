@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_genre');
             $table->unsignedBigInteger('id_restaurant');
             $table->string('name', 100);
+            $table->string('slug');
             $table->text('description');
             $table->decimal('price', 8, 2)->default(0);
             $table->tinyInteger('visible')->default(0);
