@@ -22,10 +22,9 @@ class RestaurantController extends Controller
         $user = Auth::user();
 
         // filtro i ristoranti in base all'id dell'utente loggato
-        $restaurant = Restaurant::where('user_id', $user->id)->get();
-        $restaurant = $restaurant[0];
+        $restaurants = Restaurant::where('user_id', $user->id)->get();
 
-        return view('user.restaurants.index', compact('user', 'restaurant'));
+        return view('user.restaurants.index', compact('user', 'restaurants'));
     }
 
     /**
