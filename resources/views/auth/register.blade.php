@@ -12,7 +12,7 @@
                             @csrf
 
                             <div class="col-md-6 mb-2">
-                                <label for="name" class="col-form-label text-white">{{ __('Name') }}</label>
+                                <label for="name" class="col-form-label text-white">{{ __('Nome e Cognome') }}</label>
                                 <input id="name" type="text"
                                     class="form-control form-control-sm my-form @error('name') is-invalid @enderror"
                                     name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -25,7 +25,7 @@
                             </div>
 
                             <div class="col-md-6 mb-2">
-                                <label for="email" class="col-form-label text-white">{{ __('E-Mail Address') }}</label>
+                                <label for="email" class="col-form-label text-white">{{ __('Indirizzo E-Mail') }}</label>
                                 <input id="email" type="email"
                                     class="form-control form-control-sm my-form @error('email') is-invalid @enderror"
                                     name="email" value="{{ old('email') }}" required autocomplete="email">
@@ -52,7 +52,7 @@
 
                             <div class="col-md-6 mb-2">
                                 <label for="password-confirm"
-                                    class="col-form-label text-white">{{ __('Confirm Password') }}</label>
+                                    class="col-form-label text-white">{{ __('Conferma Password') }}</label>
                                 <input id="password-confirm" type="password" class="form-control form-control-sm my-form"
                                     name="password_confirmation" required autocomplete="new-password">
                             </div>
