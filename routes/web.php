@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\RestaurantController;
-use App\Http\Controllers\DishController;
+use App\Http\Controllers\User\DishController;
 use App\Http\Controllers\User\OrderController;
 
 /*
