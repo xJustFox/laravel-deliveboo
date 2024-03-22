@@ -19,7 +19,8 @@ class Restaurant extends Model
     ];
 
     //molti a 1
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
 
@@ -31,5 +32,10 @@ class Restaurant extends Model
     public function dishes()
     {
         return $this->hasMany(Dish::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }
