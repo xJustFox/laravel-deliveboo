@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 
 class RegisteredUserController extends Controller
 {
@@ -61,6 +62,7 @@ class RegisteredUserController extends Controller
         $restaurant = Restaurant::create([
             'user_id' => $user_id,
             'name' => $request->restaurantName,
+            'slug' => Str::slug($request->restaurantName),
             'address' => $request->address,
             'p_iva' => $request->p_iva,
             'main_image' => $request->main_image,
