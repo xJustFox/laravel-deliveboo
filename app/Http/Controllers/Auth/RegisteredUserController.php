@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -34,6 +35,12 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+
+            // valido i dati inviati dall'utente
+            'restaurantName' => ['required', 'string', 'max:100'],
+            'address' => ['required', 'string', 'max:100'],
+            'p_iva' => ['required', 'string', 'max:11'],
+            'main_image' => ['required', 'string'],
         ]);
 
         $user = User::create([
@@ -45,6 +52,20 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        // recupero l'id dell'user che si è appena registrato e lo assegno a $user_id
+        $user_id = User::where('email', $user->email)->get();
+        $user_id = $user_id[0]->id;
+        
+        // creo il record del ristorante dell'utente appena registrato
+        $restaurant = Restaurant::create([
+            'user_id' => $user_id,
+            'name' => $request->restaurantName,
+            'address' => $request->address,
+            'p_iva' => $request->p_iva,
+            'main_image' => $request->main_image,
+        ]);
+        $restaurant->save();
 
         return redirect(RouteServiceProvider::HOME);
     }
