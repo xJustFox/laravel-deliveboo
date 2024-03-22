@@ -4,105 +4,104 @@
 
 @import url('https://fonts.cdnfonts.com/css/varta');
 
-body{
-    font-family: 'Varta', sans-serif;
-    background-attachment: fixed;
-    background-image: linear-gradient(13deg, #181818,  #181818, #181818, #DA643F);
+body {
+  font-family: 'Varta', sans-serif;
+  background-attachment: fixed;
+  background-image: linear-gradient(13deg, #181818, #181818, #181818, #DA643F);
 }
 
 .super-ocean {
-    font-family: "Chicle", serif;
+  font-family: "Chicle", serif;
 }
 
+.form-control, .form-select {
+  border: 1px solid #DA643F;
+
+  &:focus {
+    box-shadow: none;
+    border-color: #E1B137;
+  }
+}
+
+input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 0s 600000s, color 0s 600000s !important;
+  }
 // HEADER
 header {
-    background: transparent;
+  background: transparent;
 
-    .logo_deliveboo {
-        width: 50px;
-        height: 50px;
-    }
+  .logo_deliveboo {
+    width: 50px;
+    height: 50px;
+  }
 
-    .bg-darkgray {
-        background-image: linear-gradient(13deg, #181818,  #181818, #181818, #DA643F);
-    }
+  .bg-darkgray {
+    background-image: linear-gradient(13deg, #181818, #181818, #181818, #DA643F);
+  }
 
-    .logo-title{
-        display: flex;
-        text-decoration: none;
+  .logo-title {
+    display: flex;
+    text-decoration: none;
 
-    }
+  }
 
 
-    .text-orange{
-        color: #DA643F;
-        font-size: 30px;
-    }
+  .text-orange {
+    color: #DA643F;
+    font-size: 30px;
+  }
 
-    .text-gold {
-        color: #E1B137;
-        font-size: 30px;
-    }
+  .text-gold {
+    color: #E1B137;
+    font-size: 30px;
+  }
 
-    .my-nav-link{
-      font-size: 23px;
-      padding-right: 10px;
-      color: white;
-      text-decoration: none;
+  .my-nav-link {
+    font-size: 23px;
+    padding-right: 10px;
+    color: white;
+    text-decoration: none;
 
-        &:hover {
-            color: #DA643F;
-        }
-    }
-
-    .activeRoute{
+    &:hover {
       color: #DA643F;
     }
+  }
+
+  .activeRoute {
+    color: #DA643F;
+  }
 
 
-    // BUTTONS
-    a.nav-link.btn-login.super-ocean {
-        color: white;
-        background-color: #DA643F;
-        border: 1px transparent;
-        border-radius: 20px;
-        padding: 8px 25px;
+  // BUTTONS
+  a.nav-link.btn-login.super-ocean {
+    color: white;
+    background-color: #DA643F;
+    border: 1px transparent;
+    border-radius: 20px;
+    padding: 8px 25px;
 
-        &:hover{
-            color: #DA643F;
-            background-color: white;
-        }
+    &:hover {
+      color: #DA643F;
+      background-color: white;
     }
+  }
 
-    a.nav-link.btn-register.super-ocean {
-        color: white;
-        border: 1px solid white;
-        border-radius: 20px;
-        padding: 8px 25px;
+  a.nav-link.btn-register.super-ocean {
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 8px 25px;
 
-        &:hover{
-            color: #DA643F;
-            background-color: white;
-        }
+    &:hover {
+      color: #DA643F;
+      background-color: white;
     }
-}
+  }
 
+  // HAMBURGER-BUTTON
 
-// END HEADER
-
-.homepage {
-    background-image: linear-gradient(13deg, #181818,  #181818, #181818, #DA643F);
-    background-attachment: fixed;
-}
-
-.text-lightgray {
-    color: lightgray;
-    font-size: 18px;
-}
-
-// HAMBURGER-BUTTON
-
-.popup {
+  .popup {
     --burger-line-width: 1.125em;
     --burger-line-height: 0.125em;
     --burger-offset: 0.625em;
@@ -155,7 +154,7 @@ header {
 
   nav.popup-window {
     font-family: 'Audiowide', system-ui;
-}
+  }
 
   .popup {
     display: inline-block;
@@ -319,14 +318,15 @@ header {
     z-index: 999;
   }
 
-// END HAMBURGER-BUTTON
+  // END HAMBURGER-BUTTON
+}
 
-// DASHBOARD
-
-.e-card {
+// DASHBOARD   
+#dashboard {
+  .e-card {
     margin: 100px auto;
     background: transparent;
-    box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
+    box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
     position: relative;
     width: 350px;
     height: 250px;
@@ -411,3 +411,49 @@ header {
       transform: rotate(360deg);
     }
   }
+}
+
+.text-lightgray {
+  color: lightgray;
+  font-size: 18px;
+}
+
+// REGISTER PAGE
+#register-page {
+  color: white;
+
+  .card {
+    backdrop-filter: blur(25px);
+    background-color: rgba(255, 255, 255, 0.05);
+
+    .super-ocean{
+      font-size: 25px;
+    }
+
+    .btn {
+      color: white;
+      font-size: medium;
+      background-color: #DA643F;
+      border: 1px transparent;
+      padding: 8px 15px;
+
+      &:hover {
+        color: #DA643F;
+        background-color: white;
+      }
+    }
+
+    .my-form, .my-select {
+      background-color: transparent !important;
+      color: white;
+
+      .my-option{
+        background-color: #181818;
+
+        &:active, &:hover{
+          background-color: #777 !important;
+        }
+      }
+    }
+  }
+}

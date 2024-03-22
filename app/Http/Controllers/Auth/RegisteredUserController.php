@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
+use App\Models\Typology;
 
 class RegisteredUserController extends Controller
 {
@@ -22,7 +23,8 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        $typologies = Typology::all();
+        return view('auth.register', compact('typologies'));
     }
 
     /**
@@ -42,6 +44,7 @@ class RegisteredUserController extends Controller
             'address' => ['required', 'string', 'max:100'],
             'p_iva' => ['required', 'string', 'max:11'],
             'main_image' => ['required', 'string'],
+            'typology_id' => ['required']
         ]);
 
         $user = User::create([
@@ -68,6 +71,11 @@ class RegisteredUserController extends Controller
             'main_image' => $request->main_image,
         ]);
         $restaurant->save();
+        
+        
+        if ($request->has('typology_id')) {
+            $restaurant->typologies()->attach($request->typology_id);
+        }
 
         return redirect(RouteServiceProvider::HOME);
     }
