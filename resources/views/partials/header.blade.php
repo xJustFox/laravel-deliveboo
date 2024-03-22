@@ -1,9 +1,9 @@
 <header class="@yield('header-class')">
     <nav class="navbar navbar-expand-md navbar-light">
-        <div class="container">
+        <div class="container-fluid mx-3">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <div>
-                    <img class="logo_deliveboo" src="./img/Logo.png" alt="">
+                    <img class="logo_deliveboo" src="{{Vite::asset('public/img/logo.png')}}" alt="">
                 </div>
                 {{-- config('app.name', 'Laravel') --}}
             </a>
@@ -23,8 +23,20 @@
                             <a class="logo-title text-gold" href="{{ url('/') }}">{{ __('Boo') }}</a>
                         </div>
                         <div class="pt-1 ps-4">
-                            <a class="nav-link text-white super-ocean"
-                                href="{{ route('user.restaurant.index') }}">{{ __('I tuoi Ristoranti') }}</a>
+                            <ul class="navbar-nav me-auto">
+                                @guest
+                                <li class="nav-item">
+                                    <a class="nav-link text-white super-ocean" href="{{url('/') }}">{{ __('Home') }}</a>
+                                </li>
+                                @else
+                                <li>
+                                    <a class="nav-link text-white super-ocean" href="{{url('/') }}">{{ __('Home') }}</a>
+                                </li>  
+                                <li>
+                                    <a class="nav-link text-white super-ocean" href="{{ route('user.restaurant.index') }}">{{ __('I tuoi Ristoranti') }}</a>
+                                </li>         
+                                @endguest
+                            </ul>
                         </div>
                     </li>
                 </ul>

@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="p-5 mb-4 rounded-3">
-        <div class="container py-5">
+        <div class="container-fluid px-3 py-5">
             <div class="row">
                 <div class="col-7">
                     <h1 class="display-5 fw-bold super-ocean text-white">
