@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('dish_order', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_dish');
-            $table->unsignedBigInteger('id_order');
+            $table->unsignedBigInteger('dish_id');
+            $table->unsignedBigInteger('order_id');
             $table->tinyInteger('quantity')->default(0);
             $table->timestamps();
 
-            $table->foreign('id_dish')->references('id')->on('dishes');
-            $table->foreign('id_order')->references('id')->on('orders');
+            $table->foreign('dish_id')->references('id')->on('dishes');
+            $table->foreign('order_id')->references('id')->on('orders');
         });
     }
 
