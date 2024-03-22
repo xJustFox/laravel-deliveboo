@@ -9,9 +9,23 @@ class Order extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'restaurant_id',
+        'name',
+        'slug',
+        'email',
+        'delivery_address',
+        'phone_num',
+        'price',
+    ];
 
     public function dish()
     {
         return $this->belongsToMany(Dish::class);
+    }
+
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class);
     }
 }
