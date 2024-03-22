@@ -34,7 +34,10 @@
                                 </li>  
                                 <li>
                                     <a class="nav-link text-white super-ocean" href="{{ route('user.restaurant.index') }}">{{ __('I tuoi Ristoranti') }}</a>
-                                </li>         
+                                </li>
+                                <li>
+                                    <a class="nav-link text-white super-ocean" href="{{ route('user.orders.index') }}">{{ __('I tuoi Ordini') }}</a>
+                                </li>          
                                 @endguest
                             </ul>
                         </div>
