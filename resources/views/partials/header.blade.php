@@ -18,25 +18,31 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item d-flex">
-                        <div class="d-flex pt-2 super-ocean">
+                        <div class="d-flex super-ocean">
                             <a class="logo-title text-orange" href="{{ url('/') }}">{{ __('Delive') }}</a>
                             <a class="logo-title text-gold" href="{{ url('/') }}">{{ __('Boo') }}</a>
                         </div>
-                        <div class="pt-1 ps-4">
-                            <ul class="navbar-nav me-auto">
+
+                        <div class="ps-4 d-flex align-items-center">
+                            <ul class="d-flex align-items-center list-unstyled h-100">
                                 @guest
+                                    {{-- Home --}}
                                     <li class="nav-item">
-                                        <a class="nav-link super-ocean" href="{{ url('/') }}">{{ __('Home') }}</a>
+                                        <a class="my-nav-link super-ocean" href="{{ url('/') }}">{{ __('Home') }}</a>
                                     </li>
                                 @else
                                 <li>
-                                    <a class="nav-link text-white super-ocean" href="{{route('user.dashboard') }}">{{ __('Dashboard') }}</a>
+                                    {{-- Dashboard --}}
+                                    <a class="my-nav-link super-ocean {{Route::currentRouteName() == 'user.dashboard' ? 'activeRoute' : '' }}" href="{{route('user.dashboard') }}">
+                                        {{ __('Dashboard') }}
+                                    </a>
                                 </li>  
                                 <li>
-                                    <a class="nav-link text-white super-ocean" href="{{ route('user.restaurant.index') }}">{{ __('I tuoi Ristoranti') }}</a>
+                                    <a class="my-nav-link super-ocean {{ (Route::currentRouteName() == 'user.restaurant.index' || 
+                                    Route::currentRouteName() == 'user.restaurant.edit')  ? 'activeRoute' : '' }}" href="{{ route('user.restaurant.index') }}">{{ __('I tuoi Ristoranti') }}</a>
                                 </li>
                                 <li>
-                                    <a class="nav-link text-white super-ocean" href="{{ route('user.orders.index') }}">{{ __('I tuoi Ordini') }}</a>
+                                    <a class="my-nav-link super-ocean {{ Route::currentRouteName() == 'user.orders.index'? 'activeRoute' : '' }}" href="{{ route('user.orders.index') }}">{{ __('I tuoi Ordini') }}</a>
                                 </li>          
                                 @endguest
                             </ul>

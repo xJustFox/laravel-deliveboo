@@ -44,14 +44,19 @@ header {
         font-size: 30px;
     }
 
-    a.nav-link.super-ocean {
-        font-size: 23px;
-        padding-top: 10px;
-        color: white;
+    .my-nav-link{
+      font-size: 23px;
+      padding-right: 10px;
+      color: white;
+      text-decoration: none;
 
         &:hover {
             color: #DA643F;
         }
+    }
+
+    .activeRoute{
+      color: #DA643F;
     }
 
 
