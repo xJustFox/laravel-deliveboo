@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\User\DashboardController;
 use App\Http\Controllers\User\RestaurantController;
-use App\Http\Controllers\User\FoodController;
+use App\Http\Controllers\User\DishController;
 use App\Http\Controllers\User\OrderController;
 
 /*
@@ -29,7 +29,7 @@ Route::middleware(['auth', 'verified'])
         ->group(function () {
             Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
             Route::resource('/restaurant', RestaurantController::class)->parameters(['restaurants' => 'restaurant:slug']);
-            Route::resource('/dishes', FoodController::class)->parameters(['foods' => 'food:slug']);
+            Route::resource('/dishes', DishController::class)->parameters(['dishes' => 'dish:slug']);
             Route::resource('/orders', OrderController::class)->parameters(['orders' => 'order:slug']);
         });
 
