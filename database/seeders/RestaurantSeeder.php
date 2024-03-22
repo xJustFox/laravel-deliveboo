@@ -29,7 +29,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Burger King',
                 'address' => 'Via Pola, 9, Milano',
                 'p_iva' => '23456789012',
-                'main_image' => 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.retailfood.it%2Findex.php%2F2020%2F05%2F06%2Fburgerking-nella-corsia-drive-o-al-tavolo-prenotato-via-app%2F&psig=AOvVaw2f17XnUNgb8HKEuw15pTwZ&ust=1711127555445000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPjQz4LthYUDFQAAAAAdAAAAABAE',
+                'main_image' => 'https://www.retailfood.it/wp-content/uploads/2020/05/img_6587.jpg',
             ],
             [
                 'user_id' => 3,
@@ -43,14 +43,14 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Pizzeria Gino Sorbillo',
                 'address' => 'Largo Corsia dei Servi 11, Milano',
                 'p_iva' => '45678901234',
-                'main_image' => 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.gamberorosso.it%2Fspeciali%2Frosa-valtenesi-experience%2Fcasa-sorbillo-milano%2F&psig=AOvVaw3Fdhc0jy5TeDGPASISa_Ts&ust=1711127692625000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKj98sPthYUDFQAAAAAdAAAAABAE',
+                'main_image' => 'https://static.gamberorosso.it/2023/02/rosa-valtenesi-experience-casa-sorbillo-duomo-768x512.jpg',
             ],
             [
                 'user_id' => 5,
                 'name' => 'Pizza al trancio',
                 'address' => 'Viale Famagosta, 10, Milano',
                 'p_iva' => '56789012345',
-                'main_image' => 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.tripadvisor.it%2FRestaurant_Review-g187791-d7056221-Reviews-Da_Michele-Rome_Lazio.html&psig=AOvVaw0xxYZnae3vuTu33xYc_Hx2&ust=1711127738860000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCOCShdrthYUDFQAAAAAdAAAAABAZ',
+                'main_image' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Pizzeria_in_Venice.jpg/1200px-Pizzeria_in_Venice.jpg',
             ],
             [
                 'user_id' => 6,
@@ -78,7 +78,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Ristorante Maya',
                 'address' => 'Via Ascanio Sforza, 41, Milano',
                 'p_iva' => '90123456789',
-                'main_image' => 'https://www.google.com/url?sa=i&url=http%3A%2F%2Fwww.mayamilano.it%2F&psig=AOvVaw3Cmx5-S-PGgmcmx4N_RsQH&ust=1711127851374000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCPDs3I_uhYUDFQAAAAAdAAAAABAE',
+                'main_image' => 'http://www.mayamilano.it/wp-content/uploads/2016/11/dicono-di-noi.jpg',
             ],
             [
                 'user_id' => 10,
