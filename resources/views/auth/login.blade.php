@@ -3,23 +3,21 @@
 @section('header-class', 'bg-darkgray')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="container mt-4" id="login-page">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Login') }}</div>
+                    <div class="card-header super-ocean text-white text-center">{{ __('Login') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
 
                             <div class="mb-4 row">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
+                                <label for="email" class="col-md-4 col-form-label text-white text-md-right">{{ __('E-Mail Address') }}</label>
                                 <div class="col-md-6">
                                     <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
+                                        class="form-control form-control-sm my-form  @error('email') is-invalid @enderror" name="email"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                     @error('email')
@@ -32,11 +30,11 @@
 
                             <div class="mb-4 row">
                                 <label for="password"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    class="col-md-4 col-form-label text-white text-md-right">{{ __('Password') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
+                                        class="form-control form-control-sm my-form  @error('password') is-invalid @enderror" name="password"
                                         required autocomplete="current-password">
 
                                     @error('password')
@@ -48,21 +46,28 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <div class="col-md-6 offset-md-4">
-                                    <div class="form-check">
+                                <div class="col-md-6 offset-md-4 d-flex">
+                                    <label class="my-container">
+                                        <input type="checkbox" type="checkbox" name="remember" id="remember"
+                                        {{ old('remember') ? 'checked' : '' }}>
+                                        <div class="checkmark"></div>
+                                    </label>
+                                    <span class="text-white ps-2">
+                                        {{ __('Remember Me') }}
+                                    </span>
+
+
+                                    {{-- <div class="form-check">
                                         <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                             {{ old('remember') ? 'checked' : '' }}>
 
-                                        <label class="form-check-label" for="remember">
-                                            {{ __('Remember Me') }}
-                                        </label>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
 
                             <div class="mb-4 row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-sm my-btn ">
                                         {{ __('Login') }}
                                     </button>
 
