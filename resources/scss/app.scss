@@ -1,1 +1,76 @@
-@import '~bootstrap/scss/bootstrap'
+@import '~bootstrap/scss/bootstrap';
+
+@import url('https://fonts.cdnfonts.com/css/super-ocean');
+
+// HEADER
+
+header {
+    background: transparent;
+}
+
+.logo_deliveboo {
+    width: 50px;
+    height: 50px;
+}
+
+.bg-darkgray {
+    background-image: linear-gradient(13deg, #181818,  #181818, #181818, #DA643F);
+}
+
+.logo-title{
+    display: flex;
+    text-decoration: none;
+
+}
+
+.super-ocean {
+    font-family: 'Super Ocean';
+}
+
+.text-orange{
+    color: #DA643F;
+    font-size: 20px;
+}
+
+.text-gold {
+    color: #E1B137;
+    font-size: 20px;
+}
+
+// BUTTONS
+a.nav-link.btn-login.super-ocean {
+    color: white;
+    background-color: #DA643F;
+    border: 1px transparent;
+    border-radius: 20px;
+    padding: 8px 25px;
+
+    &:hover{
+        color: #DA643F;
+        background-color: white;
+    }
+}
+
+a.nav-link.btn-register.super-ocean {
+    color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 8px 25px;
+
+    &:hover{
+        color: #DA643F;
+        background-color: white;
+    }
+}
+
+// END HEADER
+
+.homepage {
+    background-image: linear-gradient(13deg, #181818,  #181818, #181818, #DA643F);
+    background-attachment: fixed;
+}
+
+.text-lightgray {
+    color: lightgray;
+    font-size: 18px;
+}
