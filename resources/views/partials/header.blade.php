@@ -3,7 +3,7 @@
         <div class="container-fluid mx-3">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
                 <div>
-                    <img class="logo_deliveboo" src="{{Vite::asset('public/img/logo.png')}}" alt="">
+                    <img class="logo_deliveboo" src="{{ Vite::asset('public/img/logo.png') }}" alt="">
                 </div>
                 {{-- config('app.name', 'Laravel') --}}
             </a>
@@ -25,16 +25,17 @@
                         <div class="pt-1 ps-4">
                             <ul class="navbar-nav me-auto">
                                 @guest
-                                <li class="nav-item">
-                                    <a class="nav-link text-white super-ocean" href="{{url('/') }}">{{ __('Home') }}</a>
-                                </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link super-ocean" href="{{ url('/') }}">{{ __('Home') }}</a>
+                                    </li>
                                 @else
-                                <li>
-                                    <a class="nav-link text-white super-ocean" href="{{url('/') }}">{{ __('Home') }}</a>
-                                </li>  
-                                <li>
-                                    <a class="nav-link text-white super-ocean" href="{{ route('user.restaurant.index') }}">{{ __('I tuoi Ristoranti') }}</a>
-                                </li>         
+                                    <li>
+                                        <a class="nav-link super-ocean" href="{{ url('/') }}">{{ __('Home') }}</a>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link super-ocean"
+                                            href="{{ route('user.restaurant.index') }}">{{ __('I tuoi Ristoranti') }}</a>
+                                    </li>
                                 @endguest
                             </ul>
                         </div>
@@ -56,27 +57,52 @@
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-white" href="#" role="button"
-                                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <li class="nav-item dropdown pe-2 fw-bold">
+                            <span class="nav-link text-white" href="#">
                                 {{ Auth::user()->name }}
-                            </a>
-
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('user.dashboard') }}">{{ __('Dashboard') }}</a>
-                                <a class="dropdown-item" href="{{ url('profile') }}">{{ __('Profile') }}</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
-                            </div>
+                            </span>
                         </li>
+                        <label class="popup">
+                            <input type="checkbox">
+                            <div class="burger" tabindex="0">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <nav class="popup-window">
+                                <ul>
+                                    <li>
+                                        <button>
+                                            <span><a class="dropdown-item"
+                                                    href="{{ route('user.dashboard') }}">{{ __('Dashboard') }}</a></span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button>
+                                            <span><a class="dropdown-item"
+                                                    href="{{ url('profile') }}">{{ __('Profile') }}</a></span>
+                                        </button>
+                                    </li>
+                                    <li>
+                                        <button>
+                                            <span><a class="dropdown-item" href="{{ route('logout') }}"
+                                                    onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a></span>
+                                        </button>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                    <li>
+                                </ul>
+                            </nav>
+                        </label>
                     @endguest
+
+
                 </ul>
             </div>
         </div>
