@@ -1,29 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <h2 class="fs-4 text-secondary my-4">
-            {{ __('Restautants') }}
-        </h2>
+    <div class="container-lg pt-4" id="restaurants-page">
         <div class="row">
-            <div class="col-6">
+            @foreach ($restaurants as $restaurant)
+            <div class="col-12">
                 <div class="card">
-                    <div class="card-header">{{ $restaurant->name }}</div>
+                    <div class="card-header text-white super-ocean d-flex justify-content-between align-items-center">
+                        {{ $restaurant->name }} 
+                        <div>
+                            <a class="btn btn-sm text-decoration-none" href="{{ route('user.dishes.index') }}">Menù del Ristorante</a>
+                        </div>
+                    </div>
 
-                    <div class="card-body">
-                        <ul>
-                            <li>Nome Ristoratore: {{ $restaurant->user->name }}</li>
-                            <li>Nome Ristorante: {{ $restaurant->name }}</li>
-                            <li>Tipologia: {{ $restaurant->typologies[0]->name }}</li>
-                            <li>Indirizzo Ristorante: {{ $restaurant->address }}</li>
-                            <li>Partita IVA: {{ $restaurant->p_iva }}</li>
-                            <li>Foto: <br> <img class=" w-100" src="{{ $restaurant->main_image }}" alt=""></li>
-                            <li><a class="btn btn-sm btn-primary my-2 text-decoration-none"
-                                    href="{{ route('user.dishes.index') }}">Menù</a></li>
-                        </ul>
+                    <div class="card-body d-flex flex-column flex-md-row text-white">
+                        <div class="col-12 col-md-6">
+                            <div class="info-restaurant">
+                                <i class="fa-solid fa-utensils"></i>
+                                <span>{{ $restaurant->typologies[0]->name }}</span>
+                            </div>
+    
+                            <div class="info-restaurant">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>{{ $restaurant->address }}</span>  
+                            </div class="" >
+    
+                            <div class="info-restaurant">
+                                <i class="fa-regular fa-file-lines"></i>
+                                <span>{{ $restaurant->p_iva }}</span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <img class="" src="{{ $restaurant->main_image }}" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 @endsection

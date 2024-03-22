@@ -582,3 +582,47 @@ header {
     }
   }
 }
+
+// RESTAURANTS PAGE
+#restaurants-page {
+  .card {
+    backdrop-filter: blur(25px);
+    background-color: rgba(255, 255, 255, 0.05);
+
+    .super-ocean {
+      font-size: 2.5rem;
+    }
+    
+    img{
+      max-width: 100%;  
+    }
+
+    .info-restaurant{
+      display: flex;
+      align-items: center;
+
+      i{
+        font-size: 2.5rem;
+        color: #DA643F;
+      }
+
+      span{
+        font-size: 2rem;
+        padding-left: 10px;
+      }
+    }
+
+    .btn {
+      color: white;
+      font-size: medium;
+      background-color: #DA643F;
+      border: 1px transparent;
+      padding: 8px 15px;
+
+      &:hover {
+        color: #DA643F;
+        background-color: white;
+      }
+    }
+  }
+}
