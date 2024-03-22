@@ -13,7 +13,7 @@ class Typology extends Model
         'name',
     ];
 
-    public function restaurant()
+    public function restaurants()
     {
         return $this->belongsToMany(Restaurant::class);
     }

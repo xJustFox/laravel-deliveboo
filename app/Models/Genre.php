@@ -11,7 +11,8 @@ class Genre extends Model
     protected $fillable = [
         'name',
     ];
-    public function dish()
+
+    public function dishes()
     {
         return $this->hasMany(Dish::class);
     }

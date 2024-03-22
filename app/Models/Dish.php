@@ -30,7 +30,7 @@ class Dish extends Model
         return $this->belongsTo(Genre::class);
     }
 
-    public function order()
+    public function orders()
     {
         return $this->belongsToMany(Order::class);
     }
