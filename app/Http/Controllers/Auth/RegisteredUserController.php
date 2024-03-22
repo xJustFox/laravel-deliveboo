@@ -54,7 +54,7 @@ class RegisteredUserController extends Controller
         Auth::login($user);
 
         // recupero l'id dell'user che si è appena registrato e lo assegno a $user_id
-        $user_id = User::where('name', $user->name)->get();
+        $user_id = User::where('email', $user->email)->get();
         $user_id = $user_id[0]->id;
         
         // creo il record del ristorante dell'utente appena registrato

@@ -14,9 +14,9 @@
                     <ul>
                         <li>Nome Ristoratore: {{$user->name}}</li>
                         <li>Nome Ristorante: {{$restaurant->name}}</li>
-                        <li>Indirizzo Ristorante: {{$restaurant->addres}}</li>
+                        <li>Indirizzo Ristorante: {{$restaurant->address}}</li>
                         <li>Partita IVA: {{$restaurant->p_iva}}</li>
-                        <li>Foto: <br> <img class=" w-25" src="{{$restaurant->main_image}}" alt=""></li>
+                        <li>Foto: <br> <img class=" w-100" src="{{$restaurant->main_image}}" alt=""></li>
                     </ul>
                 </div>
             </div>
