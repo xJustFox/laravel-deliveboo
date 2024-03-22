@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\User;
 
 use App\Models\Dish;
+use App\Models\Restaurant;
+Use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDishRequest;
 use App\Http\Requests\UpdateDishRequest;
 
@@ -15,7 +18,7 @@ class DishController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
