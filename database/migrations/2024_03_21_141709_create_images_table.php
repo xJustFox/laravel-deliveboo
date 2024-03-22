@@ -15,13 +15,13 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_restaurant');
+            $table->unsignedBigInteger('restaurant_id');
             $table->string('alt', 255);
             $table->string('path', 255);
             $table->timestamps();
             
             $table->unique('alt');
-            $table->foreign('id_restaurant')->references('id')->on('restaurants')->onDelete('cascade');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants')->onDelete('cascade');
         });
     }
 

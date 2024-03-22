@@ -8,6 +8,7 @@ Use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDishRequest;
 use App\Http\Requests\UpdateDishRequest;
+use App\Models\Genre;
 
 class DishController extends Controller
 {
@@ -18,7 +19,15 @@ class DishController extends Controller
      */
     public function index()
     {
-        
+        $user = Auth:: user();
+
+        $restaurant = Restaurant::where('user_id',$user->id)->get();
+        $restaurant_id = $restaurant[0]->id;
+        $dishes = Dish::where('restaurant_id',$restaurant_id)->get();
+
+        $genres = Genre::all();
+
+        return view('user.dishes.index', compact('dishes', 'genres')); 
     }
 
     /**

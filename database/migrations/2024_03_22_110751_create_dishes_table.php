@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_genre');
-            $table->unsignedBigInteger('id_restaurant');
+            $table->unsignedBigInteger('genre_id');
+            $table->unsignedBigInteger('restaurant_id');
             $table->string('name', 100);
             $table->string('slug');
             $table->text('description');
@@ -25,8 +25,8 @@ return new class extends Migration
             $table->string('image', 255)->nullable();
             $table->timestamps();
 
-            $table->foreign('id_genre')->references('id')->on('genres');
-            $table->foreign('id_restaurant')->references('id')->on('restaurants');
+            $table->foreign('genre_id')->references('id')->on('genres');
+            $table->foreign('restaurant_id')->references('id')->on('restaurants');
         });
     }
 
