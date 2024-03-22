@@ -11,17 +11,15 @@
                 <div class="card-header">{{ __('Menù') }}</div>
                 <div class="card-body">
                     @foreach ($dishes as $dish)
-                        <a href="{{ route('user.dishes.show', ['dish' => $dish->slug]) }}" class="btn  btn-warning"style="width: 100%;">
-                    
-                            <li>Nome piatto: {{$dish->name}}</li>
-                            <li>Genere: {{$dish->genre->name}}</li>
-                            <li>Descrizone: {{$dish->description}}</li>
-                            <li>Prezzo: {{$dish->price}}$</li>
-                            <li><br> <img class=" w-25" src="{{$dish->image}}" alt=""></li>
-                            <hr>
-
-                        
-                        </a>
+                    <div>Nome piatto: {{$dish->name}}</div>
+                    <div>Genere: {{$dish->genre->name}}</div>
+                    <div>Descrizone: {{$dish->description}}</div>
+                    <div>Prezzo: {{$dish->price}}$</div>
+                    <div><br> <img class=" w-25" src="{{$dish->image}}" alt=""></div>
+                    <div class="text-end">
+                        <a class="btn btn-sm btn-warning" href="{{ route('user.dishes.show', ['dish' => $dish->slug]) }}">Dettaglio</a>
+                    </div>
+                    <hr>
                     @endforeach
                 </div>
             </div>

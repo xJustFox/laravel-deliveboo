@@ -30,7 +30,7 @@
                                 </li>
                                 @else
                                 <li>
-                                    <a class="nav-link text-white super-ocean" href="{{url('/') }}">{{ __('Home') }}</a>
+                                    <a class="nav-link text-white super-ocean" href="{{route('user.dashboard') }}">{{ __('Dashboard') }}</a>
                                 </li>  
                                 <li>
                                     <a class="nav-link text-white super-ocean" href="{{ route('user.restaurant.index') }}">{{ __('I tuoi Ristoranti') }}</a>
