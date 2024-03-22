@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\User;
 
 use App\Models\Order;
+use App\Models\Restaurant;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreOrderRequest;
 use App\Http\Requests\UpdateOrderRequest;
+
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
@@ -16,7 +19,16 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        // recupero i dati dell'utente loggato
+        $user = Auth::user();
+
+        // filtro i ristoranti in base all'id dell'utente loggato
+        $restaurant = Restaurant::where('user_id', $user->id)->get();
+
+        // filtro gli ordini in base all'id dei ristoranti
+        $orders = Order::where('restaurant_id', $restaurant[0]->id)->get();
+
+        return view('user.orders.index', compact('user', 'restaurant', 'orders'));
     }
 
     /**
