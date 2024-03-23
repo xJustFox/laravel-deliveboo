@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDishRequest;
 use App\Http\Requests\UpdateDishRequest;
 use App\Models\Genre;
+use Illuminate\Support\Str;
 
 class DishController extends Controller
 {
@@ -37,7 +38,8 @@ class DishController extends Controller
      */
     public function create()
     {
-        //
+        $genres = Genre::all();
+        return view('user.dishes.create', compact('genres'));
     }
 
     /**
@@ -48,7 +50,28 @@ class DishController extends Controller
      */
     public function store(StoreDishRequest $request)
     {
-        //
+        // Recupero i dati inviati dalla form
+        $form_data = $request->all();
+
+        // recupero l'utente loggato 
+        $user = Auth:: user();
+
+        // recupero il ristorante dell'utente
+        $restaurant = Restaurant::where('user_id',$user->id)->get();
+        $restaurant_id = $restaurant[0]->id;
+
+        // Creo una nuova istanza di dish per salvarla nel database
+        $dish = new Dish();
+        $dish->fill($form_data);
+        $dish->slug = Str::slug($dish->name . '-');
+
+        // assegno al resturant_id del piatto l'id del ristorante appartenente all'utente loggato
+        $dish->restaurant_id = $restaurant_id;
+
+        // Salvo dish nel database
+        $dish->save();
+
+        return redirect()->route('user.dashboard');
     }
 
     /**
