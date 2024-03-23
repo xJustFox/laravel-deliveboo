@@ -8,7 +8,11 @@
     <div class="row justify-content-center">
         <div class="col">
             <div class="card">
-                <div class="card-header">{{ __('Menù') }}</div>
+                <div class="card-header w-100 d-flex justify-content-between align-items-center">
+                    
+                    <div>{{ __('Menù') }}</div>
+                    <a class="btn btn-sm btn-warning" href="{{ route('user.dishes.create') }}">Aggiungi piatto</a>
+                </div>
                 <div class="card-body">
                     @foreach ($dishes as $dish)
                     <div>Nome piatto: {{$dish->name}}</div>
