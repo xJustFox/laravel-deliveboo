@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDishRequest;
 use App\Http\Requests\UpdateDishRequest;
 use App\Models\Genre;
+use Illuminate\Support\Str;
 
 class DishController extends Controller
 {
@@ -49,7 +50,18 @@ class DishController extends Controller
      */
     public function store(StoreDishRequest $request)
     {
-        //
+        // Recupero i dati inviati dalla form
+        $form_data = $request->all();
+
+        // Creo una nuova istanza di dish per salvarla nel database
+        $dish = new Dish();
+        $dish->fill($form_data);
+        $dish->slug = Str::slug($dish->name . '-');
+
+        // Salvo dish nel database
+        $dish->save();
+
+        return redirect()->route('user.dashboard');
     }
 
     /**
