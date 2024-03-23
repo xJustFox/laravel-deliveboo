@@ -93,7 +93,7 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        //
+        return view('user.dishes.edit', compact('dish'));
     }
 
     /**
