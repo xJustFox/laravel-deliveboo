@@ -37,7 +37,8 @@ class DishController extends Controller
      */
     public function create()
     {
-        return view('user.dishes.create');
+        $genres = Genre::all();
+        return view('user.dishes.create', compact('genres'));
     }
 
     /**

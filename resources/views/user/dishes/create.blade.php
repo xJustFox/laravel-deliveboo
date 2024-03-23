@@ -31,61 +31,60 @@
                                         <label for="name" class="form-label">Nome:</label>
                                         <input name="name" type="text" class="form-control form-control-sm"
                                             id="name" placeholder="Inserisci il nome del piatto..."
-                                            value="{{ old('name') }}">
+                                            value="{{ old('name') }}" required>
                                         @error('name')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
 
-                                    {{-- Sezione label della descrizione --}}
+                                    {{-- Sezione label per inserimento della descrizione --}}
                                     <div class="col-12">
                                         <label for="description" class="form-label">Descrizione:</label>
                                         <div class="form-floating">
                                             <textarea name="description" class="form-control form-control-sm" placeholder="Leave a comment here"
-                                                id="description" style="height: 100px">{{ old('description') }}</textarea>
+                                                id="description" style="height: 100px" required>{{ old('description') }}</textarea>
                                             <label for="description" class="text-secondary">Aggiungi una descrizione...</label>
                                         </div>
-                                    </div>
-
-                                    {{-- Sezione label genere--}}
-                                    <div class="col-12">
-                                        <label for="visible" class="form-label">Genere:</label>
-                                        <div class="input-group">
-                                            <select class="form-select form-select-sm" name="visible" id="visible">
-                                                <option selected>Imposta il tipo di piatto...</option>
-                                                <option value="1">Antipasto</option>
-                                                <option value="2">Primo</option>
-                                                <option value="3">Secondo</option>
-                                                <option value="4">Contorno</option>
-                                                <option value="5">Dolce</option>
-                                                <option value="6">Bevanda</option>
-                                            </select>
-                                        </div>
-                                        @error('visible')
+                                        @error('description')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
 
-                                    {{-- Sezione label del prezzo --}}
+                                    {{-- Sezione label per inserimento del genere--}}
+                                    <div class="col-12">
+                                        <label for="genre" class="form-label">Genere:</label>
+                                        <div class="input-group">
+                                            <select class="form-select form-select-sm text-secondary" name="genre" id="genre" required>
+                                                <option selected>Imposta il tipo di piatto...</option>
+                                                @foreach ($genres as $genre)
+                                                    <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        @error('genre')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
+                                    {{-- Sezione label per inserimento del prezzo --}}
                                     <div class="col-12">
                                         <label for="price" class="form-label">Prezzo:</label>
                                         <div class="input-group input-group-sm ">
                                             <span class="input-group-text">€</span>
                                             <input name="price" type="number" class="form-control form-control-sm"
                                                 id="price" aria-label="Amount (to the nearest euro)"
-                                                value="{{ old('price') }}">
-                                            <span class="input-group-text">.00</span>
+                                                value="{{ old('price') }}" required>
                                         </div>
                                         @error('price')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
 
-                                    {{-- Sezione label della disponibilità --}}
+                                    {{-- Sezione label per inserimento della disponibilità --}}
                                     <div class="col-12">
                                         <label for="visible" class="form-label">Disponibilità:</label>
                                         <div class="input-group">
-                                            <select class="form-select form-select-sm" name="visible" id="visible">
+                                            <select class="form-select form-select-sm text-secondary" name="visible" id="visible" required>
                                                 <option selected>Seleziona la disponibilità...</option>
                                                 <option value="1">Disponibile</option>
                                                 <option value="0">Non disponibile</option>
@@ -94,6 +93,17 @@
                                         @error('visible')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
+                                    </div>
+
+                                    {{-- Sezione label per inserimento immagine --}}
+                                    <div class="col-12">
+                                        <label for="image" class="form-label">Immagine:</label>
+                                        <input type="text" name="image" id="image" class="form-control form-select-sm" required>
+                                    </div>
+
+                                    {{-- Pulsante submit --}}
+                                    <div class="col-12 text-center mt-4">
+                                        <button type="submit" class="btn btn-sm btn-primary float-end">Aggiungi</button>
                                     </div>
                                 </form>
                             </div>
