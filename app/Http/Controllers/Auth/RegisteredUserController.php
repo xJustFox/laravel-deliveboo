@@ -106,7 +106,7 @@ class RegisteredUserController extends Controller
         ]);
         $restaurant->save();
         
-        
+        // assegno la tipologia del ristorante
         if ($request->has('typology_id')) {
             $restaurant->typologies()->attach($request->typology_id);
         }

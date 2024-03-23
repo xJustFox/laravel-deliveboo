@@ -75,7 +75,7 @@
                             </div>
 
                             <div class="col-md-6 mb-2">
-                                <label for="typology_id" class="form-label text-white">Tipologia Ristorante:</label>
+                                <label for="typology_id" class="col-form-label text-white">Tipologia Ristorante:</label>
                                 <select name="typology_id" class="form-select form-select-sm my-select @error('typology_id') is-invalid border-danger @enderror" id="typology_id">
                                     <option class="my-option" value="{{ old('typology_id') }}" selected>Schegli una tipologia...</option>
                                     @foreach ($typologies as $typology)
