@@ -43,13 +43,6 @@ header {
     background-image: linear-gradient(13deg, #181818, #181818, #181818, #DA643F);
   }
 
-  .logo-title {
-    display: flex;
-    text-decoration: none;
-
-  }
-
-
   .text-orange {
     color: #DA643F;
     font-size: 30px;
@@ -77,8 +70,9 @@ header {
 
 
   // BUTTONS
-  a.nav-link.btn-login.super-ocean {
+ .btn-login.super-ocean {
     color: white;
+    text-decoration: none;
     background-color: #DA643F;
     border: 1px transparent;
     border-radius: 20px;
@@ -90,8 +84,9 @@ header {
     }
   }
 
-  a.nav-link.btn-register.super-ocean {
+  .btn-register.super-ocean {
     color: white;
+    text-decoration: none;
     border: 1px solid white;
     border-radius: 20px;
     padding: 8px 25px;
@@ -221,7 +216,7 @@ header {
     box-shadow: var(--nav-shadow-width) var(--nav-shadow-color);
     border: var(--nav-border-width) solid #343a40;
     top: calc(var(--burger-diameter) + var(--burger-enable-outline-width) + var(--burger-enable-outline-offset));
-    left: -100px;
+    left: -115px;
     right: var(--nav-position-right);
     transition: var(--burger-transition);
   }
