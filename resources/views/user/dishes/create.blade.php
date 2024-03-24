@@ -26,7 +26,7 @@
                                 <form class="row g-2" action="{{ route('user.dishes.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
 
-                                    {{-- Sezione label del nome --}}
+                                    {{-- Sezione label per inserimento del nome --}}
                                     <div class="col-12">
                                         <label for="name" class="form-label">Nome:</label>
                                         <input name="name" type="text" class="form-control form-control-sm"

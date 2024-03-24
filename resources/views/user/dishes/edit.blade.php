@@ -27,7 +27,7 @@
                                     @csrf
                                     @method('PUT')
 
-                                    {{-- Sezione label del nome --}}
+                                    {{-- Sezione label per la modifica del nome --}}
                                     <div class="col-12">
                                         <label for="name" class="form-label">Nome:</label>
                                         <input name="name" type="text" class="form-control form-control-sm"
@@ -39,7 +39,7 @@
                                     </div>
 
                                     
-                                    {{-- Sezione label per inserimento del genere--}}
+                                    {{-- Sezione label per la modifica del genere--}}
                                     <div class="col-12">
                                         <label for="genre_id" class="form-label">Genere:</label>
                                         <div class="input-group">
@@ -55,7 +55,7 @@
                                         @enderror
                                     </div>
 
-                                    {{-- Sezione label per inserimento del prezzo --}}
+                                    {{-- Sezione label per la modifica del prezzo --}}
                                     <div class="col-12">
                                         <label for="price" class="form-label">Prezzo:</label>
                                         <div class="input-group input-group-sm ">
@@ -69,14 +69,14 @@
                                         @enderror
                                     </div>
                                     
-                                    {{-- Sezione label per inserimento della disponibilità --}}
+                                    {{-- Sezione label per la modifica della disponibilità --}}
                                     <div class="col-12">
                                         <label for="visible" class="form-label">Disponibilità:</label>
                                         <div class="input-group">
                                             <select class="form-select form-select-sm text-secondary" name="visible" id="visible" required>
                                                 <option selected>Seleziona la disponibilità...</option>
-                                                <option value="{{ $dish->visible }}" @selected(old ('visible') == '1')>Disponibile</option>
-                                                <option value="{{ $dish->visible }}" @selected(old ('visible') == '0')>Non disponibile</option>
+                                                <option value="1" @selected(old ('visible') == '1')>Disponibile</option>
+                                                <option value="0" @selected(old ('visible') == '0')>Non disponibile</option>
                                             </select>
                                         </div>
                                         @error('visible')
@@ -84,13 +84,13 @@
                                         @enderror
                                     </div>
                                     
-                                    {{-- Sezione label per inserimento immagine --}}
+                                    {{-- Sezione label per la modifica immagine --}}
                                     <div class="col-12">
                                         <label for="image" class="form-label">Immagine:</label>
                                         <input type="text" name="image" id="image" class="form-control form-select-sm" value="{{ $dish->image }}" required>
                                     </div>
                                     
-                                    {{-- Sezione label per inserimento della descrizione --}}
+                                    {{-- Sezione label per la modifica della descrizione --}}
                                     <div class="col-12">
                                         <label for="description" class="form-label">Descrizione:</label>
                                         <div class="form-floating">
