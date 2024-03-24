@@ -319,7 +319,7 @@ header {
   // END HAMBURGER-BUTTON
 }
 
-// DASHBOARD   
+// DASHBOARD
 #dashboard {
   .e-card {
     margin: 100px auto;
@@ -512,7 +512,8 @@ header {
     font-size: 20px;
     user-select: none;
     box-shadow: rgba(139, 18, 113, 0.2) 0px 8px 24px;
-    background-image: linear-gradient(45deg, #f3d5f7, #fbf6e7, #e6fcf5);
+    background-color: transparent;
+    border: 1px solid #da643f;
   }
 
   /* Create a custom checkbox */
@@ -588,9 +589,9 @@ header {
     .super-ocean {
       font-size: 2.5rem;
     }
-    
+
     img{
-      max-width: 100%;  
+      max-width: 100%;
     }
 
     .info-restaurant{
