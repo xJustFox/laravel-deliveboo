@@ -42,7 +42,7 @@
                                     <div class="col-12">
                                         <label for="genre_id" class="form-label">Genere:</label>
                                         <div class="input-group">
-                                            <select class="form-select form-select-sm text-secondary" name="genre_id" id="genre_id" value="{{ old('genre_id') }}" required>
+                                            <select class="form-select form-select-sm text-secondary" name="genre_id" id="genre_id" required>
                                                 <option selected>Imposta il tipo di piatto...</option>
                                                 @foreach ($genres as $genre)
                                                     <option value="{{ $genre->id }}">{{ $genre->name }}</option>
