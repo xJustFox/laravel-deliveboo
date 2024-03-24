@@ -46,7 +46,7 @@
                                             <select class="form-select form-select-sm text-secondary" name="genre_id" id="genre_id" value="{{ $dish->genre_id }}" required>
                                                 <option selected>Imposta il tipo di piatto...</option>
                                                 @foreach ($genres as $genre)
-                                                    <option value="{{ $genre->id }}">{{ $genre->name }}</option>
+                                                    <option value="{{ $genre->id }}" @selected($genre->id == old('genre_id', $dish->name ? $dish->genre->id: ''))>{{ $genre->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -70,13 +70,14 @@
                                     </div>
                                     
                                     {{-- Sezione label per la modifica della disponibilità --}}
+                                    @dump($dish->visible)
                                     <div class="col-12">
                                         <label for="visible" class="form-label">Disponibilità:</label>
                                         <div class="input-group">
                                             <select class="form-select form-select-sm text-secondary" name="visible" id="visible" required>
                                                 <option selected>Seleziona la disponibilità...</option>
-                                                <option value="1" @selected(old ('visible') == '1')>Disponibile</option>
-                                                <option value="0" @selected(old ('visible') == '0')>Non disponibile</option>
+                                                <option value="0" @selected($dish->visible)>Non disponibile</option>
+                                                <option value="1" @selected($dish->visible)>Disponibile</option>
                                             </select>
                                         </div>
                                         @error('visible')
