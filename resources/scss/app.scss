@@ -687,7 +687,11 @@ header {
 
     .modal-header,
     .modal-footer{
-      border-color: black;
+      border: 0;
+    }
+
+    .modal-body{
+      padding: 5px 16px;
     }
 
     .btn {
