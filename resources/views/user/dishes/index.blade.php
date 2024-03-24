@@ -23,6 +23,10 @@
                     <div class="text-end">
                         <a class="btn btn-sm btn-warning" href="{{ route('user.dishes.show', ['dish' => $dish->slug]) }}">Dettaglio</a>
                         <a class="btn btn-sm btn-warning" href="{{ route('user.dishes.edit', ['dish' => $dish->slug]) }}"><i class="fa-solid fa-pen-to-square"></i></a>
+
+                        <button class="btn btn-sm btn-warning delete-button" data-bs-toggle="modal" data-bs-target="#modal_delete" data-path="dishes" data-slug="{{ $dish->slug }}">
+                            <i class="fa-solid fa-trash-can fa-xs"></i>
+                        </button>
                     </div>
                     <hr>
                     @endforeach
@@ -31,4 +35,5 @@
         </div>
     </div>
 </div>
+@include('partials.modal_delete')
 @endsection
