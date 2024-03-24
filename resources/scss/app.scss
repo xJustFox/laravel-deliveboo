@@ -622,3 +622,46 @@ header {
     }
   }
 }
+
+// ADD DISH PAGE
+#add-dish{
+  .card {
+    backdrop-filter: blur(25px);
+    background-color: rgba(255, 255, 255, 0.05);
+
+    .super-ocean {
+      font-size: 25px;
+    }
+
+    .btn {
+      color: white;
+      font-size: medium;
+      background-color: #DA643F;
+      border: 1px transparent;
+      padding: 8px 15px;
+
+      &:hover {
+        color: #DA643F;
+        background-color: white;
+      }
+    }
+
+    .my-form,
+    .my-select,
+    .my-input-text {
+      background-color: transparent !important;
+      color: white;
+      border: 1px solid #DA643F;
+
+      .my-option {
+        background-color: #181818;
+        color: white;
+
+        &:active,
+        &:hover {
+          background-color: #777 !important;
+        }
+      }
+    }
+  }
+}
