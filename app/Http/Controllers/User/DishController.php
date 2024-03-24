@@ -93,7 +93,8 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
-        //
+        $genres = Genre::all();
+        return view('user.dishes.edit', compact('dish', 'genres'));
     }
 
     /**
@@ -105,7 +106,26 @@ class DishController extends Controller
      */
     public function update(UpdateDishRequest $request, Dish $dish)
     {
-        //
+        // Recupero i dati inviati dalla form
+        $form_data = $request->all();
+
+        // recupero l'utente loggato 
+        $user = Auth:: user();
+
+        // recupero il ristorante dell'utente
+        $restaurant = Restaurant::where('user_id',$user->id)->get();
+        $restaurant_id = $restaurant[0]->id;
+
+
+        // Modifico l'istanza di dish per salvarla nel database
+        $dish->slug = Str::slug($dish->name . '-');
+        $dish->update($form_data);
+
+        // assegno al resturant_id del piatto l'id del ristorante appartenente all'utente loggato
+        $dish->restaurant_id = $restaurant_id;
+
+
+        return redirect()->route('user.dishes.index', $dish->slug);
     }
 
     /**

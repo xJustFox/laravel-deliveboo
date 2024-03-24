@@ -17,6 +17,7 @@ class Dish extends Model
         'description',
         'price',
         'description',
+        'visible',
         'image'
     ];
 
