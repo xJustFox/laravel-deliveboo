@@ -37,7 +37,7 @@
 
                                     {{-- Sezione label per inserimento del genere --}}
                                     <div class="col-12">
-                                        <label for="genre_id" class="form-label">Genere:</label>
+                                        <label for="genre_id" class="form-label text-white">Genere:</label>
                                         <div class="input-group">
                                             <select class="form-select form-select-sm my-select text-secondary" name="genre_id"id="genre_id" required>
                                                 <option class="my-option" selected>Imposta il tipo di piatto...</option>
