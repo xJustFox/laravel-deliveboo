@@ -146,7 +146,7 @@ header {
     --underline-border-width: 0.0625em;
     --underline-border-color: #ccc;
     --underline-margin-y: 0.3125em;
-    z-index: 9999;
+    z-index: 999;
   }
 
 
@@ -667,6 +667,38 @@ header {
         &:hover {
           background-color: #777 !important;
         }
+      }
+    }
+  }
+}
+
+// MODAL DELETE
+#modal_delete{
+  .modal-content {
+    backdrop-filter: blur(25px);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: white;
+
+    .super-ocean {
+      font-size: 25px;
+      color: #DA643F;
+    }
+
+    .modal-header,
+    .modal-footer{
+      border-color: black;
+    }
+
+    .btn {
+      color: white;
+      font-size: medium;
+      background-color: #DA643F;
+      border: 1px transparent;
+      padding: 8px 15px;
+
+      &:hover {
+        color: #DA643F;
+        background-color: white;
       }
     }
   }
