@@ -12,7 +12,12 @@
 
                     {{-- Card Header --}}
                     <div class="card-header text-white text-center super-ocean">
-                        Aggiungi un nuovo piatto
+                        <span>
+                            Aggiungi un nuovo piatto
+                        </span>
+                        <span class="arrow-rotate">
+                            <a  href="{{ route('user.dishes.index') }}"><i class="fa-solid fa-arrow-rotate-left" style="color: #DA643F;"></i></a>
+                        </span>
                     </div>
 
                     {{-- Card Body --}}
@@ -36,10 +41,10 @@
 
 
                                     {{-- Sezione label per inserimento del genere --}}
-                                    <div class="col-12">
+                                    <div class="col-12 mb-2">
                                         <label for="genre_id" class="form-label text-white">Genere:</label>
                                         <div class="input-group">
-                                            <select class="form-select form-select-sm my-select text-secondary" name="genre_id"id="genre_id" required>
+                                            <select class="form-select form-select-sm my-select" name="genre_id"id="genre_id" required>
                                                 <option class="my-option" selected>Imposta il tipo di piatto...</option>
                                                 @foreach ($genres as $genre)
                                                     <option class="my-option" value="{{ $genre->id }}" @selected(old('genre_id') == $genre->id)>{{ $genre->name }}</option>
@@ -69,7 +74,7 @@
                                     <div class="col-12 mb-2">
                                         <label for="visible" class="form-label text-white">Disponibilità:</label>
                                         <div class="input-group">
-                                            <select class="form-select form-select-sm my-select text-secondary" name="visible"
+                                            <select class="form-select form-select-sm my-select" name="visible"
                                                 id="visible" required>
                                                 <option class="my-option" selected>Seleziona la disponibilità...</option>
                                                 <option class="my-option" value="1" @selected(old('visible') == '1')>Disponibile</option>
@@ -90,9 +95,7 @@
                                     {{-- Sezione label per inserimento della descrizione --}}
                                     <div class="col-12 mb-2">
                                         <label for="description" class="form-label text-white">Descrizione:</label>
-                                        <div class="form-floating">
-                                            <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..." id="description" style="height: 100px">{{ old('description') }}</textarea>
-                                        </div>
+                                        <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..." id="description" style="height: 100px">{{ old('description') }}</textarea>
                                         @error('description')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror

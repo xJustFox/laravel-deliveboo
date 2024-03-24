@@ -21,8 +21,8 @@
                     <div>Prezzo: {{$dish->price}}$</div>
                     <div><br> <img class=" w-25" src="{{$dish->image}}" alt=""></div>
                     <div class="text-end">
-                        <a class="btn btn-sm btn-warning" href="{{ route('user.dishes.edit', ['dish' => $dish->slug]) }}">Modifica Piatto</a>
                         <a class="btn btn-sm btn-warning" href="{{ route('user.dishes.show', ['dish' => $dish->slug]) }}">Dettaglio</a>
+                        <a class="btn btn-sm btn-warning" href="{{ route('user.dishes.edit', ['dish' => $dish->slug]) }}"><i class="fa-solid fa-pen-to-square"></i></a>
                     </div>
                     <hr>
                     @endforeach

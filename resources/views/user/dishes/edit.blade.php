@@ -3,7 +3,7 @@
 @section('content')
 
     
-    <div class="container">
+    <div class="container mt-4" id="modify-dish">
         <div class="row justify-content-center">
             <div class="col-10 my-2">
 
@@ -11,12 +11,13 @@
                 <div class="card">
 
                     {{-- Card Header --}}
-                    <div class="card-header">
-                        <div class="col-12">
-                            <h2 class="fs-4 my-2">
-                                Modifica piatto
-                            </h2>
-                        </div>
+                    <div class="card-header text-white text-center super-ocean">
+                        <span>
+                            Modifica piatto
+                        </span>
+                        <span class="arrow-rotate">
+                            <a  href="{{ route('user.dishes.index') }}"><i class="fa-solid fa-arrow-rotate-left" style="color: #DA643F;"></i></a>
+                        </span>
                     </div>
 
                     {{-- Card Body --}}
@@ -28,9 +29,9 @@
                                     @method('PUT')
 
                                     {{-- Sezione label per la modifica del nome --}}
-                                    <div class="col-12">
-                                        <label for="name" class="form-label">Nome:</label>
-                                        <input name="name" type="text" class="form-control form-control-sm"
+                                    <div class="col-12 mb-2">
+                                        <label for="name" class="form-label text-white">Nome:</label>
+                                        <input name="name" type="text" class="form-control form-control-sm my-form"
                                             id="name" placeholder="Inserisci il nome del piatto..."
                                             value="{{ $dish->name }}" required>
                                         @error('name')
@@ -40,13 +41,13 @@
 
                                     
                                     {{-- Sezione label per la modifica del genere--}}
-                                    <div class="col-12">
-                                        <label for="genre_id" class="form-label">Genere:</label>
+                                    <div class="col-12 mb-2">
+                                        <label for="genre_id" class="form-label text-white">Genere:</label>
                                         <div class="input-group">
-                                            <select class="form-select form-select-sm text-secondary" name="genre_id" id="genre_id" value="{{ $dish->genre_id }}" required>
-                                                <option selected>Imposta il tipo di piatto...</option>
+                                            <select class="form-select form-select-sm my-select" name="genre_id" id="genre_id" value="{{ $dish->genre_id }}" required>
+                                                <option class="my-option" selected>Imposta il tipo di piatto...</option>
                                                 @foreach ($genres as $genre)
-                                                    <option value="{{ $genre->id }}" @selected($genre->id == old('genre_id', $dish->name ? $dish->genre->id: ''))>{{ $genre->name }}</option>
+                                                    <option class="my-option" value="{{ $genre->id }}" @selected($genre->id == old('genre_id', $dish->name ? $dish->genre->id: ''))>{{ $genre->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -56,11 +57,11 @@
                                     </div>
 
                                     {{-- Sezione label per la modifica del prezzo --}}
-                                    <div class="col-12">
-                                        <label for="price" class="form-label">Prezzo:</label>
+                                    <div class="col-12 mb-2">
+                                        <label for="price" class="form-label text-white">Prezzo:</label>
                                         <div class="input-group input-group-sm ">
-                                            <span class="input-group-text">€</span>
-                                            <input name="price" type="number" class="form-control form-control-sm"
+                                            <span class="input-group-text my-input-text">€</span>
+                                            <input name="price" type="number" class="form-control form-control-sm my-form"
                                             id="price" aria-label="Amount (to the nearest euro)"
                                             value="{{ $dish->price }}" required>
                                         </div>
@@ -70,13 +71,13 @@
                                     </div>
                                     
                                     {{-- Sezione label per la modifica della disponibilità --}}
-                                    <div class="col-12">
-                                        <label for="visible" class="form-label">Disponibilità:</label>
+                                    <div class="col-12 mb-2">
+                                        <label for="visible" class="form-label text-white">Disponibilità:</label>
                                         <div class="input-group">
-                                            <select class="form-select form-select-sm text-secondary" name="visible" id="visible" required>
-                                                <option selected>Seleziona la disponibilità...</option>
-                                                <option value="0" @selected($dish->visible != 1 ? true : '') @selected(true)>Non disponibile</option>
-                                                <option value="1" @selected($dish->visible == 1 ? true : '')>Disponibile</option>
+                                            <select class="form-select form-select-sm my-select" name="visible" id="visible" required>
+                                                <option class="my-option" selected>Seleziona la disponibilità...</option>
+                                                <option class="my-option" value="0" @selected($dish->visible != 1 ? true : '') @selected(true)>Non disponibile</option>
+                                                <option class="my-option" value="1" @selected($dish->visible == 1 ? true : '')>Disponibile</option>
                                             </select>
                                         </div>
                                         @error('visible')
@@ -85,18 +86,15 @@
                                     </div>
                                     
                                     {{-- Sezione label per la modifica immagine --}}
-                                    <div class="col-12">
-                                        <label for="image" class="form-label">Immagine:</label>
-                                        <input type="text" name="image" id="image" class="form-control form-select-sm" value="{{ $dish->image }}" required>
+                                    <div class="col-12 mb-2">
+                                        <label for="image" class="form-label text-white">Immagine:</label>
+                                        <input type="text" name="image" id="image" class="form-control form-control-sm my-form" value="{{ $dish->image }}" required>
                                     </div>
                                     
                                     {{-- Sezione label per la modifica della descrizione --}}
-                                    <div class="col-12">
-                                        <label for="description" class="form-label">Descrizione:</label>
-                                        <div class="form-floating">
-                                            <textarea name="description" class="form-control form-control-sm" placeholder="Leave a comment here" id="description" style="height: 100px">{{ $dish->description }}</textarea>
-                                            <label for="description" class="text-secondary d-none d-sm-block">Aggiungi una descrizione...</label>
-                                        </div>
+                                    <div class="col-12 mb-2">
+                                        <label for="description" class="form-label text-white">Descrizione:</label>
+                                        <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..." id="description" style="height: 100px">{{ $dish->description }}</textarea>
                                         @error('description')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
