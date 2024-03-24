@@ -70,14 +70,13 @@
                                     </div>
                                     
                                     {{-- Sezione label per la modifica della disponibilità --}}
-                                    @dump($dish->visible)
                                     <div class="col-12">
                                         <label for="visible" class="form-label">Disponibilità:</label>
                                         <div class="input-group">
                                             <select class="form-select form-select-sm text-secondary" name="visible" id="visible" required>
                                                 <option selected>Seleziona la disponibilità...</option>
-                                                <option value="0" @selected($dish->visible)>Non disponibile</option>
-                                                <option value="1" @selected($dish->visible)>Disponibile</option>
+                                                <option value="0" @selected($dish->visible != 1 ? true : '') @selected(true)>Non disponibile</option>
+                                                <option value="1" @selected($dish->visible == 1 ? true : '')>Disponibile</option>
                                             </select>
                                         </div>
                                         @error('visible')
