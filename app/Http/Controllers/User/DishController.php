@@ -71,7 +71,7 @@ class DishController extends Controller
         // Salvo dish nel database
         $dish->save();
 
-        return redirect()->route('user.dashboard');
+        return redirect()->route('user.dishes.index');
     }
 
     /**
