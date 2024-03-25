@@ -47,7 +47,7 @@ class RegisteredUserController extends Controller
             
             'password.required' => 'Il campo Password è obbligatorio.',
             'password.confirmed' => 'La conferma della password non corrisponde.',
-            'password' => 'La Password deve avere almeno :min caratteri, includere almeno una lettera maiuscola, una lettera minuscola, un numero e un carattere speciale.',
+            'password' => 'La Password deve avere almeno 8 caratteri, includere almeno una lettera maiuscola, una lettera minuscola e un numero.',
             
             // Validazione dei dati inviati dall'utente
             'restaurantName.required' => 'Il campo Nome Ristorante è obbligatorio.',
@@ -77,7 +77,7 @@ class RegisteredUserController extends Controller
             'address' => ['required', 'string', 'max:100'],
             'p_iva' => ['required', 'string', 'max:11'],
             'main_image' => ['required'],
-            'typology_id' => ['required']
+            'typologies' => ['required']
         ], $customMessages);
         
 
@@ -106,9 +106,9 @@ class RegisteredUserController extends Controller
         ]);
         $restaurant->save();
         
-        // assegno la tipologia del ristorante
-        if ($request->has('typology_id')) {
-            $restaurant->typologies()->attach($request->typology_id);
+        // assegno le tipologie del ristorante
+        if ($request->has('typologies')) {
+            $restaurant->typologies()->attach($request->typologies);
         }
 
         return redirect(RouteServiceProvider::HOME);

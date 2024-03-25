@@ -444,17 +444,37 @@ header {
       }
     }
 
-    .my-form,
-    .my-select {
+    .my-form {
       background-color: transparent !important;
       color: white;
 
-      .my-option {
-        background-color: #181818;
+    }
 
-        &:active,
+    .dropdown-menu {
+      height: 250px;
+      overflow-y: scroll;
+      background-color: #181818;
+      color: white;
+
+      li{
         &:hover {
           background-color: #777 !important;
+        }
+
+        input{
+          border: 1px solid #DA643F !important;
+          background-color: transparent;
+          vertical-align: middle;
+          margin: 0;
+          margin-right: 5px;
+
+          &:hover{
+            cursor: pointer;
+          }
+          &:focus {
+            box-shadow: none;
+            border-color: #E1B137;
+          }
         }
       }
     }

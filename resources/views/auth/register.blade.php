@@ -74,7 +74,40 @@
                                 @enderror
                             </div>
 
+
                             <div class="col-md-6 mb-2">
+                                <label for="typology_id" class="col-form-label text-white">Tipologia Ristorante:</label>
+                                <div class="btn-group w-100" id="typology_id">
+                                    <button class="form-control form-control-sm my-form d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
+                                      Scegli una tipologia...
+                                      <i class="fa-solid fa-chevron-down"></i>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        @foreach ($typologies as $typology)
+                                        <li class="p-2 d-flex">
+                                            <input class="form-check-input" type="checkbox" name="typologies[]" value="{{ $typology->id }}" id="type-{{ $typology->id }}" @checked(is_array(old('typologies')) && in_array($typology->id, old('typologies')))>
+                                            <label class="form-check-label" for="typologies[]">
+                                                {{ $typology->name }}
+                                            </label>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @error('typology_id')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror 
+                                    {{-- <select name="typology_id" class="form-select form-select-sm my-select @error('typology_id') is-invalid border-danger @enderror" id="typology_id">
+                                        <option class="my-option" value="{{ old('typology_id') }}" selected></option>
+                                        @foreach ($typologies as $typology)
+                                        <option class="my-option" value="{{ $typology->id }}">{{ $typology->name }}</option>
+                                        @endforeach
+                                        
+                                    </select> --}}
+                            </div>
+
+
+                            {{-- <div class="col-md-6 mb-2">
                                 <label for="typology_id" class="col-form-label text-white">Tipologia Ristorante:</label>
                                 <select name="typology_id" class="form-select form-select-sm my-select @error('typology_id') is-invalid border-danger @enderror" id="typology_id">
                                     <option class="my-option" value="{{ old('typology_id') }}" selected>Schegli una tipologia...</option>
@@ -88,7 +121,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
-                            </div>
+                            </div> --}}
 
                             <div class="col-md-6 mb-2">
                                 <label for="address" class="col-form-label text-white">{{ __('Indirizzo') }}</label>
