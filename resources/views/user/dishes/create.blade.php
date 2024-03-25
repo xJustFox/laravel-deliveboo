@@ -44,8 +44,8 @@
                                     <div class="col-12 mb-2">
                                         <label for="genre_id" class="form-label text-white">Genere:</label>
                                         <div class="input-group">
-                                            <select class="form-select form-select-sm my-select" name="genre_id"id="genre_id" required>
-                                                <option class="my-option" selected>Imposta il tipo di piatto...</option>
+                                            <select class="form-select form-select-sm my-select" name="genre_id" id="genre_id" required>
+                                                <option class="my-option" value="">Imposta il tipo di piatto...</option>
                                                 @foreach ($genres as $genre)
                                                     <option class="my-option" value="{{ $genre->id }}" @selected(old('genre_id') == $genre->id)>{{ $genre->name }}</option>
                                                 @endforeach
@@ -76,7 +76,7 @@
                                         <div class="input-group">
                                             <select class="form-select form-select-sm my-select" name="visible"
                                                 id="visible" required>
-                                                <option class="my-option" selected>Seleziona la disponibilità...</option>
+                                                <option class="my-option" value="" selected>Seleziona la disponibilità...</option>
                                                 <option class="my-option" value="1" @selected(old('visible') == '1')>Disponibile</option>
                                                 <option class="my-option" value="0" @selected(old('visible') == '0')>Non disponibile</option>
                                             </select>
@@ -95,7 +95,7 @@
                                     {{-- Sezione label per inserimento della descrizione --}}
                                     <div class="col-12 mb-2">
                                         <label for="description" class="form-label text-white">Descrizione:</label>
-                                        <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..." id="description" style="height: 100px">{{ old('description') }}</textarea>
+                                        <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..." id="description" style="height: 100px" required>{{ old('description') }}</textarea>
                                         @error('description')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -103,7 +103,7 @@
 
                                     {{-- Pulsante submit --}}
                                     <div class="col-12 text-center mt-4">
-                                        <button type="submit" class="btn btn-sm btn-primary float-end">Aggiungi</button>
+                                        <button type="submit" value="Submit" class="btn btn-sm btn-primary float-end">Aggiungi</button>
                                     </div>
                                 </form>
                             </div>
