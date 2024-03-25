@@ -11,7 +11,7 @@
                         </h2>
                     </div>
                     <div class="card-body">
-                        <table class="table table-transparent">
+                        <table class="table table-transparent display" id="orders-table" style="width:100%">
                             <thead>
                                 <tr>
                                     <th>Name</th>
