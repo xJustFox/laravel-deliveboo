@@ -813,6 +813,15 @@ header {
     background-color: transparent;
     color: #fff;
   }
+
+  select{
+    background-color: #18181800;
+    margin-right: 5px;
+    
+    option{
+      background-color: #181818c8;
+    }
+  }
 }
 
 
