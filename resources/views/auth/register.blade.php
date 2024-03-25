@@ -74,7 +74,6 @@
                                 @enderror
                             </div>
 
-
                             <div class="col-md-6 mb-2">
                                 <label for="typology_id" class="col-form-label text-white">Tipologia Ristorante:</label>
                                 <div class="btn-group w-100" id="typology_id">
@@ -97,31 +96,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror 
-                                    {{-- <select name="typology_id" class="form-select form-select-sm my-select @error('typology_id') is-invalid border-danger @enderror" id="typology_id">
-                                        <option class="my-option" value="{{ old('typology_id') }}" selected></option>
-                                        @foreach ($typologies as $typology)
-                                        <option class="my-option" value="{{ $typology->id }}">{{ $typology->name }}</option>
-                                        @endforeach
-                                        
-                                    </select> --}}
                             </div>
-
-
-                            {{-- <div class="col-md-6 mb-2">
-                                <label for="typology_id" class="col-form-label text-white">Tipologia Ristorante:</label>
-                                <select name="typology_id" class="form-select form-select-sm my-select @error('typology_id') is-invalid border-danger @enderror" id="typology_id">
-                                    <option class="my-option" value="{{ old('typology_id') }}" selected>Schegli una tipologia...</option>
-                                    @foreach ($typologies as $typology)
-                                        <option class="my-option" value="{{ $typology->id }}">{{ $typology->name }}</option>
-                                    @endforeach
-
-                                </select>
-                                @error('typology_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div> --}}
 
                             <div class="col-md-6 mb-2">
                                 <label for="address" class="col-form-label text-white">{{ __('Indirizzo') }}</label>
