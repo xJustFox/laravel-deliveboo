@@ -1,6 +1,9 @@
 import './bootstrap';
 import '~resources/scss/app.scss';
 import * as bootstrap from 'bootstrap';
+
+import DataTable from 'datatables.net-dt';
+// import languageIT from 'datatables.net-plugins/i18n/it-IT.mjs';
 import.meta.glob([
     '../img/**'
 ])
@@ -9,7 +12,7 @@ import.meta.glob([
 const deletButtons = document.querySelectorAll('.delete-button');
 
 deletButtons.forEach((button) => {
-    button.addEventListener('click', function(){
+    button.addEventListener('click', function () {
         let slug = button.getAttribute('data-slug');
         let path = button.getAttribute('data-path');
 
@@ -19,7 +22,7 @@ deletButtons.forEach((button) => {
             case 'dishes':
                 text_modal.textContent = 'questo piatto';
                 break;
-            
+
             default:
                 break;
         }
@@ -30,4 +33,28 @@ deletButtons.forEach((button) => {
 
         form_delete.setAttribute('action', url);
     })
+})
+
+// IMPOSTO LA DATATABLE PER LA TABELLA DEGLI ORDINI
+let orders_table = new DataTable('#orders-table', {
+    responsive: true,
+    ordering: true,
+    // language: languageIT,
+    "columns": [
+        {
+            "sortable": true
+        },
+        {
+            "sortable": true
+        },
+        {
+            "sortable": true
+        },
+        {
+            "sortable": true
+        },
+        {
+            "sortable": true
+        },
+    ]
 })
