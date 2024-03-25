@@ -15,6 +15,11 @@ body {
   font-family: "Chicle", serif;
 }
 
+.bg-blur{
+  backdrop-filter: blur(25px);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
 .form-control,
 .form-select {
   border: 1px solid #DA643F;
@@ -747,11 +752,6 @@ a.btn.btn-sm.btn-warning {
 
 // UPDATE PROFILE INFORMATION
 #update-profile{
-  .bg-blur{
-      backdrop-filter: blur(25px);
-      background-color: rgba(255, 255, 255, 0.05);
-  }
-  
   .form-control, .form-select {
       border: 1px solid #DA643F;
       background-color: transparent;
