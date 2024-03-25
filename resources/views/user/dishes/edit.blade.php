@@ -45,7 +45,7 @@
                                         <label for="genre_id" class="form-label text-white">Genere:</label>
                                         <div class="input-group">
                                             <select class="form-select form-select-sm my-select" name="genre_id" id="genre_id" value="{{ $dish->genre_id }}" required>
-                                                <option class="my-option" selected>Imposta il tipo di piatto...</option>
+                                                <option class="my-option" value="">Imposta il tipo di piatto...</option>
                                                 @foreach ($genres as $genre)
                                                     <option class="my-option" value="{{ $genre->id }}" @selected($genre->id == old('genre_id', $dish->name ? $dish->genre->id: ''))>{{ $genre->name }}</option>
                                                 @endforeach
@@ -75,7 +75,7 @@
                                         <label for="visible" class="form-label text-white">Disponibilità:</label>
                                         <div class="input-group">
                                             <select class="form-select form-select-sm my-select" name="visible" id="visible" required>
-                                                <option class="my-option" selected>Seleziona la disponibilità...</option>
+                                                <option class="my-option" value="" selected>Seleziona la disponibilità...</option>
                                                 <option class="my-option" value="0" @selected($dish->visible != 1 ? true : '') @selected(true)>Non disponibile</option>
                                                 <option class="my-option" value="1" @selected($dish->visible == 1 ? true : '')>Disponibile</option>
                                             </select>
@@ -88,13 +88,13 @@
                                     {{-- Sezione label per la modifica immagine --}}
                                     <div class="col-12 mb-2">
                                         <label for="image" class="form-label text-white">Immagine:</label>
-                                        <input type="text" name="image" id="image" class="form-control form-control-sm my-form" value="{{ $dish->image }}" required>
+                                        <input type="text" name="image" id="image" class="form-control form-control-sm my-form" value="{{ $dish->image }}">
                                     </div>
                                     
                                     {{-- Sezione label per la modifica della descrizione --}}
                                     <div class="col-12 mb-2">
                                         <label for="description" class="form-label text-white">Descrizione:</label>
-                                        <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..." id="description" style="height: 100px">{{ $dish->description }}</textarea>
+                                        <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..." id="description" style="height: 100px" required>{{ $dish->description }}</textarea>
                                         @error('description')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -102,7 +102,7 @@
 
                                     {{-- Pulsante submit --}}
                                     <div class="col-12 text-center mt-4">
-                                        <button type="submit" class="btn btn-sm btn-primary float-end">Aggiungi</button>
+                                        <button type="submit" value="Submit" class="btn btn-sm btn-primary float-end">Aggiungi</button>
                                     </div>
                                 </form>
                             </div>
