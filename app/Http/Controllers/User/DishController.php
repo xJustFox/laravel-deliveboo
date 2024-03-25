@@ -138,6 +138,6 @@ class DishController extends Controller
     {
         $dish->delete();
 
-        return redirect()->route('admin.dishes.index');
+        return redirect()->route('user.dishes.index');
     }
 }
