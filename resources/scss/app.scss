@@ -624,6 +624,42 @@ header {
   }
 }
 
+// MENU PAGE
+#menu-page{
+a.btn.btn-sm.btn-warning {
+  color: white;
+  font-size: medium;
+  background-color: #DA643F;
+  border: 1px transparent;
+  padding: 8px 15px;
+
+  &:hover {
+      color: #DA643F;
+      background-color: white;
+    }
+}
+
+.card.dishes {
+  backdrop-filter: blur(25px);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  margin-bottom: 30px;
+
+  button.btn.btn-sm.btn-warning.delete-button {
+  color: white;
+  font-size: medium;
+  background-color: #DA643F;
+  border: 1px transparent;
+  padding: 8px 15px;
+
+  &:hover {
+      color: #DA643F;
+      background-color: white;
+    }
+  }
+}
+}
+
 // ADD DISH PAGE
 #add-dish,
 #modify-dish {
@@ -709,6 +745,40 @@ header {
   }
 }
 
+// UPDATE PROFILE INFORMATION
+#update-profile{
+  .bg-blur{
+      backdrop-filter: blur(25px);
+      background-color: rgba(255, 255, 255, 0.05);
+  }
+  
+  .form-control, .form-select {
+      border: 1px solid #DA643F;
+      background-color: transparent;
+      color: white;
+  
+      &:focus, &:focus {
+          box-shadow: none;
+          border-color: #da643f;
+          background-color: transparent;
+          color: white;
+      }
+  }
+  
+  button.btn.btn-primary {
+      color: white;
+      font-size: medium;
+      background-color: #DA643F;
+      border: 1px transparent;
+      padding: 8px 15px;
+  
+      &:hover {
+          color: #DA643F;
+          background-color: white;
+        }
+  }
+
+}
 
 // ORDERS PAGE
 #order_page {
