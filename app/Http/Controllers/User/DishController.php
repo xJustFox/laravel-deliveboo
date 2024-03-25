@@ -37,8 +37,10 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        // Recupero tutti i generi
         $genres = Genre::all();
+
         return view('user.dishes.create', compact('genres'));
     }
 
@@ -71,7 +73,7 @@ class DishController extends Controller
         // Salvo dish nel database
         $dish->save();
 
-        return redirect()->route('user.dashboard');
+        return redirect()->route('user.dishes.index');
     }
 
     /**
@@ -93,7 +95,9 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
+        // Recupero tutti i generi
         $genres = Genre::all();
+
         return view('user.dishes.edit', compact('dish', 'genres'));
     }
 
@@ -116,14 +120,12 @@ class DishController extends Controller
         $restaurant = Restaurant::where('user_id',$user->id)->get();
         $restaurant_id = $restaurant[0]->id;
 
-
         // Modifico l'istanza di dish per salvarla nel database
         $dish->slug = Str::slug($dish->name . '-');
         $dish->update($form_data);
 
         // assegno al resturant_id del piatto l'id del ristorante appartenente all'utente loggato
         $dish->restaurant_id = $restaurant_id;
-
 
         return redirect()->route('user.dishes.index', $dish->slug);
     }
@@ -137,7 +139,7 @@ class DishController extends Controller
     public function destroy(Dish $dish)
     {
         $dish->delete();
-
+        
         return redirect()->route('user.dishes.index');
     }
 }
