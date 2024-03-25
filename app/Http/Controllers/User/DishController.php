@@ -37,8 +37,10 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
+    {   
+        // Recupero tutti i generi
         $genres = Genre::all();
+
         return view('user.dishes.create', compact('genres'));
     }
 
@@ -93,7 +95,9 @@ class DishController extends Controller
      */
     public function edit(Dish $dish)
     {
+        // Recupero tutti i generi
         $genres = Genre::all();
+        
         return view('user.dishes.edit', compact('dish', 'genres'));
     }
 
