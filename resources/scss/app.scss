@@ -756,7 +756,7 @@ a.btn.btn-sm.btn-warning {
       border: 1px solid #DA643F;
       background-color: transparent;
       color: white;
-  
+
       &:focus, &:focus {
           box-shadow: none;
           border-color: #da643f;
@@ -764,14 +764,14 @@ a.btn.btn-sm.btn-warning {
           color: white;
       }
   }
-  
+
   button.btn.btn-primary {
       color: white;
       font-size: medium;
       background-color: #DA643F;
       border: 1px transparent;
       padding: 8px 15px;
-  
+
       &:hover {
           color: #DA643F;
           background-color: white;
@@ -804,4 +804,41 @@ a.btn.btn-sm.btn-warning {
     background-color: transparent;
     color: #fff;
   }
+}
+
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 576px) {
+    header .popup-window {
+        top: 45px;
+        left: -77px;
+    }
+
+    h1.display-5.fw-bold.super-ocean.text-white {
+        font-size: 38px;
+        text-align: center;
+
+    }
+    p.col-md-8.pt-2.text-lightgray {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 767px){
+    #restaurants-page .card .info-restaurant {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    h1.display-5.fw-bold.super-ocean.text-white {
+        font-size: 45px;
+        text-align: center;
+    }
+
+    p.col-lg-5.pt-2.text-lightgray {
+        text-align: center;
+    }
 }
