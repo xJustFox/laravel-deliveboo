@@ -14,7 +14,7 @@
                     @csrf
                     @method('DELETE')
 
-                    <button type="submit"  class="btn btn-sm">Elimina</button>
+                    <button type="submit" class="btn btn-sm">Elimina</button>
                 </form>
             </div>
         </div>
