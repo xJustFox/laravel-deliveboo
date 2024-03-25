@@ -24,26 +24,26 @@ class UpdateDishRequest extends FormRequest
     public function rules()
     {
         return [
-            'genre_id' => 'required',
             'name' => 'required|max:100',
-            'description' => 'required',
+            'genre_id' => 'required',
             'price' => 'required|numeric|min:0',
             'visible' => 'required|boolean',
             'image' => 'nullable|string',
+            'description' => 'required',
         ];
     }
 
     public function messages(){
         return[
-            'genre_id.required' => 'Il campo genere è obbligatorio.',
             'name.required' => 'Il campo nome è obbligatorio.',
             'name.max' => 'Il campo nome non può superare i 100 caratteri.',
-            'description.required' => 'Il campo descrizione è obbligatorio.',
+            'genre_id.required' => 'Il campo genere è obbligatorio.',
             'price.required' => 'Il campo prezzo è obbligatorio.',
             'price.numeric' => 'Il prezzo deve essere un valore numerico.',
             'price.min' => 'Il prezzo non può essere inferiore a 0€',
             'visible.required' => 'Il campo visibile è obbligatorio.',
-            'visible.boolean' => 'Il campo visibile deve essere di tipo booleano.',
+            'visible.boolean' => 'Il campo visibile deve essere disponibile o non disponibile.',
+            'description.required' => 'Il campo descrizione è obbligatorio.',
         ];
     }
 }

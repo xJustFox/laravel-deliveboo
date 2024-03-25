@@ -88,7 +88,7 @@
                                     {{-- Sezione label per la modifica immagine --}}
                                     <div class="col-12 mb-2">
                                         <label for="image" class="form-label text-white">Immagine:</label>
-                                        <input type="text" name="image" id="image" class="form-control form-control-sm my-form" value="{{ $dish->image }}" required>
+                                        <input type="text" name="image" id="image" class="form-control form-control-sm my-form" value="{{ $dish->image }}">
                                     </div>
                                     
                                     {{-- Sezione label per la modifica della descrizione --}}
