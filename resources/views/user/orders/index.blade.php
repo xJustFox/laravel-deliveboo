@@ -22,9 +22,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-
-                                </tr>
+                                @foreach ($orders as $order)
+                                    <tr>
+                                        <td>{{ $order->name }}</td>
+                                        <td>{{ $order->email }}</td>
+                                        <td>{{ $order->delivery_address }}</td>
+                                        <td>{{ $order->phone_num }}</td>
+                                        <td>{{ $order->price }}</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
