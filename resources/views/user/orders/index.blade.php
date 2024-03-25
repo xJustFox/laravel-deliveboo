@@ -1,10 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container" id="order_page">
-        <h2 class="my-4 fs-4 text-secondary">
-            {{ __('Orders') }}
-        </h2>
+    <div class="container-lg pt-4" id="order_page">
         <div class="row">
             <div class="col-12">
                 <div class="card text-white">
