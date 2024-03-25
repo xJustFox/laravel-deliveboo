@@ -18,20 +18,20 @@ class TypologySeeder extends Seeder
     public function run()
     {
         $array = [
-            "Ristorante italiano",
-            "Ristorante francese",
-            "Ristorante asiatico",
-            "Ristorante messicano",
-            "Ristorante di sushi",
+            "Italiano",
+            "Francese",
+            "Asiatico",
+            "Messicano",
+            "Sushi",
             "Steakhouse",
-            "Ristorante di pesce",
-            "Ristorante vegano/vegetariano",
-            "Ristorante etnico",
-            "Fast food",
-            "Ristorante gourmet",
-            "Ristorante fusion",
-            "Ristorante di barbecue",
-            "Ristorante di tapas",
+            "Pesce",
+            "Vegano/Vegetariano",
+            "Etnico",
+            "Fast Food",
+            "Gourmet",
+            "Fusion",
+            "Barbecue",
+            "Tapas",
         ];
 
         foreach ($array as $item) {
