@@ -7,14 +7,14 @@
         </h2>
         <div class="row">
             <div class="col-12">
-                <div class="card">
-                    <div class="card-header text-white super-ocean">
+                <div class="card text-white">
+                    <div class="card-header super-ocean">
                         <h2 class="">
                             {{ __('Ordini') }}
                         </h2>
                     </div>
                     <div class="card-body">
-                        <table class="table">
+                        <table class="table table-transparent">
                             <thead>
                                 <tr>
                                     <th>Name</th>

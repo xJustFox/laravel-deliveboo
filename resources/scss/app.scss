@@ -790,4 +790,18 @@ a.btn.btn-sm.btn-warning {
       font-size: 25px;
     }
   }
+
+  .table-transparent {
+    background-color: transparent;
+  }
+
+  .table-transparent thead th {
+    background-color: transparent;
+    color: #fff;
+  }
+
+  .table-transparent tbody td {
+    background-color: transparent;
+    color: #fff;
+  }
 }
