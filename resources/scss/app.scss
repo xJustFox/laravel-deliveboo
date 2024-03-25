@@ -785,12 +785,11 @@ a.btn.btn-sm.btn-warning {
       }
   }
   
-  button.btn.btn-primary {
+  button.btn {
       color: white;
       font-size: medium;
       background-color: #DA643F;
       border: 1px transparent;
-      padding: 8px 15px;
   
       &:hover {
           color: #DA643F;

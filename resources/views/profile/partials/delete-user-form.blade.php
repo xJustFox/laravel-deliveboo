@@ -41,17 +41,15 @@
 
                         <div class="input-group">
 
-                            <input id="password" name="password" type="password" class="form-control" placeholder="{{ __('Password') }}" />
+                            <input id="password" name="password" type="password" class="form-control form-control-sm" placeholder="{{ __('Password') }}" />
 
                             @error('password')
                             <span class="invalid-feedback mt-2" role="alert">
                                 <strong>{{ $errors->userDeletion->get('password')}}</strong>
                             </span>
                             @enderror
-
-
-
-                            <button type="submit" class="btn btn-danger">
+                            
+                            <button type="submit" class="btn btn-sm">
                                 {{ __('Delete Account') }}
                             </button>
                             <!--  -->
