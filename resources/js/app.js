@@ -57,7 +57,7 @@ let orders_table = new DataTable('#orders-table', {
             "sortable": true
         },
         {
-            "sortable": true
+            "sortable": false
         },
     ]
 })

@@ -14,21 +14,26 @@
                         <table class="table table-transparent display" id="orders-table" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Nome</th>
+                                    <th>ID</th>
                                     <th>Email</th>
-                                    <th>Indirizzo</th>
-                                    <th>Telefono</th>
+                                    <th>Status</th>
                                     <th>Prezzo</th>
+                                    <th>Strumenti</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($orders as $order)
                                     <tr>
-                                        <td>{{ $order->name }}</td>
+                                        <td>{{ $order->id }}</td>
                                         <td>{{ $order->email }}</td>
-                                        <td>{{ $order->delivery_address }}</td>
-                                        <td>{{ $order->phone_num }}</td>
-                                        <td>{{ $order->price }}</td>
+                                        <td></td>
+                                        <td>{{ $order->price }} $</td>
+                                        <td>
+                                            <a class="btn btn-sm text-decoration-none"
+                                                href="{{ route('user.orders.show', $order->slug) }}">
+                                                <i class="fa-solid fa-eye"></i>
+                                            </a>
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
