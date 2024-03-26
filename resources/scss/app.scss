@@ -688,7 +688,6 @@ header {
 
     .arrow-rotate {
       position: absolute;
-      right: 15px;
     }
 
     .btn {
@@ -774,13 +773,13 @@ header {
           color: white;
       }
   }
-  
+
   button.btn {
       color: white;
       font-size: medium;
       background-color: #DA643F;
       border: 1px transparent;
-  
+
       &:hover {
           color: #DA643F;
           background-color: white;
@@ -817,7 +816,7 @@ header {
   select{
     background-color: #18181800;
     margin-right: 5px;
-    
+
     option{
       background-color: #181818c8;
     }

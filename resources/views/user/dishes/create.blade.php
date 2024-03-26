@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-    
     <div class="container mt-4" id="add-dish">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 my-2">
@@ -12,11 +10,12 @@
 
                     {{-- Card Header --}}
                     <div class="card-header text-white text-center super-ocean">
+                        <span class="arrow-rotate d-flex justify-content-start">
+                            <a href="{{ route('user.dishes.index') }}"><i class="fa-solid fa-chevron-left"
+                                    style="color: #DA643F;"></i></a>
+                        </span>
                         <span>
                             Aggiungi un nuovo piatto
-                        </span>
-                        <span class="arrow-rotate">
-                            <a  href="{{ route('user.dishes.index') }}"><i class="fa-solid fa-arrow-rotate-left" style="color: #DA643F;"></i></a>
                         </span>
                     </div>
 
@@ -44,10 +43,13 @@
                                     <div class="col-12 mb-2">
                                         <label for="genre_id" class="form-label text-white">Genere:</label>
                                         <div class="input-group">
-                                            <select class="form-select form-select-sm my-select" name="genre_id" id="genre_id" required>
-                                                <option class="my-option" value="">Imposta il tipo di piatto...</option>
+                                            <select class="form-select form-select-sm my-select" name="genre_id"
+                                                id="genre_id" required>
+                                                <option class="my-option" value="">Imposta il tipo di piatto...
+                                                </option>
                                                 @foreach ($genres as $genre)
-                                                    <option class="my-option" value="{{ $genre->id }}" @selected(old('genre_id') == $genre->id)>{{ $genre->name }}</option>
+                                                    <option class="my-option" value="{{ $genre->id }}"
+                                                        @selected(old('genre_id') == $genre->id)>{{ $genre->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -61,9 +63,10 @@
                                         <label for="price" class="form-label text-white">Prezzo:</label>
                                         <div class="input-group input-group-sm ">
                                             <span class="input-group-text my-input-text">€</span>
-                                            <input name="price" type="number" class="form-control form-control-sm my-form"
-                                            id="price" aria-label="Amount (to the nearest euro)"
-                                            value="{{ old('price') }}" required>
+                                            <input name="price" type="number"
+                                                class="form-control form-control-sm my-form" id="price"
+                                                aria-label="Amount (to the nearest euro)" value="{{ old('price') }}"
+                                                required>
                                         </div>
                                         @error('price')
                                             <div class="text-danger">{{ $message }}</div>
@@ -76,9 +79,12 @@
                                         <div class="input-group">
                                             <select class="form-select form-select-sm my-select" name="visible"
                                                 id="visible" required>
-                                                <option class="my-option" value="" selected>Seleziona la disponibilità...</option>
-                                                <option class="my-option" value="1" @selected(old('visible') == '1')>Disponibile</option>
-                                                <option class="my-option" value="0" @selected(old('visible') == '0')>Non disponibile</option>
+                                                <option class="my-option" value="" selected>Seleziona la
+                                                    disponibilità...</option>
+                                                <option class="my-option" value="1" @selected(old('visible') == '1')>
+                                                    Disponibile</option>
+                                                <option class="my-option" value="0" @selected(old('visible') == '0')>Non
+                                                    disponibile</option>
                                             </select>
                                         </div>
                                         @error('visible')
@@ -89,13 +95,15 @@
                                     {{-- Sezione label per inserimento immagine --}}
                                     <div class="col-12 mb-2">
                                         <label for="image" class="form-label text-white">Immagine:</label>
-                                        <input type="text" name="image" id="image" class="form-control form-control-sm my-form" value="{{ old('image') }}">
+                                        <input type="text" name="image" id="image"
+                                            class="form-control form-control-sm my-form" value="{{ old('image') }}">
                                     </div>
 
                                     {{-- Sezione label per inserimento della descrizione --}}
                                     <div class="col-12 mb-2">
                                         <label for="description" class="form-label text-white">Descrizione:</label>
-                                        <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..." id="description" style="height: 100px" required>{{ old('description') }}</textarea>
+                                        <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..."
+                                            id="description" style="height: 100px" required>{{ old('description') }}</textarea>
                                         @error('description')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -103,7 +111,8 @@
 
                                     {{-- Pulsante submit --}}
                                     <div class="col-12 text-center mt-4">
-                                        <button type="submit" value="Submit" class="btn btn-sm btn-primary float-end">Aggiungi</button>
+                                        <button type="submit" value="Submit"
+                                            class="btn btn-sm btn-primary float-end">Aggiungi</button>
                                     </div>
                                 </form>
                             </div>
