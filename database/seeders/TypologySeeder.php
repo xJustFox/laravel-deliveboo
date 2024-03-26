@@ -38,6 +38,7 @@ class TypologySeeder extends Seeder
             $typology = new Typology();
 
             $typology->name = $item;
+            $typology->slug = Str::slug($item . '-');
 
             $typology->save();
         }
