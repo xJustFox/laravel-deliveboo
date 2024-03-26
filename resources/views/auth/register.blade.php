@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-8">
                 <div class="card ">
-                    <div class="card-header text-white text-center super-ocean">{{ __('Register') }}</div>
+                    <div class="card-header text-white text-center super-ocean">{{ __('Registrati') }}</div>
 
                     <div class="card-body">
                         <form class="row" method="POST" action="{{ route('register') }}">
@@ -61,16 +61,16 @@
 
                             <div class="col-md-6 mb-2">
                                 <label for="restaurantName"
-                                class="col-form-label text-white">{{ __('Nome Ristorante') }}</label>
+                                    class="col-form-label text-white">{{ __('Nome Ristorante') }}</label>
                                 <input id="restaurantName" type="text"
-                                class="form-control form-control-sm my-form @error('restaurantName') is-invalid @enderror"
-                                name="restaurantName" value="{{ old('restaurantName') }}" required
-                                autocomplete="restaurantName">
-                                
+                                    class="form-control form-control-sm my-form @error('restaurantName') is-invalid @enderror"
+                                    name="restaurantName" value="{{ old('restaurantName') }}" required
+                                    autocomplete="restaurantName">
+
                                 @error('restaurantName')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
                                 @enderror
                             </div>
 
@@ -130,7 +130,8 @@
                                     class="col-form-label text-white">{{ __('Immagine di copertina') }}</label>
                                 <input id="main_image" type="text"
                                     class="form-control form-control-sm my-form @error('main_image') is-invalid @enderror"
-                                    name="main_image" value="{{ old('main_image') }}" required autocomplete="main_image">
+                                    name="main_image" value="{{ old('main_image') }}" required
+                                    autocomplete="main_image">
 
                                 @error('main_image')
                                     <span class="invalid-feedback" role="alert">
@@ -142,7 +143,7 @@
 
                             <div class="col-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-sm">
-                                    {{ __('Register') }}
+                                    {{ __('Registrati') }}
                                 </button>
                             </div>
                         </form>

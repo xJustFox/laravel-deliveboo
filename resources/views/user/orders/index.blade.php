@@ -14,11 +14,11 @@
                         <table class="table table-transparent display" id="orders-table" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
+                                    <th>Nome</th>
                                     <th>Email</th>
-                                    <th>Address</th>
-                                    <th>Telephone</th>
-                                    <th>Price</th>
+                                    <th>Indirizzo</th>
+                                    <th>Telefono</th>
+                                    <th>Prezzo</th>
                                 </tr>
                             </thead>
                             <tbody>
