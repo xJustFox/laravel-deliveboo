@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Api\RestaurantController;
+use App\Http\Controllers\Api\TypologyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::get('/restaurants', [RestaurantController::class, 'index']);
+Route::get('/restaurants/{slug}', [RestaurantController::class, 'show']);
+Route::get('/restaurants/typologies/{slug}', [RestaurantController::class, 'typology_restaurants']);
+
+Route::get('/typologies', [TypologyController::class, 'index']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
