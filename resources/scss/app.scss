@@ -478,6 +478,10 @@ header {
         }
       }
     }
+
+    .req_fields{
+      font-size: 14px;
+    }
   }
 }
 
@@ -720,6 +724,10 @@ header {
           background-color: #777 !important;
         }
       }
+    }
+
+    ::placeholder {
+      color: white;
     }
   }
 }

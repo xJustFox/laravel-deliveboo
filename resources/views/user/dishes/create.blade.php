@@ -15,9 +15,6 @@
                         <span>
                             Aggiungi un nuovo piatto
                         </span>
-                        <span class="arrow-rotate">
-                            <a  href="{{ route('user.dishes.index') }}"><i class="fa-solid fa-arrow-rotate-left" style="color: #DA643F;"></i></a>
-                        </span>
                     </div>
 
                     {{-- Card Body --}}
@@ -30,7 +27,7 @@
 
                                     {{-- Sezione label per inserimento del nome --}}
                                     <div class="col-12 mb-2">
-                                        <label for="name" class="form-label text-white">Nome:</label>
+                                        <label for="name" class="form-label text-white">Nome: *</label>
                                         <input name="name" type="text" class="form-control form-control-sm my-form"
                                             id="name" placeholder="Inserisci il nome del piatto..."
                                             value="{{ old('name') }}" required>
@@ -42,7 +39,7 @@
 
                                     {{-- Sezione label per inserimento del genere --}}
                                     <div class="col-12 mb-2">
-                                        <label for="genre_id" class="form-label text-white">Genere:</label>
+                                        <label for="genre_id" class="form-label text-white">Genere: *</label>
                                         <div class="input-group">
                                             <select class="form-select form-select-sm my-select" name="genre_id" id="genre_id" required>
                                                 <option class="my-option" value="">Imposta il tipo di piatto...</option>
@@ -58,7 +55,7 @@
 
                                     {{-- Sezione label per inserimento del prezzo --}}
                                     <div class="col-12 mb-2">
-                                        <label for="price" class="form-label text-white">Prezzo:</label>
+                                        <label for="price" class="form-label text-white">Prezzo: *</label>
                                         <div class="input-group input-group-sm ">
                                             <span class="input-group-text my-input-text">€</span>
                                             <input name="price" type="number" class="form-control form-control-sm my-form"
@@ -72,7 +69,7 @@
 
                                     {{-- Sezione label per inserimento della disponibilità --}}
                                     <div class="col-12 mb-2">
-                                        <label for="visible" class="form-label text-white">Disponibilità:</label>
+                                        <label for="visible" class="form-label text-white">Disponibilità: *</label>
                                         <div class="input-group">
                                             <select class="form-select form-select-sm my-select" name="visible"
                                                 id="visible" required>
@@ -88,21 +85,26 @@
 
                                     {{-- Sezione label per inserimento immagine --}}
                                     <div class="col-12 mb-2">
-                                        <label for="image" class="form-label text-white">Immagine:</label>
+                                        <label for="image" class="form-label text-white">Immagine: *</label>
                                         <input type="text" name="image" id="image" class="form-control form-control-sm my-form" value="{{ old('image') }}">
                                     </div>
 
                                     {{-- Sezione label per inserimento della descrizione --}}
                                     <div class="col-12 mb-2">
-                                        <label for="description" class="form-label text-white">Descrizione:</label>
+                                        <label for="description" class="form-label text-white">Descrizione: *</label>
                                         <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..." id="description" style="height: 100px" required>{{ old('description') }}</textarea>
                                         @error('description')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
 
+                                    {{-- Campi obbligatori --}}
+                                    <div class="col-md-8 col-xs-12 d-flex align-items-end text-light py-2 ">
+                                        <span class="fst-italic fw-light text-decoration-underline req_fields">{{__('Sono contrassegnati con * i campi obbligatori')}}</span>
+                                    </div>
+
                                     {{-- Pulsante submit --}}
-                                    <div class="col-12 text-center mt-4">
+                                    <div class="text-center col-md-4 col-xs-12 d-flex justify-content-end py-2">
                                         <button type="submit" value="Submit" class="btn btn-sm btn-primary float-end">Aggiungi</button>
                                     </div>
                                 </form>
