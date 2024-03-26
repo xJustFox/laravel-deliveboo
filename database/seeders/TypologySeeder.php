@@ -25,7 +25,7 @@ class TypologySeeder extends Seeder
             "Sushi",
             "Steakhouse",
             "Pesce",
-            "Vegano/Vegetariano",
+            "Vegano",
             "Etnico",
             "Fast Food",
             "Gourmet",
