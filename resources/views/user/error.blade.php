@@ -1,32 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container" id="dashboard">
-        <h2 class="fs-4 text-secondary my-4">
-            {{ __('Dashboard') }}
-        </h2>
-        <div class="row justify-content-center">
-            <div class="col">
-
-                <div class="e-card playing">
-                    <div class="image"></div>
-
-                    <div class="wave"></div>
-                    <div class="wave"></div>
-                    <div class="wave"></div>
-
-
-                    <div class="infotop">
-                        <div class="card-body">
-                            @if (session('error'))
-                                <div class="alert alert-danger">
-                                    {{ session('error') }}
-                                </div>
-                            @endif
-                        </div>
-                    </div>
+    <div class="container-lg" id="error-page">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="col-12 mb-4">
+                    <img class="w-100" src="{{ Vite::asset('public/img/error-logo.png') }}" alt="">
                 </div>
-
+                <div class="col-12 text-center text-white mb-4">
+                    <h1 class="super-ocean">Pagina non trovata</h1>
+                    <p>Siamo spiacenti! La pagina che cerchi non è stata trovata in questo server. È stata probabilmente cancellata oppure ai inserito un indirizzo sbagliato. Ti preghiamo di controllare l'URL e riprovare</p>
+                </div>
             </div>
         </div>
     </div>

@@ -104,7 +104,7 @@ class DishController extends Controller
         // Controlla se il piatto esiste nel database
         if (!$dish) {
             // Se il piatto non esiste, restituisci un errore o reindirizza l'utente
-            return redirect()->route('user.error')->with('error', 'Il piatto non esiste.');
+            return redirect()->route('user.error');
         }
         
         // recupero l'utente loggato 
@@ -117,7 +117,7 @@ class DishController extends Controller
         // Verifica se l'utente autenticato è il proprietario del piatto
         if ($dish->restaurant_id !== $restaurant_id) {
             // Se l'utente non è il proprietario del piatto, restituisci un errore o reindirizza l'utente
-            return redirect()->route('user.error')->with('error', 'Non sei autorizzato a modificare questo piatto.');
+            return redirect()->route('user.error');
         }
 
         // Se l'utente è autorizzato, mostra il form di modifica del piatto

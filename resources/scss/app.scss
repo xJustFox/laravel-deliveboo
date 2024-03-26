@@ -824,6 +824,11 @@ header {
   }
 }
 
+#error-page{
+  height: calc(100vh - 66.5px);
+
+}
+
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 576px) {
