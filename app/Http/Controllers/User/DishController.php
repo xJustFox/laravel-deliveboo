@@ -98,6 +98,29 @@ class DishController extends Controller
         // Recupero tutti i generi
         $genres = Genre::all();
 
+        // Trova il piatto nel database con il determinato slug
+        $dish = Dish::where('slug', $dish->slug)->first();
+        
+        // Controlla se il piatto esiste nel database
+        if (!$dish) {
+            // Se il piatto non esiste, restituisci un errore o reindirizza l'utente
+            return redirect()->route('user.error');
+        }
+        
+        // recupero l'utente loggato 
+        $user = Auth::user();
+
+        // recupero il ristorante dell'utente
+        $restaurant = Restaurant::where('user_id',$user->id)->get();
+        $restaurant_id = $restaurant[0]->id;
+
+        // Verifica se l'utente autenticato è il proprietario del piatto
+        if ($dish->restaurant_id !== $restaurant_id) {
+            // Se l'utente non è il proprietario del piatto, restituisci un errore o reindirizza l'utente
+            return redirect()->route('user.error');
+        }
+
+        // Se l'utente è autorizzato, mostra il form di modifica del piatto
         return view('user.dishes.edit', compact('dish', 'genres'));
     }
 
