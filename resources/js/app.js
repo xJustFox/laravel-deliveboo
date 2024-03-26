@@ -15,12 +15,13 @@ deletButtons.forEach((button) => {
     button.addEventListener('click', function () {
         let slug = button.getAttribute('data-slug');
         let path = button.getAttribute('data-path');
+        let name = button.getAttribute('data-name');
 
         let text_modal = document.getElementById('custom-message-modal');
 
         switch (path) {
             case 'dishes':
-                text_modal.textContent = 'questo piatto';
+                text_modal.textContent = ` "${name}"`;
                 break;
 
             default:

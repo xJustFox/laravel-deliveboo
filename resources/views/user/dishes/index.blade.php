@@ -39,7 +39,7 @@
                                                 class="fa-solid fa-pen-to-square"></i></a>
         
                                         <button class="btn delete-button" data-bs-toggle="modal"
-                                            data-bs-target="#modal_delete" data-path="dishes" data-slug="{{ $dish->slug }}">
+                                            data-bs-target="#modal_delete" data-path="dishes" data-slug="{{ $dish->slug }}" data-name="{{ $dish->name }}">
                                             <i class="fa-solid fa-trash-can fa-xs"></i>
                                         </button>
                                     </div>
