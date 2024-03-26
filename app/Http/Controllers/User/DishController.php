@@ -4,12 +4,13 @@ namespace App\Http\Controllers\User;
 
 use App\Models\Dish;
 use App\Models\Restaurant;
-Use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreDishRequest;
 use App\Http\Requests\UpdateDishRequest;
 use App\Models\Genre;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
 
 class DishController extends Controller
 {
@@ -20,15 +21,15 @@ class DishController extends Controller
      */
     public function index()
     {
-        $user = Auth:: user();
+        $user = Auth::user();
 
-        $restaurant = Restaurant::where('user_id',$user->id)->get();
+        $restaurant = Restaurant::where('user_id', $user->id)->get();
         $restaurant_id = $restaurant[0]->id;
-        $dishes = Dish::where('restaurant_id',$restaurant_id)->get();
+        $dishes = Dish::where('restaurant_id', $restaurant_id)->get();
 
         $genres = Genre::all();
 
-        return view('user.dishes.index', compact('dishes', 'genres')); 
+        return view('user.dishes.index', compact('dishes', 'genres'));
     }
 
     /**
@@ -37,7 +38,7 @@ class DishController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {   
+    {
         // Recupero tutti i generi
         $genres = Genre::all();
 
@@ -56,14 +57,20 @@ class DishController extends Controller
         $form_data = $request->all();
 
         // recupero l'utente loggato 
-        $user = Auth:: user();
+        $user = Auth::user();
 
         // recupero il ristorante dell'utente
-        $restaurant = Restaurant::where('user_id',$user->id)->get();
+        $restaurant = Restaurant::where('user_id', $user->id)->get();
         $restaurant_id = $restaurant[0]->id;
 
         // Creo una nuova istanza di dish per salvarla nel database
         $dish = new Dish();
+
+        if ($request->hasFile('image')) {
+            $img = Storage::disk('public')->put('images', $form_data['image']);
+            $form_data['image'] = $img;
+        }
+
         $dish->fill($form_data);
         $dish->slug = Str::slug($dish->name . '-');
 
@@ -100,18 +107,18 @@ class DishController extends Controller
 
         // Trova il piatto nel database con il determinato slug
         $dish = Dish::where('slug', $dish->slug)->first();
-        
+
         // Controlla se il piatto esiste nel database
         if (!$dish) {
             // Se il piatto non esiste, restituisci un errore o reindirizza l'utente
             return redirect()->route('user.error');
         }
-        
+
         // recupero l'utente loggato 
         $user = Auth::user();
 
         // recupero il ristorante dell'utente
-        $restaurant = Restaurant::where('user_id',$user->id)->get();
+        $restaurant = Restaurant::where('user_id', $user->id)->get();
         $restaurant_id = $restaurant[0]->id;
 
         // Verifica se l'utente autenticato è il proprietario del piatto
@@ -136,11 +143,20 @@ class DishController extends Controller
         // Recupero i dati inviati dalla form
         $form_data = $request->all();
 
+        if ($request->hasFile('image')) {
+            if ($dish->image != null) {
+                Storage::disk('public')->delete($dish->image);
+            }
+
+            $img = Storage::disk('public')->put('images', $form_data['image']);
+            $form_data['image'] = $img;
+        }
+
         // recupero l'utente loggato 
-        $user = Auth:: user();
+        $user = Auth::user();
 
         // recupero il ristorante dell'utente
-        $restaurant = Restaurant::where('user_id',$user->id)->get();
+        $restaurant = Restaurant::where('user_id', $user->id)->get();
         $restaurant_id = $restaurant[0]->id;
 
         // Modifico l'istanza di dish per salvarla nel database
@@ -162,7 +178,7 @@ class DishController extends Controller
     public function destroy(Dish $dish)
     {
         $dish->delete();
-        
+
         return redirect()->route('user.dishes.index');
     }
 }
