@@ -22,6 +22,10 @@ class DatabaseSeeder extends Seeder
             RestaurantTypologySeeder::class,
             GenreSeeder::class,
             DishSeeder::class,
+
+            // momentanei
+            OrderSeeder::class,
+            DishOrderSeeder::class,
         ]);
     }
 }
