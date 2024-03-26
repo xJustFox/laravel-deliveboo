@@ -30,7 +30,7 @@
                         <a class="my-nav-link super-ocean {{ Route::currentRouteName() == 'user.restaurant.index' || Route::currentRouteName() == 'user.restaurant.edit'
                             ? 'activeRoute'
                             : '' }}"
-                            href="{{ route('user.restaurant.index') }}">{{ __('I tuoi Ristoranti') }}</a>
+                            href="{{ route('user.restaurant.index') }}">{{ __('Il tuo Ristorante') }}</a>
                     </li>
                     <li>
                         <a class="my-nav-link super-ocean {{ Route::currentRouteName() == 'user.orders.index' ? 'activeRoute' : '' }}"
@@ -65,7 +65,8 @@
                                     @if (Route::has('register'))
                                         <li>
                                             <button>
-                                                <span><a class="dropdown-item" href="{{ route('register') }}">{{ __('Registrati') }}</a></span>
+                                                <span><a class="dropdown-item"
+                                                        href="{{ route('register') }}">{{ __('Registrati') }}</a></span>
                                             </button>
                                         </li>
                                     @endif
@@ -106,13 +107,13 @@
                                     <li class=" d-md-none">
                                         <button>
                                             <span><a class="dropdown-item"
-                                                href="{{ route('user.restaurant.index') }}">{{ __('I tuoi Ristoranti') }}</a></span>
+                                                    href="{{ route('user.restaurant.index') }}">{{ __('I tuoi Ristoranti') }}</a></span>
                                         </button>
                                     </li>
                                     <li class=" d-md-none">
                                         <button>
                                             <span><a class="dropdown-item"
-                                                href="{{ route('user.orders.index') }}">{{ __('I tuoi Ordini') }}</a></span>
+                                                    href="{{ route('user.orders.index') }}">{{ __('I tuoi Ordini') }}</a></span>
                                         </button>
                                     </li>
                                     <li>
@@ -126,7 +127,7 @@
                                             <span><a class="dropdown-item" href="{{ route('logout') }}"
                                                     onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
-                                                    {{ __('Logout') }}
+                                                    {{ __('Disconnetti') }}
                                                 </a></span>
                                         </button>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST"
