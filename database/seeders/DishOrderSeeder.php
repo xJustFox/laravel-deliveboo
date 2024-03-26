@@ -29,7 +29,7 @@ class DishOrderSeeder extends Seeder
             $order = Order::find($faker->randomElement($orderIds));
             
             // Utilizza il metodo attach per collegare il piatto all'ordine
-            $order->dish()->attach($dish, ['quantity' => $faker->numberBetween(1, 5)]);
+            $order->dishes()->attach($dish, ['quantity' => $faker->numberBetween(1, 5)]);
         }
     }
 }
