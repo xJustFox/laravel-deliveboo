@@ -64,7 +64,7 @@ class RegisteredUserController extends Controller
             
             'main_image.required' => 'Il campo Immagine di Copertina è obbligatorio.',
             
-            'typology_id.required' => 'Il campo Tipologia Ristorante è obbligatorio.'
+            'typologies.required' => 'Il campo Tipologia Ristorante è obbligatorio.'
         ];
         
         $request->validate([

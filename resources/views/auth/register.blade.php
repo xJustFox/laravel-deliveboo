@@ -77,7 +77,7 @@
                             <div class="col-md-6 mb-2">
                                 <label for="typology_id" class="col-form-label text-white">Tipologia Ristorante:</label>
                                 <div class="btn-group w-100" id="typology_id">
-                                    <button class="form-control form-control-sm my-form d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
+                                    <button class="form-control form-control-sm my-form d-flex justify-content-between align-items-center @error('typologies') is-invalid @enderror" type="button" data-bs-toggle="dropdown" data-bs-auto-close="false" aria-expanded="false">
                                       Scegli una tipologia...
                                       <i class="fa-solid fa-chevron-down"></i>
                                     </button>
@@ -88,14 +88,15 @@
                                             <label class="form-check-label" for="typologies[]">
                                                 {{ $typology->name }}
                                             </label>
+                                        </li>
                                         @endforeach
                                     </ul>
                                 </div>
-                                @error('typology_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror 
+                                @error('typologies')
+                                <span class=" text-danger fs-6" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
                             </div>
 
                             <div class="col-md-6 mb-2">
