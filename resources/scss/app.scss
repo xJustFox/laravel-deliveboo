@@ -480,7 +480,7 @@ header {
       }
     }
 
-    .req_fields{
+    .req_fields {
       font-size: 14px;
     }
   }
@@ -842,13 +842,14 @@ header {
     background-color: transparent;
     color: #fff;
     text-align: center;
+    vertical-align: middle;
   }
 
   select {
     background-color: #18181800;
     margin-right: 5px;
 
-    option{
+    option {
       background-color: #181818c8;
     }
   }
