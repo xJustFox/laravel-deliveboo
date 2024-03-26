@@ -72,7 +72,7 @@
                                 <label for="restaurantName"
                                 class="col-form-label text-white">{{ __('Nome Ristorante *') }}</label>
                                 <input id="restaurantName" type="text"
-                                    class="form-control form-control-sm my-form @error('restaurantName') is-invalid @enderror"
+                                    class="form-control form-control-sm my-form @error('restaurantName') is-invalid @enderror" minlength="3" maxlength="100"
                                     name="restaurantName" value="{{ old('restaurantName') }}" required
                                     autocomplete="restaurantName">
 
@@ -113,7 +113,7 @@
                             <div class="col-md-6 mb-2">
                                 <label for="address" class="col-form-label text-white">{{ __('Indirizzo *') }}</label>
                                 <input id="address" type="text"
-                                    class="form-control form-control-sm my-form @error('address') is-invalid @enderror"
+                                    class="form-control form-control-sm my-form @error('address') is-invalid @enderror" minlength="4" maxlength="20"
                                     name="address" value="{{ old('address') }}" required autocomplete="address">
 
                                 @error('address')
@@ -127,7 +127,7 @@
                             <div class="col-md-6 mb-2">
                                 <label for="p_iva" class="col-form-label text-white">{{ __('Partita IVA *') }}</label>
                                 <input id="p_iva" type="text"
-                                    class="form-control form-control-sm my-form @error('p_iva') is-invalid @enderror"
+                                    class="form-control form-control-sm my-form @error('p_iva') is-invalid @enderror" minlength="11" maxlength="11"
                                     name="p_iva" value="{{ old('p_iva') }}" required autocomplete="p_iva">
 
                                 @error('p_iva')

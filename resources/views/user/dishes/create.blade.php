@@ -32,7 +32,7 @@
                                         <label for="name" class="form-label text-white">Nome: *</label>
                                         <input name="name" type="text" class="form-control form-control-sm my-form"
                                             id="name" placeholder="Inserisci il nome del piatto..."
-                                            value="{{ old('name') }}" required>
+                                            value="{{ old('name') }}" maxlength="100" required>
                                         @error('name')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -101,7 +101,7 @@
                                     {{-- Sezione label per inserimento della descrizione --}}
                                     <div class="col-12 mb-2">
                                         <label for="description" class="form-label text-white">Descrizione: *</label>
-                                        <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..." id="description" style="height: 100px" required>{{ old('description') }}</textarea>
+                                        <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..." id="description" style="height: 100px" maxlength="300" required>{{ old('description') }}</textarea>
                                         @error('description')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
