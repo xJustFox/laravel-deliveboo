@@ -13,7 +13,25 @@
                         <p>Indirizzo Email: {{ $order->email }}</p>
                         <p>Indirizzo di consegna: {{ $order->delivery_address }}</p>
                         <p>Numero di telefono: {{ $order->phone_num }}</p>
-                        <p>Piatti ordinati: </p>
+                        <p>Piatti ordinati: <br>
+                            <div class="d-flex">
+                                @foreach ($order->dishes as $dish)
+                                <div class="card" style="width: 18rem;">
+                                    <div class="row w-100 align-items-center">
+                                        <div class="col-5">
+                                            <img class="img-fluid" src="{{ $dish->image }}" alt="{{$dish->name}}">
+                                        </div>
+                                        <div class="col-7">
+                                          <h5 class="card-title text-white">{{$dish->name}}</h5>
+                                          <div class="text-end text-white">
+                                            x{{$dish->pivot->quantity}}
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </p>
                         <p>Quantità: </p>
                         <p>Prezzo: {{ $order->price }}$</p>
                         <p>Status: </p>

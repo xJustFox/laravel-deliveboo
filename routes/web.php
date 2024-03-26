@@ -32,7 +32,7 @@ Route::middleware(['auth', 'verified'])
             Route::get('/error-404', [ErrorController::class, 'index'])->name('error');
             Route::resource('/restaurant', RestaurantController::class)->parameters(['restaurants' => 'restaurant:slug']);
             Route::resource('/dishes', DishController::class)->parameters(['dishes' => 'dish:slug']);
-            Route::resource('/orders', OrderController::class)->parameters(['orders' => 'order:slug']);
+            Route::resource('/orders', OrderController::class)->parameters(['orders' => 'order:id']);
         });
 
 Route::middleware('auth')->group(function () {

@@ -30,7 +30,7 @@
                                         <td>{{ $order->price }} $</td>
                                         <td>
                                             <a class="btn btn-sm text-decoration-none"
-                                                href="{{ route('user.orders.show', $order->slug) }}">
+                                                href="{{ route('user.orders.show', $order->id) }}">
                                                 <i class="fa-solid fa-eye"></i>
                                             </a>
                                         </td>

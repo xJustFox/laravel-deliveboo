@@ -19,9 +19,9 @@ class Order extends Model
         'price',
     ];
 
-    public function dish()
+    public function dishes()
     {
-        return $this->belongsToMany(Dish::class);
+        return $this->belongsToMany(Dish::class)->withPivot('quantity');
     }
 
     public function restaurant()
