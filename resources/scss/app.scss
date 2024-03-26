@@ -15,7 +15,7 @@ body {
   font-family: "Chicle", serif;
 }
 
-.bg-blur{
+.bg-blur {
   backdrop-filter: blur(25px);
   background-color: rgba(255, 255, 255, 0.05);
 }
@@ -456,21 +456,22 @@ header {
       background-color: #181818;
       color: white;
 
-      li{
+      li {
         &:hover {
           background-color: #777 !important;
         }
 
-        input{
+        input {
           border: 1px solid #DA643F !important;
           background-color: transparent;
           vertical-align: middle;
           margin: 0;
           margin-right: 5px;
 
-          &:hover{
+          &:hover {
             cursor: pointer;
           }
+
           &:focus {
             box-shadow: none;
             border-color: #E1B137;
@@ -650,29 +651,29 @@ header {
 }
 
 // MENU PAGE
-#menu-page{
-.btn {
-  color: white;
-  font-size: medium;
-  background-color: #DA643F;
-  border: 1px transparent;
+#menu-page {
+  .btn {
+    color: white;
+    font-size: medium;
+    background-color: #DA643F;
+    border: 1px transparent;
 
-  i{
-    vertical-align: middle;
-  }
+    i {
+      vertical-align: middle;
+    }
 
-  &:hover {
+    &:hover {
       color: #DA643F;
       background-color: white;
     }
-}
+  }
 
-.card {
-  backdrop-filter: blur(25px);
-  background-color: rgba(255, 255, 255, 0.05);
-  color: #fff;
-  margin-bottom: 30px;
-}
+  .card {
+    backdrop-filter: blur(25px);
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    margin-bottom: 30px;
+  }
 }
 
 // ADD DISH PAGE
@@ -761,30 +762,33 @@ header {
 }
 
 // UPDATE PROFILE INFORMATION
-#update-profile{
-  .form-control, .form-select {
-      border: 1px solid #DA643F;
+#update-profile {
+
+  .form-control,
+  .form-select {
+    border: 1px solid #DA643F;
+    background-color: transparent;
+    color: white;
+
+    &:focus,
+    &:focus {
+      box-shadow: none;
+      border-color: #da643f;
       background-color: transparent;
       color: white;
-
-      &:focus, &:focus {
-          box-shadow: none;
-          border-color: #da643f;
-          background-color: transparent;
-          color: white;
-      }
+    }
   }
-  
+
   button.btn {
-      color: white;
-      font-size: medium;
-      background-color: #DA643F;
-      border: 1px transparent;
-  
-      &:hover {
-          color: #DA643F;
-          background-color: white;
-        }
+    color: white;
+    font-size: medium;
+    background-color: #DA643F;
+    border: 1px transparent;
+
+    &:hover {
+      color: #DA643F;
+      background-color: white;
+    }
   }
 
 }
@@ -802,23 +806,41 @@ header {
 
   .table-transparent {
     background-color: transparent;
+
+    .btn {
+      color: white;
+      font-size: medium;
+      background-color: #DA643F;
+      border: 1px transparent;
+
+      i {
+        vertical-align: middle;
+      }
+
+      &:hover {
+        color: #DA643F;
+        background-color: white;
+      }
+    }
   }
 
   .table-transparent thead th {
     background-color: transparent;
     color: #fff;
+    text-align: left;
   }
 
   .table-transparent tbody td {
     background-color: transparent;
     color: #fff;
+    text-align: center;
   }
 
-  select{
+  select {
     background-color: #18181800;
     margin-right: 5px;
-    
-    option{
+
+    option {
       background-color: #181818c8;
     }
   }
@@ -827,36 +849,37 @@ header {
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 576px) {
-    header .popup-window {
-        top: 45px;
-        left: -77px;
-    }
+  header .popup-window {
+    top: 45px;
+    left: -77px;
+  }
 
-    h1.display-5.fw-bold.super-ocean.text-white {
-        font-size: 38px;
-        text-align: center;
+  h1.display-5.fw-bold.super-ocean.text-white {
+    font-size: 38px;
+    text-align: center;
 
-    }
-    p.col-md-8.pt-2.text-lightgray {
-        text-align: center;
-    }
+  }
+
+  p.col-md-8.pt-2.text-lightgray {
+    text-align: center;
+  }
 }
 
-@media screen and (max-width: 767px){
-    #restaurants-page .card .info-restaurant {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+@media screen and (max-width: 767px) {
+  #restaurants-page .card .info-restaurant {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 991px) {
-    h1.display-5.fw-bold.super-ocean.text-white {
-        font-size: 45px;
-        text-align: center;
-    }
+  h1.display-5.fw-bold.super-ocean.text-white {
+    font-size: 45px;
+    text-align: center;
+  }
 
-    p.col-lg-5.pt-2.text-lightgray {
-        text-align: center;
-    }
+  p.col-lg-5.pt-2.text-lightgray {
+    text-align: center;
+  }
 }
