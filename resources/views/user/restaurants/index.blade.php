@@ -9,21 +9,12 @@
                         <div class="card-header text-white super-ocean d-flex justify-content-between align-items-center">
                             {{ $restaurant->name }}
                             <div class="d-flex align-items-center flex-column flex-md-row">
-                                <div class="pe-0 pe-md-2">
-                                    <a class="btn btn-sm text-decoration-none" href="{{ route('user.dishes.index') }}">
-                                        <div class="d-none d-md-block">
-                                            Menù del Ristorante
-                                        </div>
-                                        <i class="fa-solid fa-utensils d-md-none"></i>
-                                    </a>
-                                </div>
-                                <div>
-                                    {{-- Alla creazione dell'user.restaurant.edit de-commentare qua sotto ed eliminare l'alto tag --}}
-                                    {{-- <a class="btn btn-sm text-decoration-none" href="{{ route('user.dishes.edit') }}"><i class="fa-solid fa-pen-to-square"></i></a> --}}
-                                    <a class="btn btn-sm text-decoration-none"
-                                        href="{{ route('user.restaurant.index') }}"><i
-                                            class="fa-solid fa-pen-to-square"></i></a>
-                                </div>
+                                <a class="btn btn-sm text-decoration-none" href="{{ route('user.dishes.index') }}">
+                                    <div class="d-none d-md-block">
+                                        Menù del Ristorante
+                                    </div>
+                                    <i class="fa-solid fa-utensils d-md-none"></i>
+                                </a>
                             </div>
                         </div>
 
