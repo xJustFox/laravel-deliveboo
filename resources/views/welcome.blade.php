@@ -14,7 +14,7 @@
                         <div class="text-center text-white">
                             <img class="img-fluid" src="./img/Logo.png" alt="">
                             <h1 class="super-ocean mt-5 mb-3">Benvenuto su <span class="txt-orange title">Delive</span><span class="txt-gold title">Boo</span></h1>
-                            <p>Qui puoi gestire, modificare e creare i tuoi ristornanti con il relativo menù. hai a disposizione una dashboard per controllare l'andamento del tuo ristorante e dei singoli piatti.</p>
+                            <h5 class="mt-5 subtitle">Qui puoi gestire, modificare e creare i tuoi ristornanti con il relativo menù. hai a disposizione una dashboard per controllare l'andamento del tuo ristorante e dei singoli piatti.</h5>
                         </div>
                     </div>
                 </section>
@@ -27,7 +27,7 @@
                 </div>
                 <div class="col-sm-12 col-md-6 section_margin">
                     <div class="text-white">
-                        <h4>Grafici interattivi: prendi il controllo del tuo ristorante con DeliveBoo</h4>
+                        <h4>Grafici interattivi: prendi il controllo del tuo ristorante con <span class="txt-orange">Delive</span><span class="txt-gold">Boo</span></h4>
                         <p>Con i grafici interattivi di DeliveBoo, hai una finestra cristallina sul tuo ristorante. Monitora vendite, clienti, tempi di attesa e altro ancora, prendendo decisioni informate per ottimizzare il tuo business.</p>
                         <p>DeliveBoo ti aiuta a:</p>
                         <p><i class="fas fa-chart-line me-2"></i>Controllare il tuo ristorante</p>
@@ -38,11 +38,11 @@
 
                 {{-- Sezione indicativa sul funzionamento --}}
                 <div class="col-12">
-                    <div class="text-white text-center">
-                        <h4>Cosa fa DeliveBoo?</h4>
+                    <div class="text-white text-center my-5">
+                        <h4>Cosa fa <span class="txt-orange">Delive</span><span class="txt-gold">Boo?</span></h4></h4>
                     </div>
                 </div>
-                <div class="col-12 d-flex justify-content-center">
+                <div class="col-sm-12 col-md-6">
                     <div class="card text-white bg-blur text-center py-4 m-4">
                         <div class="card-body">
                             <i class="fas fa-utensils fs-1"></i>
@@ -50,6 +50,8 @@
                             <p>Gestisci i piatti del tuo ristorante</p>
                         </div>
                     </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
                     <div class="card text-white bg-blur text-center py-4 m-4">
                         <div class="card-body">
                             <i class="fas fa-users fs-1"></i>
@@ -58,12 +60,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 d-flex justify-content-center">
-                    <div class="card text-white bg-blur text-center py-4">
-                        <div class="card-body">
-                            <i class="fas fa-clock fs-1"></i>
-                            <h6 class="card-title mt-3">Ordini</h6>
-                            <p>Gestisci gli ordini del tuo ristorante</p>
+                <div class="col-12 justify-content-center d-flex">
+                    <div class="col-12 col-md-6 text-center">
+                        <div class="card text-white bg-blur text-center py-4 m-4">
+                            <div class="card-body">
+                                <i class="fas fa-clock fs-1"></i>
+                                <h6 class="card-title mt-3">Ordini</h6>
+                                <p>Gestisci gli ordini del tuo ristorante</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -71,7 +75,7 @@
                 {{-- Sezione grafici profitti  --}}
                 <div class="col-sm-12 col-md-6 section_margin">
                     <div class="text-white">
-                        <h4>Come DeliveBoo aumenta i tuoi profitti</h4>
+                        <h4>Come <span class="txt-orange">Delive</span><span class="txt-gold">Boo</span></h4> aumenta i tuoi profitti</h4>
                         <p>Deliveboo è la piattaforma di food delivery più innovativa e conveniente sul mercato, progettata per aumentare i profitti del tuo ristorante in modo significativo rispetto ai concorrenti.</p>
                         <p>Ecco alcuni dei modi in cui DeliveBoo ti aiuta a massimizzare le tue entrate:</p>
                         <p><i class="fas fa-users me-2 txt-gold"></i><span class="txt-gold">Ampio bacino di utenti:</span> DeliveBoo vanta una base di clienti in continua crescita, entusiasta di ordinare cibo online. Il tuo ristorante sarà presente sulla nostra piattaforma, raggiungendo un pubblico più ampio e aumentando le tue possibilità di ricevere ordini.</p>

@@ -334,8 +334,24 @@ header {
 
 // HOMEPAGE
 #homepage{
-  .title{
+  h1{
     font-size: 60px;
+  }
+
+  h4{
+    font-size: 35px;
+  }
+
+  p{
+    font-size: 18px;
+  }
+
+  .title{
+    font-size: 75px;
+  }
+
+  .subtitle{
+    font-size: 22px;
   }
 
   .section_margin{
