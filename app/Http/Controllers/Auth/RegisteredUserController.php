@@ -15,6 +15,7 @@ use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
 use App\Models\Typology;
+use Illuminate\Support\Facades\Storage;
 
 class RegisteredUserController extends Controller
 {
@@ -63,6 +64,9 @@ class RegisteredUserController extends Controller
             'p_iva.max' => 'Il campo Partita IVA non può superare 11 caratteri.',
             
             'main_image.required' => 'Il campo Immagine di Copertina è obbligatorio.',
+            'main_image.image' => 'Il file caricato deve essere un\'immagine.',
+            'main_image.mimes' => 'Il file deve essere un\'immagine di tipo: jpeg, png, jpg o gif.',
+            'main_image.max' => 'La dimensione massima dell\'immagine consentita è 2048 KB.',
             
             'typologies.required' => 'Il campo Tipologia Ristorante è obbligatorio.'
         ];
@@ -76,7 +80,7 @@ class RegisteredUserController extends Controller
             'restaurantName' => ['required', 'string', 'max:100'],
             'address' => ['required', 'string', 'max:100'],
             'p_iva' => ['required', 'string', 'max:11'],
-            'main_image' => ['required'],
+            'main_image' => ['required', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
             'typologies' => ['required']
         ], $customMessages);
         
@@ -94,17 +98,33 @@ class RegisteredUserController extends Controller
         // recupero l'id dell'user che si è appena registrato e lo assegno a $user_id
         $user_id = User::where('email', $user->email)->get();
         $user_id = $user_id[0]->id;
+
+        $form_data = $request->only(['restaurantName', 'address', 'p_iva', 'main_image']);
+
+        $restaurant = new Restaurant();
         
-        // creo il record del ristorante dell'utente appena registrato
-        $restaurant = Restaurant::create([
-            'user_id' => $user_id,
-            'name' => $request->restaurantName,
-            'slug' => Str::slug($request->restaurantName),
-            'address' => $request->address,
-            'p_iva' => $request->p_iva,
-            'main_image' => $request->main_image,
-        ]);
+        if ($request->hasFile('main_image')) {
+            $image = Storage::disk('public')->put('restaurant_images', $form_data['main_image']);
+            $form_data['main_image'] = $image;
+        }
+
+        $restaurant->fill($form_data);
+        $restaurant->name = $form_data['restaurantName'];
+        $restaurant->slug = Str::slug($restaurant->name . '-');
+        $restaurant->user_id = $user_id;
+
         $restaurant->save();
+
+        // creo il record del ristorante dell'utente appena registrato
+        // $restaurant = Restaurant::create([
+        //     'user_id' => $user_id,
+        //     'name' => $request->restaurantName,
+        //     'slug' => Str::slug($request->restaurantName),
+        //     'address' => $request->address,
+        //     'p_iva' => $request->p_iva,
+        //     'main_image' => $image
+        // ]);
+        // $restaurant->save();
         
         // assegno le tipologie del ristorante
         if ($request->has('typologies')) {
