@@ -855,7 +855,7 @@ header {
   }
 }
 
-#error-page{
+#error-page {
   height: calc(100vh - 66.5px);
 
 }
@@ -884,6 +884,10 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  #col-email {
+    display: none;
   }
 }
 

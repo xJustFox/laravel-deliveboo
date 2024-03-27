@@ -96,13 +96,15 @@
                                     {{-- Sezione label per la modifica immagine --}}
                                     <div class="col-12 mb-2">
                                         <label for="image" class="form-label text-white">Immagine: *</label>
-                                        <input type="text" name="image" id="image" class="form-control form-control-sm my-form" value="{{ $dish->image }}">
+                                        <input type="file" name="image" id="image"
+                                            class="form-control form-control-sm my-form" value="{{ old('image') }}">
                                     </div>
 
                                     {{-- Sezione label per la modifica della descrizione --}}
                                     <div class="col-12 mb-2">
                                         <label for="description" class="form-label text-white">Descrizione: *</label>
-                                        <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..." id="description" style="height: 100px" maxlength="300" required>{{ $dish->description }}</textarea>
+                                        <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..."
+                                            id="description" style="height: 100px" maxlength="300" required>{{ $dish->description }}</textarea>
                                         @error('description')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -110,12 +112,14 @@
 
                                     {{-- Campi obbligatori --}}
                                     <div class="col-md-8 col-xs-12 d-flex align-items-end text-light py-2 ">
-                                        <span class="fst-italic fw-light text-decoration-underline req_fields">{{__('Sono contrassegnati con * i campi obbligatori')}}</span>
+                                        <span
+                                            class="fst-italic fw-light text-decoration-underline req_fields">{{ __('Sono contrassegnati con * i campi obbligatori') }}</span>
                                     </div>
 
                                     {{-- Pulsante submit --}}
                                     <div class="text-center col-md-4 col-xs-12 d-flex justify-content-end py-2">
-                                        <button type="submit" value="Submit" class="btn btn-sm btn-primary float-end">Aggiungi</button>
+                                        <button type="submit" value="Submit"
+                                            class="btn btn-sm btn-primary float-end">Aggiungi</button>
                                     </div>
                                 </form>
                             </div>
