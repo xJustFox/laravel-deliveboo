@@ -15,7 +15,7 @@
                             <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Email</th>
+                                    <th id="col-email">Email</th>
                                     <th>Status</th>
                                     <th>Prezzo</th>
                                     <th>Strumenti</th>
@@ -25,7 +25,7 @@
                                 @foreach ($orders as $order)
                                     <tr>
                                         <td>{{ $order->id }}</td>
-                                        <td>{{ $order->email }}</td>
+                                        <td id="col-email">{{ $order->email }}</td>
                                         <td></td>
                                         <td>{{ $order->price }} $</td>
                                         <td>
