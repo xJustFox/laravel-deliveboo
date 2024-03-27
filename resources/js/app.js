@@ -230,5 +230,3 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Validazione dei dati del form di Login
-
