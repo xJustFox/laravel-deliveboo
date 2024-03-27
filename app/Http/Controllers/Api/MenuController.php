@@ -12,7 +12,9 @@ class MenuController extends Controller
     {
         $dishes = Dish::whereHas('restaurant', function ($query) use ($slug) {
             $query->where('slug', $slug);
-        })->get();
+        })
+        ->where('visible', 1)
+        ->get();
 
         return response()->json([
             'succes' => true,
