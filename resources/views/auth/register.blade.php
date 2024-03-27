@@ -140,7 +140,11 @@
                             {{-- Sezione immagine di copertina --}}
                             <div class="col-md-12 mb-3">
                                 <label for="main_image" class="col-form-label text-white">{{ __('Immagine di copertina *') }}</label>
+                                
+                                <div class="input-group custom-file-button">
+                                    <label class="input-group-text p-0 px-2 my-form" for="main_image">Scegli file</label>
                                     <input type="file" name="main_image" id="main_image" class="form-control form-control-sm my-form" required>
+                                </div>
 
                                 @error('main_image')
                                     <span class="text-danger fs-6" role="alert">

@@ -114,17 +114,6 @@ class RegisteredUserController extends Controller
         $restaurant->user_id = $user_id;
 
         $restaurant->save();
-
-        // creo il record del ristorante dell'utente appena registrato
-        // $restaurant = Restaurant::create([
-        //     'user_id' => $user_id,
-        //     'name' => $request->restaurantName,
-        //     'slug' => Str::slug($request->restaurantName),
-        //     'address' => $request->address,
-        //     'p_iva' => $request->p_iva,
-        //     'main_image' => $image
-        // ]);
-        // $restaurant->save();
         
         // assegno le tipologie del ristorante
         if ($request->has('typologies')) {
