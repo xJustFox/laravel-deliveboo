@@ -94,9 +94,15 @@
 
                                     {{-- Sezione label per inserimento immagine --}}
                                     <div class="col-12 mb-2">
-                                        <label for="image" class="form-label text-white">Immagine: *</label>
+                                        <label for="image" class="form-label text-white">Immagine: </label>
                                         <input type="file" name="image" id="image"
                                             class="form-control form-control-sm my-form" value="{{ old('image') }}">
+
+                                        @error('image')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
 
                                     {{-- Sezione label per inserimento della descrizione --}}

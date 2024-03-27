@@ -66,8 +66,9 @@ class DishController extends Controller
         // Creo una nuova istanza di dish per salvarla nel database
         $dish = new Dish();
 
+        // Assegno l'immagine 
         if ($request->hasFile('image')) {
-            $img = Storage::disk('public')->put('images', $form_data['image']);
+            $img = Storage::disk('public')->put('dish_images', $form_data['image']);
             $form_data['image'] = $img;
         }
 
@@ -148,7 +149,7 @@ class DishController extends Controller
                 Storage::disk('public')->delete($dish->image);
             }
 
-            $img = Storage::disk('public')->put('images', $form_data['image']);
+            $img = Storage::disk('public')->put('dish_images', $form_data['image']);
             $form_data['image'] = $img;
         }
 

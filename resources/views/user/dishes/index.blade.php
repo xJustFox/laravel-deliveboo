@@ -66,8 +66,19 @@
                                         </div>
 
                                         <div class="col-12 col-sm-4 order-0 order-sm-1">
-                                            <img src="{{ asset('/storage/' . $dish->image) }}" alt="{{ $dish->name }}"
-                                                class="w-100">
+                                            @if ($dish->image != null)
+                                                @if (Str::contains($dish->image, 'https'))
+                                                    <img src="{{ $dish->image }}" alt="{{ $dish->name }}"
+                                                        class="img-fluid h-100 w-100">
+                                                @else
+                                                    <img src="{{ asset('/storage/' . $dish->image) }}"
+                                                        alt="{{ $dish->name }}" class="img-fluid h-100 w-100">
+                                                @endif
+                                            @else
+                                                <img class="img-fluid h-100 w-100"
+                                                    src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg"
+                                                    alt="">
+                                            @endif
                                         </div>
                                     </div>
 
