@@ -3,23 +3,32 @@
 @section('body-class', 'homepage')
 
 @section('content')
-    <div class="p-3 pb-lg-5 mb-4 rounded-3">
-        <div class="container-fluid px-3 py-5">
-            <div class="row">
-                <div class="col-lg-7">
-                    <h1 class="display-5 fw-bold super-ocean text-white">
-                        Mangia con passione, comodamente a casa:
-                        la tua felicità in ogni piatto
-                    </h1>
 
-                    <p class="col-lg-5 pt-2 text-lightgray">
-                        Gusti autentici, comodamente a portata di click. Vivere bene non è mai stato così facile!
-                    </p>
+    <section id="homepage">
+        <div class="container">
+            <div class="row">
+
+                {{-- Sezione benvenuto --}}
+                <div class="col-12">
+                    <div class="text-center text-white mt-5">
+                        <img class="img-fluid" src="./img/Logo.png" alt="">
+                        <h1 class="super-ocean mt-5 mb-3">Benvenuto su <span class="txt-orange title">Delive</span><span class="txt-gold title">Boo</span></h1>
+                        <p>Qui puoi gestire, modificare e creare i tuoi ristornanti con il relativo menù. hai a disposizione una dashboard per controllare l'andamento del tuo ristorante e dei singoli piatti.</p>
+                    </div>
                 </div>
-                <div class="col-lg-5 d-flex justify-content-center aling-items-center">
-                    <img class="w-lg-50 w-100" src="./img/hamburger-jumbotron.png" alt="">
+
+                {{-- Sezione esposizione dei grafici --}}
+                <div class="col-6">
+                    <div class="text-center text-white">
+                        AAA
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-center text-white">
+                        
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection
