@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\GenresController;
 use App\Http\Controllers\Api\MenuController;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\TypologyController;
@@ -22,6 +23,8 @@ Route::get('/restaurants/{slug}', [RestaurantController::class, 'show']);
 Route::get('/restaurants/typologies/{slug}', [RestaurantController::class, 'typology_restaurants']);
 
 Route::get('/typologies', [TypologyController::class, 'index']);
+
+Route::get('/genres', [GenresController::class, 'index']);
 
 Route::get('/menu/{slug}', [MenuController::class, 'index']);
 
