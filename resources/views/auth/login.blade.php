@@ -57,12 +57,6 @@
                                         {{ __('Ricordami') }}
                                     </span>
 
-
-                                    {{-- <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember"
-                                            {{ old('remember') ? 'checked' : '' }}>
-
-                                    </div> --}}
                                 </div>
                             </div>
 

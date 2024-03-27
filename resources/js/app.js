@@ -134,3 +134,101 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Validazione dei dati del form di Registrazione
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+        let name = document.getElementById('name').value;
+        let email = document.getElementById('email').value;
+        let password = document.getElementById('password').value;
+        let passwordConfirm = document.getElementById('password-confirm').value;
+        let restaurantName = document.getElementById('restaurantName').value;
+        let address = document.getElementById('address').value;
+        let pIva = document.getElementById('p_iva').value;
+        let mainImage = document.getElementById('main_image').value;
+        let typologies = document.querySelectorAll('input[name="typologies[]"]:checked').length;
+
+        // Validazione del nome e cognome
+        if (!name) {
+            document.getElementById('name-error').innerText = 'Il campo Nome e Cognome è obbligatorio.';
+            event.preventDefault();
+        } else if (name.length > 255) {
+            document.getElementById('name-error').innerText = 'Il campo Nome e Cognome non può superare 255 caratteri.';
+            event.preventDefault();
+        } else {
+            document.getElementById('name-error').innerText = '';
+        }
+
+        // Validazione dell'email
+        if (!email) {
+            document.getElementById('email-error').innerText = 'Il campo Indirizzo E-Mail è obbligatorio.';
+            event.preventDefault();
+        } else {
+            document.getElementById('email-error').innerText = '';
+        }
+
+        // Validazione della password
+        if (!password) {
+            document.getElementById('password-error').innerText = 'Il campo Password è obbligatorio.';
+            event.preventDefault();
+        } else if (password !== passwordConfirm) {
+            document.getElementById('password-error').innerText = 'La conferma della password non corrisponde.';
+            event.preventDefault();
+        } else {
+            document.getElementById('password-error').innerText = '';
+        }
+
+        // Validazione del nome del ristorante
+        if (!restaurantName) {
+            document.getElementById('restaurantName-error').innerText = 'Il campo Nome Ristorante è obbligatorio.';
+            event.preventDefault();
+        } else if (restaurantName.length > 100) {
+            document.getElementById('restaurantName-error').innerText = 'Il campo Nome Ristorante non può superare 100 caratteri.';
+            event.preventDefault();
+        } else {
+            document.getElementById('restaurantName-error').innerText = '';
+        }
+
+        // Validazione dell'indirizzo
+        if (!address) {
+            document.getElementById('address-error').innerText = 'Il campo Indirizzo è obbligatorio.';
+            event.preventDefault();
+        } else if (address.length > 100) {
+            document.getElementById('address-error').innerText = 'Il campo Indirizzo non può superare 100 caratteri.';
+            event.preventDefault();
+        } else {
+            document.getElementById('address-error').innerText = '';
+        }
+
+        // Validazione della Partita IVA
+        if (!pIva) {
+            document.getElementById('p_iva-error').innerText = 'Il campo Partita IVA è obbligatorio.';
+            event.preventDefault();
+        } else if (pIva.length !== 11) {
+            document.getElementById('p_iva-error').innerText = 'Il campo Partita IVA deve essere composto da 11 caratteri.';
+            event.preventDefault();
+        } else {
+            document.getElementById('p_iva-error').innerText = '';
+        }
+
+        // Validazione dell'immagine di copertina
+        if (!mainImage) {
+            document.getElementById('main_image-error').innerText = 'Il campo Immagine di Copertina è obbligatorio.';
+            event.preventDefault();
+        } else {
+            document.getElementById('main_image-error').innerText = '';
+        }
+
+        // Validazione delle tipologie di ristorante
+        if (typologies === 0) {
+            document.getElementById('typologies-error').innerText = 'È necessario selezionare almeno una tipologia di ristorante.';
+            event.preventDefault();
+        } else {
+            document.getElementById('typologies-error').innerText = '';
+        }
+
+    });
+});
+
+// Validazione dei dati del form di Login
+

@@ -13,7 +13,7 @@
 
                     {{-- Body form registrazione --}}
                     <div class="card-body">
-                        <form class="row" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                        <form class="row" id="registration-form" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             {{-- Sezione nome e cognome --}}
@@ -23,6 +23,7 @@
                                     class="form-control form-control-sm my-form @error('name') is-invalid @enderror"
                                     name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
+                                <span class="text-danger" id="name-error"></span>
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -37,6 +38,7 @@
                                     class="form-control form-control-sm my-form @error('email') is-invalid @enderror"
                                     name="email" value="{{ old('email') }}" required autocomplete="email">
 
+                                <span class="text-danger" id="email-error"></span>
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -51,6 +53,7 @@
                                     class="form-control form-control-sm my-form @error('password') is-invalid @enderror"
                                     name="password" required autocomplete="new-password">
 
+                                <span class="text-danger" id="password-error"></span>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -76,13 +79,14 @@
                                     name="restaurantName" value="{{ old('restaurantName') }}" required
                                     autocomplete="restaurantName">
 
+                                <span class="text-danger" id="restaurantName-error"></span>
                                 @error('restaurantName')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-
+                            
                             {{-- Sezione tipologia ristorante --}}
                             <div class="col-md-6 mb-2">
                                 <label for="typology_id" class="col-form-label text-white">Tipologia Ristorante: *</label>
@@ -102,6 +106,8 @@
                                         @endforeach
                                     </ul>
                                 </div>
+
+                                <span class="text-danger" id="typologies-error"></span>
                                 @error('typologies')
                                 <span class=" text-danger fs-6" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -116,6 +122,7 @@
                                     class="form-control form-control-sm my-form @error('address') is-invalid @enderror" minlength="4" maxlength="20"
                                     name="address" value="{{ old('address') }}" required autocomplete="address">
 
+                                <span class="text-danger" id="address-error"></span>
                                 @error('address')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -130,6 +137,7 @@
                                     class="form-control form-control-sm my-form @error('p_iva') is-invalid @enderror" minlength="11" maxlength="11"
                                     name="p_iva" value="{{ old('p_iva') }}" required autocomplete="p_iva">
 
+                                <span class="text-danger" id="p_iva-error"></span>
                                 @error('p_iva')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -146,6 +154,7 @@
                                     <input type="file" name="main_image" id="main_image" class="form-control form-control-sm my-form" required>
                                 </div>
 
+                                <span class="text-danger" id="main_image-error"></span>
                                 @error('main_image')
                                     <span class="text-danger fs-6" role="alert">
                                         <strong>{{ $message }}</strong>
