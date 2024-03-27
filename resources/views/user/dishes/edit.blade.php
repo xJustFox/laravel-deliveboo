@@ -23,7 +23,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-12">
-                                <form class="row g-2" action="{{ route('user.dishes.update', $dish->slug) }}" method="POST"
+                                <form id="dish-form" class="row g-2" action="{{ route('user.dishes.update', $dish->slug) }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf
                                     @method('PUT')
@@ -34,6 +34,7 @@
                                         <input name="name" type="text" class="form-control form-control-sm my-form"
                                             id="name" placeholder="Inserisci il nome del piatto..."
                                             value="{{ $dish->name }}" maxlength="100" required>
+                                        <span class="error-message text-danger" id="name-error"></span>
                                         @error('name')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -54,6 +55,7 @@
                                                 @endforeach
                                             </select>
                                         </div>
+                                        <span class="error-message text-danger" id="genre-error"></span>
                                         @error('genre_id')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -69,6 +71,7 @@
                                                 aria-label="Amount (to the nearest euro)" value="{{ $dish->price }}"
                                                 required>
                                         </div>
+                                        <span class="error-message text-danger" id="price-error"></span>
                                         @error('price')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -88,6 +91,7 @@
                                                     Disponibile</option>
                                             </select>
                                         </div>
+                                        <span class="error-message text-danger" id="visible-error"></span>
                                         @error('visible')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
@@ -101,6 +105,7 @@
                                             <input type="file" name="image" id="image" class="form-control form-control-sm my-form">
                                         </div>
 
+                                        <span class="error-message text-danger" id="image-error"></span>
                                         @error('image')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
@@ -113,6 +118,7 @@
                                         <label for="description" class="form-label text-white">Descrizione: *</label>
                                         <textarea name="description" class="form-control form-control-sm my-form" placeholder="Aggiungi una descrizione..."
                                             id="description" style="height: 100px" maxlength="300" required>{{ $dish->description }}</textarea>
+                                        <span class="error-message text-danger" id="description-error"></span>
                                         @error('description')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror

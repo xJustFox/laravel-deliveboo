@@ -61,3 +61,76 @@ let orders_table = new DataTable('#orders-table', {
         },
     ]
 })
+
+// Validazione dei dati del form dei Dish
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('dish-form').addEventListener('submit', function(event) {
+        let name = document.getElementById('name').value;
+        let genreId = document.getElementById('genre_id').value;
+        let price = document.getElementById('price').value;
+        let visible = document.getElementById('visible').value;
+        let image = document.getElementById('image').value;
+        let description = document.getElementById('description').value;
+
+        // Validazione del nome
+        if (!name) {
+            document.getElementById('name-error').innerText = 'Il campo nome è obbligatorio.';
+            event.preventDefault();
+        } else if (name.length > 100) {
+            document.getElementById('name-error').innerText = 'Il campo nome non può superare i 100 caratteri.';
+            event.preventDefault();
+        } else {
+            document.getElementById('name-error').innerText = '';
+        }
+
+        // Validazione del genere
+        if (!genreId) {
+            document.getElementById('genre-error').innerText = 'Il campo genere è obbligatorio.';
+            event.preventDefault();
+        } else {
+            document.getElementById('genre-error').innerText = '';
+        }
+
+        // Validazione del prezzo
+        if (!price) {
+            document.getElementById('price-error').innerText = 'Il campo prezzo è obbligatorio.';
+            event.preventDefault();
+        } else if (isNaN(price) || price < 0) {
+            document.getElementById('price-error').innerText = 'Il prezzo deve essere un valore numerico maggiore o uguale a 0.';
+            event.preventDefault();
+        } else {
+            document.getElementById('price-error').innerText = '';
+        }
+
+        // Validazione della visibilità
+        if (!visible) {
+            document.getElementById('visible-error').innerText = 'Il campo visibile è obbligatorio.';
+            event.preventDefault();
+        } else if (visible !== '1' && visible !== '0') {
+            document.getElementById('visible-error').innerText = 'Il campo visibile deve essere disponibile o non disponibile.';
+            event.preventDefault();
+        } else {
+            document.getElementById('visible-error').innerText = '';
+        }
+
+        // Validazione dell'immagine
+        if (image) {
+            let validImageExtensions = ['jpeg', 'jpg', 'png', 'gif'];
+            let extension = image.split('.').pop().toLowerCase();
+            if (validImageExtensions.indexOf(extension) === -1) {
+                document.getElementById('image-error').innerText = 'Il file caricato deve essere un\'immagine di tipo: jpeg, png, jpg o gif.';
+                event.preventDefault();
+            } else {
+                document.getElementById('image-error').innerText = '';
+            }
+        }
+
+        // Validazione della descrizione
+        if (!description) {
+            document.getElementById('description-error').innerText = 'Il campo descrizione è obbligatorio.';
+            event.preventDefault();
+        } else {
+            document.getElementById('description-error').innerText = '';
+        }
+    });
+});
