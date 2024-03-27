@@ -15,6 +15,14 @@ body {
   font-family: "Chicle", serif;
 }
 
+.txt-orange{
+  color: #DA643F;
+}
+
+.txt-gold{
+  color: #E1B137;
+}
+
 .bg-blur {
   backdrop-filter: blur(25px);
   background-color: rgba(255, 255, 255, 0.05);
@@ -345,6 +353,34 @@ header {
 
   // END HAMBURGER-BUTTON
 }
+
+// HOMEPAGE
+#homepage{
+  h1{
+    font-size: 60px;
+  }
+
+  h4{
+    font-size: 35px;
+  }
+
+  p{
+    font-size: 18px;
+  }
+
+  .title{
+    font-size: 75px;
+  }
+
+  .subtitle{
+    font-size: 22px;
+  }
+
+  .section_margin{
+    margin: 150px 0px;
+  }
+}
+
 
 // DASHBOARD
 #dashboard {
