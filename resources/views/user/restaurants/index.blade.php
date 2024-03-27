@@ -36,7 +36,13 @@
                                 </div>
                             </div>
                             <div class="col-12 col-md-6 pt-4 pt-md-0 ">
-                                <img class="" src="{{ $restaurant->main_image }}" alt="">
+                                @if (Str::contains($restaurant->main_image, 'https'))
+                                    <img src="{{ $restaurant->main_image }}" alt="{{ $restaurant->name }}"
+                                        class="img-fluid h-100 w-100">
+                                @else
+                                    <img src="{{ asset('/storage/' . $restaurant->main_image) }}" alt="{{ $restaurant->name }}"
+                                        class="img-fluid h-100 w-100">
+                                @endif
                             </div>
                         </div>
                     </div>

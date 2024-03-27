@@ -13,7 +13,7 @@
 
                     {{-- Body form registrazione --}}
                     <div class="card-body">
-                        <form class="row" method="POST" action="{{ route('register') }}">
+                        <form class="row" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                             @csrf
 
                             {{-- Sezione nome e cognome --}}
@@ -139,15 +139,15 @@
 
                             {{-- Sezione immagine di copertina --}}
                             <div class="col-md-12 mb-3">
-                                <label for="main_image"
-                                    class="col-form-label text-white">{{ __('Immagine di copertina *') }}</label>
-                                <input id="main_image" type="text"
-                                    class="form-control form-control-sm my-form @error('main_image') is-invalid @enderror"
-                                    name="main_image" value="{{ old('main_image') }}" required
-                                    autocomplete="main_image">
+                                <label for="main_image" class="col-form-label text-white">{{ __('Immagine di copertina *') }}</label>
+                                
+                                <div class="input-group custom-file-button">
+                                    <label class="input-group-text p-0 px-2 my-form" for="main_image">Scegli file</label>
+                                    <input type="file" name="main_image" id="main_image" class="form-control form-control-sm my-form" required>
+                                </div>
 
                                 @error('main_image')
-                                    <span class="invalid-feedback" role="alert">
+                                    <span class="text-danger fs-6" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
