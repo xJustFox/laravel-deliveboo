@@ -33,7 +33,7 @@
                             </div>
                         </p>
                         <p>Quantità: </p>
-                        <p>Prezzo: {{ $order->price }}$</p>
+                        <p>Prezzo: {{ $order->price }}€</p>
                         <p>Status: </p>
                     </div>
                 </div>
