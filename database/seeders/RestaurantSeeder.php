@@ -78,7 +78,7 @@ class RestaurantSeeder extends Seeder
                 'name' => 'Ristorante Maya',
                 'address' => 'Via Ascanio Sforza, 41, Milano',
                 'p_iva' => '90123456789',
-                'main_image' => 'http://www.mayamilano.it/wp-content/uploads/2016/11/dicono-di-noi.jpg',
+                'main_image' => 'https://res.cloudinary.com/tf-lab/image/upload/restaurant/48b2b88e-232d-4c16-b4bd-2b72571ff10c/5f90402a-3cd4-4351-b485-f2f42bf54671.jpg',
             ],
             [
                 'user_id' => 10,
