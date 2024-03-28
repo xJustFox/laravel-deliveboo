@@ -13,6 +13,10 @@ class MenuController extends Controller
         $dishes = Dish::whereHas('restaurant', function ($query) use ($slug) {
             $query->where('slug', $slug);
         })
+        ->with([
+            'restaurant' => function ($query) {
+                $query->select('id', 'name', 'slug');
+            }])
         ->where('visible', 1)
         ->get();
 
