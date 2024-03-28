@@ -53,7 +53,7 @@
                                                         <div class="super-ocean fs-5">Nome piatto:</div> {{ $dish->name }}
                                                     </div>
                                                     <div class="col-3 col-lg-12">
-                                                        <div class="super-ocean fs-5">Prezzo:</div> {{ $dish->price }}$
+                                                        <div class="super-ocean fs-5">Prezzo:</div> {{ $dish->price }}€
                                                     </div>
                                                     <div class="col-4 col-lg-12">
                                                         <div class="super-ocean fs-5">Genere:</div> {{ $dish->genre->name }}

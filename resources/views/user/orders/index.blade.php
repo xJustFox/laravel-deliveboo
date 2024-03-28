@@ -27,7 +27,7 @@
                                         <td>{{ $order->id }}</td>
                                         <td id="col-email">{{ $order->email }}</td>
                                         <td></td>
-                                        <td>{{ $order->price }} $</td>
+                                        <td>{{ $order->price }} €</td>
                                         <td>
                                             <a class="btn btn-sm text-decoration-none"
                                                 href="{{ route('user.orders.show', $order->id) }}">
