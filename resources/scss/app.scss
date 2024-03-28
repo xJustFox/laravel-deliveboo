@@ -15,11 +15,11 @@ body {
   font-family: "Chicle", serif;
 }
 
-.txt-orange{
+.txt-orange {
   color: #DA643F;
 }
 
-.txt-gold{
+.txt-gold {
   color: #E1B137;
 }
 
@@ -59,7 +59,7 @@ input:-webkit-autofill:focus {
 .custom-file-button label {
   background-color: transparent;
 
-  &:hover{
+  &:hover {
     background-color: #dde0e3;
     cursor: pointer;
   }
@@ -355,28 +355,28 @@ header {
 }
 
 // HOMEPAGE
-#homepage{
-  h1{
+#homepage {
+  h1 {
     font-size: 60px;
   }
 
-  h4{
+  h4 {
     font-size: 35px;
   }
 
-  p{
+  p {
     font-size: 18px;
   }
 
-  .title{
+  .title {
     font-size: 75px;
   }
 
-  .subtitle{
+  .subtitle {
     font-size: 22px;
   }
 
-  .section_margin{
+  .section_margin {
     margin: 150px 0px;
   }
 }
@@ -911,6 +911,13 @@ header {
     option {
       background-color: #181818c8;
     }
+  }
+
+  .img-content {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
   }
 }
 
