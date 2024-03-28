@@ -67,7 +67,7 @@
                                             <span class="input-group-text my-input-text">€</span>
                                             <input name="price" type="number"
                                                 class="form-control form-control-sm my-form" id="price"
-                                                aria-label="Amount (to the nearest euro)" value="{{ old('price') }}"
+                                                aria-label="Amount (to the nearest euro)" step="any" value="{{ old('price') }}"
                                                 required>
                                         </div>
                                         <span class="text-danger" id="price-error"></span>
@@ -128,7 +128,7 @@
                                     {{-- Campi obbligatori --}}
                                     <div class="col-md-8 col-xs-12 d-flex align-items-end text-light py-2 ">
                                         <span
-                                            class="fst-italic fw-light text-decoration-underline req_fields">{{ __('Sono contrassegnati con * i campi obbligatori') }}</span>
+                                            class="fst-italic fw-light txt-orange req_fields">{{ __('Sono contrassegnati con * i campi obbligatori') }}</span>
                                     </div>
 
                                     {{-- Pulsante submit --}}
