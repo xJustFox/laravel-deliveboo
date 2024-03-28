@@ -67,7 +67,7 @@
                                             <span class="input-group-text my-input-text">€</span>
                                             <input name="price" type="number"
                                                 class="form-control form-control-sm my-form" id="price"
-                                                aria-label="Amount (to the nearest euro)" value="{{ old('price') }}"
+                                                aria-label="Amount (to the nearest euro)" step="any" value="{{ old('price') }}"
                                                 required>
                                         </div>
                                         <span class="text-danger" id="price-error"></span>
