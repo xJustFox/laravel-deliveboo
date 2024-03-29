@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('slug');
             $table->string('email', 150)->unique();
-            $table->string('delivery_address', 255);
-            $table->string('phone_num', 255);
+            $table->string('delivery_address', 150);
+            $table->string('phone_num', 30);
             $table->decimal('price', 8, 2)->default(0);
             $table->timestamps();
 
