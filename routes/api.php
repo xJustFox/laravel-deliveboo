@@ -7,6 +7,8 @@ use App\Http\Controllers\Api\TypologyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\BraintreeController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,3 +33,10 @@ Route::get('/menu/{slug}', [MenuController::class, 'index']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Rotte per Braintree
+Route::get('/braintree/client-token', [BraintreeController::class, 'generateClientToken']);
+Route::post('/braintree/process-payment', [BraintreeController::class, 'processPayment']);
+
+Route::get('/generate-client-token', [BraintreeController::class, 'generateClientToken'])->name('braintree.token');
+Route::post('/process-payment', [BraintreeController::class, 'processPayment'])->name('braintree.payments');
