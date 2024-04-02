@@ -83,8 +83,6 @@
                                         <div class="input-group">
                                             <select class="form-select form-select-sm my-select" name="visible"
                                                 id="visible" required>
-                                                <option class="my-option" value="" selected>Seleziona la
-                                                    disponibilità...</option>
                                                 <option class="my-option" value="0" @selected($dish->visible != 1 ? true : '')
                                                     @selected(true)>Non disponibile</option>
                                                 <option class="my-option" value="1" @selected($dish->visible == 1 ? true : '')>

@@ -82,9 +82,7 @@
                                         <div class="input-group">
                                             <select class="form-select form-select-sm my-select" name="visible"
                                                 id="visible" required>
-                                                <option class="my-option" value="" selected>Seleziona la
-                                                    disponibilità...</option>
-                                                <option class="my-option" value="1" @selected(old('visible') == '1')>
+                                                <option class="my-option" value="1" selected @selected(old('visible') == '1')>
                                                     Disponibile</option>
                                                 <option class="my-option" value="0" @selected(old('visible') == '0')>Non
                                                     disponibile</option>
