@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
+use App\Models\Dish;
+use App\Models\Restaurant;
 
 class BraintreeController extends Controller
 {
@@ -25,7 +27,23 @@ class BraintreeController extends Controller
     {
         $nonce = $request->input('paymentMethodNonce');
 
-        $amount = /* $request->input('amount'); */ 12;
+        $cart = $request->input('cart');
+
+        $amount = 0;
+
+        foreach ($cart as $item) {
+            $id = $item['id'];
+            $restaurant_id = $item['restaurant_id'];
+            $quantity = $item['quantity'];
+            $dish_price = Dish::where('restaurant_id', $restaurant_id)->where('id', $id)->value('price');
+            if ($dish_price) {
+                $amount += (float) $dish_price * $quantity;
+            }
+        }
+
+        $amount = number_format($amount, 2);
+
+        var_dump($amount);
 
         $result = $this->gateway->transaction()->sale([
             'amount' => $amount,
