@@ -29,6 +29,7 @@ class BraintreeController extends Controller
 
         $cart = $request->input('cart');
 
+        // modifiche del carrello
         $amount = 0;
 
         foreach ($cart as $item) {
