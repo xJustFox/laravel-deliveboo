@@ -59,9 +59,13 @@ class OrderController extends Controller
         $order->save();
 
         // Inserimento dei dettagli degli ordini relativi ai piatti
-        foreach ($request->input('dishes') as $dishData) {
+        foreach ($request->input('dishes', []) as $dishData) {
+            if (!isset($dishData['id'])) {
+                return response()->json(['error' => 'Chiave dish_id mancante'], 422);
+            }
+        
             $dishOrder = new DishOrder();
-            $dishOrder->dish_id = $dishData['dish_id'];
+            $dishOrder->dish_id = $dishData['id'];
             $dishOrder->order_id = $order->id;
             $dishOrder->quantity = $dishData['quantity'];
             $dishOrder->save();
