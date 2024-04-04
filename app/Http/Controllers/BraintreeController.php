@@ -46,6 +46,7 @@ class BraintreeController extends Controller
 
         var_dump($amount);
 
+        // Effettua la transazione
         $result = $this->gateway->transaction()->sale([
             'amount' => $amount,
             'paymentMethodNonce' => $nonce,
@@ -54,10 +55,14 @@ class BraintreeController extends Controller
             ]
         ]);
 
+        // Controlla se la transazione è stata accettata
         if ($result->success) {
+            // La transazione è stata accettata, procedi con il successo
             return response()->json(['success' => true, 'transaction_id' => $result->transaction->id]);
         } else {
-            return response()->json(['success' => false, 'message' => $result->message]);
+            // La transazione è stata rifiutata, gestisci di conseguenza
+            $errorMessage = $result->message;
+            return response()->json(['success' => false, 'message' => $errorMessage]);
         }
     }
 }
