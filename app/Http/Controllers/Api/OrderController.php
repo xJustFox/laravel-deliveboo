@@ -52,7 +52,7 @@ class OrderController extends Controller
             'phone_num' => 'required|string|max:30',
             'price' => 'required',
             'dishes' => 'required|array', // Verifica che dishes sia un array
-            'dishes.*.dish_id' => 'required|exists:dishes,id', // Verifica che dish_id sia presente nella tabella dishes
+            'dishes.*.id' => 'required|exists:dishes,id', // Verifica che id sia presente nella tabella dishes
             'dishes.*.quantity' => 'required|integer|min:1', // Verifica che quantity sia un numero intero positivo
         ], $customMessage);
         
