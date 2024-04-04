@@ -16,7 +16,7 @@
                 @guest
                     {{-- Home --}}
                     <li class=>
-                        <a class="my-nav-link super-ocean" href="{{ url('/') }}">{{ __('Home') }}</a>
+                        
                     </li>
                 @else
                     <li>
