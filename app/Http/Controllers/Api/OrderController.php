@@ -22,7 +22,6 @@ class OrderController extends Controller
 
             'email.required' => 'Il campo email è obbligatorio.',
             'email.email' => 'Il campo email deve essere un indirizzo email valido.',
-            'email.unique' => 'L\'indirizzo email inserito è già stato utilizzato per un altro ordine.',
             'email.max' => 'Il campo email non può superare i 150 caratteri.',
 
             'delivery_address.required' => 'Il campo indirizzo di consegna è obbligatorio.',
@@ -34,16 +33,27 @@ class OrderController extends Controller
             'phone_num.max' => 'Il campo numero di telefono non può superare i 30 caratteri.',
 
             'price.required' => 'Il campo prezzo è obbligatorio.',
+
+            'dishes.required' => 'È richiesto almeno un piatto nell\'ordine.',
+            'dishes.array' => 'I piatti devono essere forniti come un array di oggetti.',
+            'dishes.*.dish_id.required' => 'L\'ID del piatto è obbligatorio per tutti i piatti.',
+            'dishes.*.dish_id.exists' => 'L\'ID del piatto :input non esiste nel sistema.',
+            'dishes.*.quantity.required' => 'La quantità è obbligatoria per tutti i piatti.',
+            'dishes.*.quantity.integer' => 'La quantità deve essere un numero intero.',
+            'dishes.*.quantity.min' => 'La quantità deve essere almeno :min per tutti i piatti.',
         ];
         
         $request->validate([
             'restaurant_id' => 'required|exists:restaurants,id',
             'name' => 'required|string|max:100',
             'status' => 'integer',
-            'email' => 'required|email|unique:orders,email|max:150',
+            'email' => 'required|email|max:150',
             'delivery_address' => 'required|string|max:150',
             'phone_num' => 'required|string|max:30',
             'price' => 'required',
+            'dishes' => 'required|array', // Verifica che dishes sia un array
+            'dishes.*.dish_id' => 'required|exists:dishes,id', // Verifica che dish_id sia presente nella tabella dishes
+            'dishes.*.quantity' => 'required|integer|min:1', // Verifica che quantity sia un numero intero positivo
         ], $customMessage);
         
         // Inserimento dell'ordine

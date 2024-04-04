@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('slug');
             $table->tinyInteger('status')->default(0);
-            $table->string('email', 150)->unique();
+            $table->string('email', 150);
             $table->string('delivery_address', 150);
             $table->string('phone_num', 30);
             $table->string('price', 8);
