@@ -26,7 +26,15 @@
                                     <tr>
                                         <td>{{ $order->id }}</td>
                                         <td id="col-email">{{ $order->email }}</td>
-                                        <td></td>
+                                        <td>
+                                            @if ($order->status == 1)
+                                            <i class="fa-solid fa-square-xmark" style="color: red"></i>
+                                            <span class="textStatus ms-1">Rifiutato</span> 
+                                            @else
+                                            <i class="fa-solid fa-square-check" style="color: rgb(0, 161, 0)"></i>
+                                            <span class="textStatus ms-1">Accettato</span> 
+                                            @endif
+                                        </td>
                                         <td>{{ $order->price }} €</td>
                                         <td>
                                             <a class="btn btn-sm text-decoration-none"

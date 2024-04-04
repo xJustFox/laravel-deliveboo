@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('restaurant_id');
             $table->string('name', 100);
             $table->string('slug');
+            $table->tinyInteger('status')->default(0);
             $table->string('email', 150)->unique();
             $table->string('delivery_address', 150);
             $table->string('phone_num', 30);
