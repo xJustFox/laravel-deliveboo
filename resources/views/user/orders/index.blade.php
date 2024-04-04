@@ -27,7 +27,7 @@
                                         <td>{{ $order->id }}</td>
                                         <td id="col-email">{{ $order->email }}</td>
                                         <td>
-                                            @if ($order->status == 1)
+                                            @if ($order->status == 0)
                                             <i class="fa-solid fa-square-xmark" style="color: red"></i>
                                             <span class="textStatus ms-1">Rifiutato</span> 
                                             @else
