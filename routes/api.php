@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\GenresController;
 use App\Http\Controllers\Api\MenuController;
+use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\TypologyController;
 use Illuminate\Http\Request;
@@ -33,6 +34,8 @@ Route::get('/menu/{slug}', [MenuController::class, 'index']);
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/orders', [OrderController::class, 'store']);
 
 // Rotte per Braintree
 Route::get('/braintree/client-token', [BraintreeController::class, 'generateClientToken']);
