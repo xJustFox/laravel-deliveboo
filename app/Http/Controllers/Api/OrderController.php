@@ -20,10 +20,6 @@ class OrderController extends Controller
             'name.string' => 'Il campo nome deve essere una stringa.',
             'name.max' => 'Il campo nome non può superare i 100 caratteri.',
 
-            'slug.required' => 'Il campo slug è obbligatorio.',
-            'slug.string' => 'Il campo slug deve essere una stringa.',
-            'slug.unique' => 'Il valore inserito per lo slug è già presente nel sistema.',
-
             'email.required' => 'Il campo email è obbligatorio.',
             'email.email' => 'Il campo email deve essere un indirizzo email valido.',
             'email.unique' => 'L\'indirizzo email inserito è già stato utilizzato per un altro ordine.',
@@ -38,19 +34,16 @@ class OrderController extends Controller
             'phone_num.max' => 'Il campo numero di telefono non può superare i 30 caratteri.',
 
             'price.required' => 'Il campo prezzo è obbligatorio.',
-            'price.numeric' => 'Il campo prezzo deve essere un numero.',
-            'price.min' => 'Il campo prezzo deve essere almeno :min.',
         ];
         
         $request->validate([
             'restaurant_id' => 'required|exists:restaurants,id',
             'name' => 'required|string|max:100',
-            'slug' => 'required|string|unique:orders,slug',
             'status' => 'integer',
             'email' => 'required|email|unique:orders,email|max:150',
             'delivery_address' => 'required|string|max:150',
             'phone_num' => 'required|string|max:30',
-            'price' => 'required|numeric|min:0',
+            'price' => 'required',
         ], $customMessage);
         
         // Inserimento dell'ordine

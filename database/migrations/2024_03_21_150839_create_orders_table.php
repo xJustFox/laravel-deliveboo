@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('email', 150)->unique();
             $table->string('delivery_address', 150);
             $table->string('phone_num', 30);
-            $table->decimal('price', 8, 2)->default(0);
+            $table->string('price', 8);
             $table->timestamps();
 
             $table->foreign('restaurant_id')->references('id')->on('restaurants');
