@@ -8,6 +8,7 @@ use App\Http\Controllers\User\RestaurantController;
 use App\Http\Controllers\User\DishController;
 use App\Http\Controllers\User\OrderController;
 use App\Http\Controllers\User\ErrorController;
+use App\Http\Controllers\User\StatisticController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ Route::middleware(['auth', 'verified'])
         ->prefix('user')
         ->group(function () {
             Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+            Route::get('/statistic', [StatisticController::class, 'index'])->name('statistic');
             Route::get('/error-404', [ErrorController::class, 'index'])->name('error');
             Route::resource('/restaurant', RestaurantController::class)->parameters(['restaurants' => 'restaurant:slug']);
             Route::resource('/dishes', DishController::class)->parameters(['dishes' => 'dish:slug']);

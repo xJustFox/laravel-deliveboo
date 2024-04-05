@@ -36,6 +36,10 @@
                         <a class="my-nav-link super-ocean {{ Route::currentRouteName() == 'user.orders.index' ? 'activeRoute' : '' }}"
                             href="{{ route('user.orders.index') }}">{{ __('I tuoi Ordini') }}</a>
                     </li>
+                    <li>
+                        <a class="my-nav-link super-ocean {{ Route::currentRouteName() == 'user.statistic' ? 'activeRoute' : '' }}"
+                            href="{{ route('user.statistic') }}">{{ __('Le tue Statistiche') }}</a>
+                    </li>
                 @endguest
             </ul>
         </div>
@@ -114,6 +118,12 @@
                                         <button>
                                             <span><a class="dropdown-item"
                                                     href="{{ route('user.orders.index') }}">{{ __('I tuoi Ordini') }}</a></span>
+                                        </button>
+                                    </li>
+                                    <li class=" d-md-none">
+                                        <button>
+                                            <span><a class="dropdown-item"
+                                                    href="{{ route('user.statistic') }}">{{ __('Le tue statistiche') }}</a></span>
                                         </button>
                                     </li>
                                     <li>
