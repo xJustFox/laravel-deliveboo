@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-    {{-- CDN chart.js --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <div class="container">
@@ -14,106 +12,65 @@
         </div>
     </div>
 
-
+    {{-- Include il codice JavaScript --}}
     <script>
-        let orders = {!! json_encode($orders) !!};
+            // Recupera i dati delle ordinazioni dal server
+            let orders = {!! json_encode($orders) !!};
 
-        // Line chart
-        const line = document.getElementById('line-chart');
-        let lastEightMonths = [];
-        let lastEightMonthsIncoming = [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00];
-        let lastEightMonthsTotal = [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00];
-        let incomingTotal = [0.00, 0.00]
-        for (let i = 0; i < 8; i++) {
-            lastEightMonths.push(new Date(new Date().setMonth(new Date().getMonth() - i)).getMonth() + 1)
-        }
+            // Inizializza i mesi e gli incassi
+            let lastEightMonths = [];
+            let lastEightMonthsIncoming = Array(8).fill(0);
+            let lastEightMonthsTotal = Array(8).fill(0);
 
-        lastEightMonths = lastEightMonths.reverse();
-
-        orders.forEach(order => {
-            if (order.status !== 0) {
-                incomingTotal[1] += order.price;
+            // Popola i mesi degli ultimi otto mesi
+            for (let i = 0; i < 8; i++) {
+                let currentDate = new Date();
+                currentDate.setMonth(currentDate.getMonth() - i);
+                lastEightMonths.push(currentDate.toLocaleString('default', { month: 'long' }));
             }
-            if (order.status !== 0) {
-                incomingTotal[0] += order.price;
-            }
-            if (lastEightMonths.includes(new Date(order.created_at).getMonth() + 1)) {
-                lastEightMonthsTotal[lastEightMonths.indexOf(new Date(order.created_at)
-                    .getMonth() + 1)] += order.price;
 
-                if (order.status !== 0) {
-                    lastEightMonthsIncoming[lastEightMonths.indexOf(new Date(order.created_at).getMonth() +
-                        1)] += order.price
-                }
-            }
-        })
+            // Inverti l'array dei mesi
+            lastEightMonths.reverse();
 
-        lastEightMonths.forEach((month, i) => {
-            switch (month) {
-                case 1:
-                    lastEightMonths[i] = 'Gennaio';
-                    break;
-                case 2:
-                    lastEightMonths[i] = 'Febbraio';
-                    break;
-                case 3:
-                    lastEightMonths[i] = 'Marzo';
-                    break;
-                case 4:
-                    lastEightMonths[i] = 'Aprile';
-                    break;
-                case 5:
-                    lastEightMonths[i] = 'Maggio';
-                    break;
-                case 6:
-                    lastEightMonths[i] = 'Giugno';
-                    break;
-                case 7:
-                    lastEightMonths[i] = 'Luglio';
-                    break;
-                case 8:
-                    lastEightMonths[i] = 'Agosto';
-                    break;
-                case 9:
-                    lastEightMonths[i] = 'Settembre';
-                    break;
-                case 10:
-                    lastEightMonths[i] = 'Ottobre';
-                    break;
-                case 11:
-                    lastEightMonths[i] = 'Novembre';
-                    break;
-                case 12:
-                    lastEightMonths[i] = 'Dicembre';
-                    break;
-                default:
-                    break;
-            }
-        })
+            // Calcola gli incassi degli ultimi otto mesi
+            orders.forEach(order => {
+                let orderDate = new Date(order.created_at);
+                let orderMonth = orderDate.getMonth();
+                let orderYear = orderDate.getFullYear();
+                let orderPrice = order.price;
 
-        new Chart(line, {
-            type: 'line',
-            data: {
-                labels: lastEightMonths,
-                datasets: 
-                [{
-                    label: 'Totale Netto',
-                    data: lastEightMonthsIncoming,
-                    hoverBorderWidth: 5,
-                    borderWidth: 1,
-                    borderColor: 'rgb(31, 135, 88)',
-                    backgroundColor: 'rgb(31, 135, 88)',
-                    
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                // Controlla che l'ordine sia nell'anno corrente
+                if (orderYear === new Date().getFullYear() && orderMonth < 8) {
+                    lastEightMonthsTotal[orderMonth] += orderPrice;
+
+                    if (order.status !== 0) {
+                        lastEightMonthsIncoming[orderMonth] += orderPrice;
                     }
                 }
-            }
-        });
-    </script>
+            });
 
+            // Configura il grafico a linee
+            const line = document.getElementById('line-chart');
+            new Chart(line, {
+                type: 'line',
+                data: {
+                    labels: lastEightMonths,
+                    datasets: [{
+                        label: 'Totale Netto',
+                        data: lastEightMonthsIncoming,
+                        hoverBorderWidth: 5,
+                        borderWidth: 1,
+                        borderColor: 'rgb(31, 135, 88)',
+                        backgroundColor: 'rgb(31, 135, 88)',
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+    </script>
 @endsection
