@@ -5,14 +5,15 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-12 text-white my-5">
-                <h3>Incassi degli ultimi sei mesi</h3>
-                <canvas id="line-chart"></canvas>
-            </div>
-
+            
             <div class="col-12 text-white my-5">
                 <h3 class="my-5">Ordini ricevuti negli ultimi sei mesi</h3>
                 <canvas id="orders-line-chart"></canvas>
+            </div>
+
+            <div class="col-12 text-white my-5">
+                <h3 class="my-5">Rapporto prezzo/ordini piatti</h3>
+                <canvas id="dishes-mixed-chart"></canvas>
             </div>
         </div>
     </div>
@@ -20,65 +21,9 @@
     {{-- Include il codice JavaScript --}}
     <script>
             // PRIMO GRAFICO
+            
             // Recupera i dati delle ordinazioni dal server
             let orders = {!! json_encode($orders) !!};
-
-            // Inizializza i mesi e gli incassi
-            let lastEightMonths = [];
-            let lastEightMonthsIncoming = Array(8).fill(0);
-            let lastEightMonthsTotal = Array(8).fill(0);
-
-            // Popola i mesi degli ultimi otto mesi
-            for (let i = 0; i < 8; i++) {
-                let currentDate = new Date();
-                currentDate.setMonth(currentDate.getMonth() - i);
-                lastEightMonths.push(currentDate.toLocaleString('default', { month: 'long' }));
-            }
-
-            // Inverti l'array dei mesi
-            lastEightMonths.reverse();
-
-            // Calcola gli incassi degli ultimi otto mesi
-            orders.forEach(order => {
-                let orderDate = new Date(order.created_at);
-                let orderMonth = orderDate.getMonth();
-                let orderYear = orderDate.getFullYear();
-                let orderPrice = order.price;
-
-                // Controlla che l'ordine sia nell'anno corrente
-                if (orderYear === new Date().getFullYear() && orderMonth < 8) {
-                    lastEightMonthsTotal[orderMonth] += orderPrice;
-
-                    if (order.status !== 0) {
-                        lastEightMonthsIncoming[orderMonth] += orderPrice;
-                    }
-                }
-            });
-
-            // Configura il grafico a linee
-            const line = document.getElementById('line-chart');
-            new Chart(line, {
-                type: 'line',
-                data: {
-                    labels: lastEightMonths,
-                    datasets: [{
-                        label: 'Totale Netto',
-                        data: lastEightMonthsIncoming,
-                        hoverBorderWidth: 5,
-                        borderWidth: 1,
-                        borderColor: 'rgb(31, 135, 88)',
-                        backgroundColor: 'rgb(31, 135, 88)',
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
-            // SECONDO GRAFICO
             const ordersLine = document.getElementById('orders-line-chart');
             lastSixMonths = [];
             for (let i = 0; i < 6; i++) {
@@ -139,25 +84,87 @@
             ordersInLastSixMonth = ordersInLastSixMonth.reverse()
 
             new Chart(ordersLine, {
-            type: 'line',
-            data: {
-                labels: lastSixMonths,
-                datasets: [{
-                    label: 'Ordini',
-                    data: ordersInLastSixMonth,
-                    borderWidth: 1,
-                    borderColor: 'rgba(142, 250, 246, 1)',
-                    backgroundColor: 'rgba(142, 250, 246, 1)'
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true
+                type: 'line',
+                data: {
+                    labels: lastSixMonths,
+                    datasets: [{
+                        label: 'Ordini',
+                        data: ordersInLastSixMonth,
+                        borderWidth: 1,
+                        borderColor: 'rgba(142, 250, 246, 1)',
+                        backgroundColor: 'rgba(142, 250, 246, 1)'
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
                     }
                 }
-            }
-        });
+            });
 
+            // SECONDO GRAFICO
+            // const dishes = {!! json_encode($dishes) !!};
+            // console.log(dishes);
+            // let dishesQuanity = [];
+            // let totalQuantity = 0;
+            // dishes.forEach(dish => {
+            //     dishesQuanity.push(0)
+            // })
+            // orders.forEach(order => {
+            //     order.dishes.forEach(dish => {
+            //         totalQuantity += dish.pivot.quantity
+            //         dishes.forEach((d, i) => {
+            //             if (d.name === dish.name) {
+            //                 dishesQuanity[i] += dish.pivot.quantity
+            //             }
+            //         })
+            //     })
+            // })
+            // let dishesQuantityPercentage = dishesQuanity.map(dish => {
+            //     return (dish / totalQuantity) * 100
+            // })
+            // const dishesMixed = document.getElementById('dishes-mixed-chart');
+
+            // const dishesMixedChart = new Chart(dishesMixed, {
+            //     data: {
+            //         datasets: [{
+            //             type: 'bar',
+            //             label: 'Prezzo',
+            //             data: dishes.map(dish => dish.price),
+            //             borderWidth: 2,
+            //             borderColor: 'rgba(142, 250, 246, 1)',
+            //             backgroundColor: 'rgba(142, 250, 246, 0.2)'
+            //         }, {
+            //             type: 'line',
+            //             label: 'Percentuale piatto ordinato',
+            //             data: dishesQuantityPercentage,
+            //             borderColor: 'rgb(255, 33, 33)',
+            //             backgroundColor: 'rgb(255, 33, 33)'
+            //         }],
+            //         labels: dishes.map(dish => dish.name)
+            //     },
+            //     options: {
+            //         onHover: (e) => {
+            //             const canvasPosition = Chart.helpers.getRelativePosition(e, dishesMixedChart);
+            //             const dataX = dishesMixedChart.scales.x.getValueForPixel(canvasPosition.x);
+            //             const dataY = dishesMixedChart.scales.y.getValueForPixel(canvasPosition.y);
+            //             if (dishes.map(dish => dish.price)[dataX] >= dataY && dataY >= 0) {
+            //                 dishesMixed.style.cursor = 'pointer';
+            //             } else {
+            //                 dishesMixed.style.cursor = 'default';
+            //             }
+            //         },
+            //         onClick: (e) => {
+            //             const canvasPosition = Chart.helpers.getRelativePosition(e, dishesMixedChart);
+            //             const dataX = dishesMixedChart.scales.x.getValueForPixel(canvasPosition.x);
+            //             const dataY = dishesMixedChart.scales.y.getValueForPixel(canvasPosition.y);
+            //             if (dishes.map(dish => dish.price)[dataX] >= dataY) location.href =
+            //                 `/admin/dishes/${dishes[dataX].id}`
+            //         },
+            //     }
+            // });  
+            
     </script>
 @endsection
