@@ -120,6 +120,12 @@
                                                     href="{{ route('user.orders.index') }}">{{ __('I tuoi Ordini') }}</a></span>
                                         </button>
                                     </li>
+                                    <li class=" d-md-none">
+                                        <button>
+                                            <span><a class="dropdown-item"
+                                                    href="{{ route('user.statistic') }}">{{ __('Le tue statistiche') }}</a></span>
+                                        </button>
+                                    </li>
                                     <li>
                                         <button>
                                             <span><a class="dropdown-item"
