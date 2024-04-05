@@ -105,66 +105,65 @@
             });
 
             // SECONDO GRAFICO
-            // const dishes = {!! json_encode($dishes) !!};
-            // console.log(dishes);
-            // let dishesQuanity = [];
-            // let totalQuantity = 0;
-            // dishes.forEach(dish => {
-            //     dishesQuanity.push(0)
-            // })
-            // orders.forEach(order => {
-            //     order.dishes.forEach(dish => {
-            //         totalQuantity += dish.pivot.quantity
-            //         dishes.forEach((d, i) => {
-            //             if (d.name === dish.name) {
-            //                 dishesQuanity[i] += dish.pivot.quantity
-            //             }
-            //         })
-            //     })
-            // })
-            // let dishesQuantityPercentage = dishesQuanity.map(dish => {
-            //     return (dish / totalQuantity) * 100
-            // })
-            // const dishesMixed = document.getElementById('dishes-mixed-chart');
+            const dishes = {!! json_encode($dishes) !!};
+            let dishesQuanity = [];
+            let totalQuantity = 0;
+            dishes.forEach(dish => {
+                dishesQuanity.push(0)
+            })
+            orders.forEach(order => {
+                // order.dishes.forEach(dish => {
+                //     totalQuantity += dish.pivot.quantity
+                //     dishes.forEach((d, i) => {
+                //         if (d.name === dish.name) {
+                //             dishesQuanity[i] += dish.pivot.quantity
+                //         }
+                //     })
+                // })
+            })
+            let dishesQuantityPercentage = dishesQuanity.map(dish => {
+                return (dish / totalQuantity) * 100
+            })
+            const dishesMixed = document.getElementById('dishes-mixed-chart');
 
-            // const dishesMixedChart = new Chart(dishesMixed, {
-            //     data: {
-            //         datasets: [{
-            //             type: 'bar',
-            //             label: 'Prezzo',
-            //             data: dishes.map(dish => dish.price),
-            //             borderWidth: 2,
-            //             borderColor: 'rgba(142, 250, 246, 1)',
-            //             backgroundColor: 'rgba(142, 250, 246, 0.2)'
-            //         }, {
-            //             type: 'line',
-            //             label: 'Percentuale piatto ordinato',
-            //             data: dishesQuantityPercentage,
-            //             borderColor: 'rgb(255, 33, 33)',
-            //             backgroundColor: 'rgb(255, 33, 33)'
-            //         }],
-            //         labels: dishes.map(dish => dish.name)
-            //     },
-            //     options: {
-            //         onHover: (e) => {
-            //             const canvasPosition = Chart.helpers.getRelativePosition(e, dishesMixedChart);
-            //             const dataX = dishesMixedChart.scales.x.getValueForPixel(canvasPosition.x);
-            //             const dataY = dishesMixedChart.scales.y.getValueForPixel(canvasPosition.y);
-            //             if (dishes.map(dish => dish.price)[dataX] >= dataY && dataY >= 0) {
-            //                 dishesMixed.style.cursor = 'pointer';
-            //             } else {
-            //                 dishesMixed.style.cursor = 'default';
-            //             }
-            //         },
-            //         onClick: (e) => {
-            //             const canvasPosition = Chart.helpers.getRelativePosition(e, dishesMixedChart);
-            //             const dataX = dishesMixedChart.scales.x.getValueForPixel(canvasPosition.x);
-            //             const dataY = dishesMixedChart.scales.y.getValueForPixel(canvasPosition.y);
-            //             if (dishes.map(dish => dish.price)[dataX] >= dataY) location.href =
-            //                 `/admin/dishes/${dishes[dataX].id}`
-            //         },
-            //     }
-            // });  
+            const dishesMixedChart = new Chart(dishesMixed, {
+                data: {
+                    datasets: [{
+                        type: 'bar',
+                        label: 'Prezzo',
+                        data: dishes.map(dish => dish.price),
+                        borderWidth: 2,
+                        borderColor: 'rgba(142, 250, 246, 1)',
+                        backgroundColor: 'rgba(142, 250, 246, 0.2)'
+                    }, {
+                        type: 'line',
+                        label: 'Percentuale piatto ordinato',
+                        data: dishesQuantityPercentage,
+                        borderColor: 'rgb(255, 33, 33)',
+                        backgroundColor: 'rgb(255, 33, 33)'
+                    }],
+                    labels: dishes.map(dish => dish.name)
+                },
+                options: {
+                    onHover: (e) => {
+                        const canvasPosition = Chart.helpers.getRelativePosition(e, dishesMixedChart);
+                        const dataX = dishesMixedChart.scales.x.getValueForPixel(canvasPosition.x);
+                        const dataY = dishesMixedChart.scales.y.getValueForPixel(canvasPosition.y);
+                        if (dishes.map(dish => dish.price)[dataX] >= dataY && dataY >= 0) {
+                            dishesMixed.style.cursor = 'pointer';
+                        } else {
+                            dishesMixed.style.cursor = 'default';
+                        }
+                    },
+                    onClick: (e) => {
+                        const canvasPosition = Chart.helpers.getRelativePosition(e, dishesMixedChart);
+                        const dataX = dishesMixedChart.scales.x.getValueForPixel(canvasPosition.x);
+                        const dataY = dishesMixedChart.scales.y.getValueForPixel(canvasPosition.y);
+                        if (dishes.map(dish => dish.price)[dataX] >= dataY) location.href =
+                            `/admin/dishes/${dishes[dataX].id}`
+                    },
+                }
+            });  
             
     </script>
 @endsection
