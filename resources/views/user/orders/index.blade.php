@@ -14,7 +14,7 @@
                         <table class="table table-transparent display" id="orders-table" style="width:100%">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                    <th>Data</th>
                                     <th id="col-email">Email</th>
                                     <th>Status</th>
                                     <th>Prezzo</th>
@@ -24,15 +24,15 @@
                             <tbody>
                                 @foreach ($orders as $order)
                                     <tr>
-                                        <td>{{ $order->id }}</td>
+                                        <td>{{ $order->created_at->toDateString() }}</td>
                                         <td id="col-email">{{ $order->email }}</td>
                                         <td>
                                             @if ($order->status == 0)
-                                            <i class="fa-solid fa-square-xmark" style="color: red"></i>
-                                            <span class="textStatus ms-1">Rifiutato</span> 
+                                                <span class="textStatus ms-1 badge"
+                                                    style="background-color: red">Rifiutato</span>
                                             @else
-                                            <i class="fa-solid fa-square-check" style="color: rgb(0, 161, 0)"></i>
-                                            <span class="textStatus ms-1">Accettato</span> 
+                                                <span class="textStatus ms-1 badge"
+                                                    style="background-color: rgb(0, 161, 0)">Accettato</span>
                                             @endif
                                         </td>
                                         <td>{{ $order->price }} €</td>
