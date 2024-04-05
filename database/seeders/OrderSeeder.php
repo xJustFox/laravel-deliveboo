@@ -25,7 +25,7 @@ class OrderSeeder extends Seeder
                 'restaurant_id' => 1,
                 'name' => $faker->name,
                 'slug' => $faker->slug,
-                'status' => $faker->boolean(),
+                'status' => 1,
                 'email' => $faker->unique()->safeEmail,
                 'delivery_address' => $faker->address,
                 'phone_num' => $faker->phoneNumber,
