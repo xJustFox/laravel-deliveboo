@@ -15,6 +15,7 @@
                 <h3 class="my-5">Rapporto prezzo/ordini piatti</h3>
                 <canvas id="dishes-mixed-chart"></canvas>
             </div>
+
         </div>
     </div>
 
@@ -112,14 +113,14 @@
                 dishesQuanity.push(0)
             })
             orders.forEach(order => {
-                // order.dishes.forEach(dish => {
-                //     totalQuantity += dish.pivot.quantity
-                //     dishes.forEach((d, i) => {
-                //         if (d.name === dish.name) {
-                //             dishesQuanity[i] += dish.pivot.quantity
-                //         }
-                //     })
-                // })
+                order.dishes.forEach(dish => {
+                    totalQuantity += dish.pivot.quantity
+                    dishes.forEach((d, i) => {
+                        if (d.name === dish.name) {
+                            dishesQuanity[i] += dish.pivot.quantity
+                        }
+                    })
+                })
             })
             let dishesQuantityPercentage = dishesQuanity.map(dish => {
                 return (dish / totalQuantity) * 100

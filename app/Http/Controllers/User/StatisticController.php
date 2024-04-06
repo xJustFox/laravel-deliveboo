@@ -20,11 +20,18 @@ class StatisticController extends Controller
         $restaurant = Restaurant::where('user_id', $user->id)->get();
 
         // Recupero gli ordini del ristorante
-        $orders = Order::where('restaurant_id', $restaurant[0]->id)->get();
+        $orders = Order::with(['restaurant', 'dishes'])
+            ->whereHas('restaurant', function ($query) use ($restaurant) {
+                // Controlla se $restaurant è null prima di accedere alla sua proprietà 'id'
+                if ($restaurant) {
+                    $query->where('restaurant_id', $restaurant[0]->id);
+                }
+            })
+            ->get();
 
         // Recupero i piatti del ristorante
         $dishes = Dish::where('restaurant_id', $restaurant[0]->id)->get();
 
-        return view('user.statistics.index', compact('user', 'restaurant', 'orders', 'dishes'));
+        return view('user.statistics.index', compact('orders', 'dishes'));
     }
 }
