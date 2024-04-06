@@ -4,6 +4,8 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Restaurant;
+use App\Models\Order;
+use App\Models\Dish;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,12 +13,25 @@ class StatisticController extends Controller
 {
     public function index()
     {
-        // recupero i dati dell'utente loggato
+        // Recupero i dati dell'utente loggato
         $user = Auth::user();
 
-        // filtro i ristoranti in base all'id dell'utente loggato
-        $restaurants = Restaurant::where('user_id', $user->id)->get();
+        // Filtro i ristoranti in base all'id dell'utente loggato
+        $restaurant = Restaurant::where('user_id', $user->id)->get();
 
-        return view('user.statistics.index', compact('user', 'restaurants'));
+        // Recupero gli ordini del ristorante
+        $orders = Order::with(['restaurant', 'dishes'])
+            ->whereHas('restaurant', function ($query) use ($restaurant) {
+                // Controlla se $restaurant è null prima di accedere alla sua proprietà 'id'
+                if ($restaurant) {
+                    $query->where('restaurant_id', $restaurant[0]->id);
+                }
+            })
+            ->get();
+
+        // Recupero i piatti del ristorante
+        $dishes = Dish::where('restaurant_id', $restaurant[0]->id)->get();
+
+        return view('user.statistics.index', compact('orders', 'dishes'));
     }
 }
