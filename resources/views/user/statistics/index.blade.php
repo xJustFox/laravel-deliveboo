@@ -106,23 +106,24 @@
             });
 
             // SECONDO GRAFICO
+
             const dishes = {!! json_encode($dishes) !!};
-            let dishesQuanity = [];
+            let dishesQuantity = [];
             let totalQuantity = 0;
             dishes.forEach(dish => {
-                dishesQuanity.push(0)
+                dishesQuantity.push(0)
             })
             orders.forEach(order => {
                 order.dishes.forEach(dish => {
                     totalQuantity += dish.pivot.quantity
                     dishes.forEach((d, i) => {
                         if (d.name === dish.name) {
-                            dishesQuanity[i] += dish.pivot.quantity
+                            dishesQuantity[i] += dish.pivot.quantity
                         }
                     })
                 })
             })
-            let dishesQuantityPercentage = dishesQuanity.map(dish => {
+            let dishesQuantityPercentage = dishesQuantity.map(dish => {
                 return (dish / totalQuantity) * 100
             })
             const dishesMixed = document.getElementById('dishes-mixed-chart');
@@ -166,5 +167,6 @@
                 }
             });  
             
+
     </script>
 @endsection
