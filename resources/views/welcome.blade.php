@@ -75,16 +75,16 @@
                 {{-- Sezione grafici profitti  --}}
                 <div class="col-sm-12 col-md-12 col-lg-6 section_margin">
                     <div class="text-white">
-                        <h4>Come <span class="txt-orange">Delive</span><span class="txt-gold">Boo</span></h4> aumenta i tuoi profitti</h4>
+                        <h4>Come <span class="txt-orange">Delive</span><span class="txt-gold">Boo</span> aumenta i tuoi profitti</h4>
                         <p>Deliveboo è la piattaforma di food delivery più innovativa e conveniente sul mercato, progettata per aumentare i profitti del tuo ristorante in modo significativo rispetto ai concorrenti.</p>
                         <p>Ecco alcuni dei modi in cui DeliveBoo ti aiuta a massimizzare le tue entrate:</p>
                         <p><i class="fas fa-users me-2 txt-gold"></i><span class="txt-gold">Ampio bacino di utenti:</span> DeliveBoo vanta una base di clienti in continua crescita, entusiasta di ordinare cibo online. Il tuo ristorante sarà presente sulla nostra piattaforma, raggiungendo un pubblico più ampio e aumentando le tue possibilità di ricevere ordini.</p>
                         <p><i class="fas fa-magnifying-glass me-2 txt-gold"></i><span class="txt-gold">Posizionamento strategico nei risultati di ricerca:</span> DeliveBoo utilizza algoritmi avanzati per posizionare il tuo ristorante in cima ai risultati di ricerca, garantendoti una maggiore visibilità e attirando più clienti.</p>
                         <p><i class="fab fa-btc me-2 txt-gold"></i><span class="txt-gold">Pagamenti agevolati:</span> L'utilizzo di veloci piattaforme di pagamento consentono a DeliveBoo una rapidità nella gestione degli ordini senza eguali.</p>
-                        {{-- <p><i class="fas fa-bullhorn me-2 txt-gold"></i><span class="txt-gold">Marketing mirato:</span> Pruomoviamo il tuo ristorante attraverso campagne di marketing mirate sui social media e canali di marketing online, aumentando la consapevolezza del tuo brand e attirando nuovi clienti.</p> --}}
+                        <p><i class="fas fa-bullhorn me-2 txt-gold"></i><span class="txt-gold">Marketing mirato:</span> Pruomoviamo il tuo ristorante attraverso campagne di marketing mirate sui social media e canali di marketing online, aumentando la consapevolezza del tuo brand e attirando nuovi clienti.</p>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-12 col-lg-6 homepage_chart">
+                <div class="col-sm-12 col-md-12 col-lg-6 homepage_chart last_chart">
                     <div>
                         <img class="w-100 img-fluid rounded" src="{{URL::asset('/img/chart_2.png')}}" alt="">
                     </div>
