@@ -19,8 +19,8 @@ class DishOrderSeeder extends Seeder
     {
         $faker = Faker::create();
 
-        // Ottenere tutti gli ID dei piatti e degli ordini
-        $dishIds = Dish::pluck('id')->toArray();
+        // Ottenere tutti gli ID dei piatti con restaurant_id = 1 e degli ordini
+        $dishIds = Dish::where('restaurant_id', 1)->pluck('id')->toArray();
         $orderIds = Order::pluck('id')->toArray();
 
         // Creare relazioni casuali tra piatti e ordini
