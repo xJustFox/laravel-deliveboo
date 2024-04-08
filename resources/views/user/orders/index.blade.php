@@ -27,13 +27,7 @@
                                         <td>{{ $order->created_at->toDateString() }}</td>
                                         <td id="col-email">{{ $order->email }}</td>
                                         <td>
-                                            @if ($order->status == 0)
-                                                <span class="textStatus ms-1 badge"
-                                                    style="background-color: red">Rifiutato</span>
-                                            @else
-                                                <span class="textStatus ms-1 badge"
-                                                    style="background-color: rgb(0, 161, 0)">Accettato</span>
-                                            @endif
+                                            <span class="textStatus ms-1 badge" style="background-color: rgb(0, 161, 0)">Accettato</span>
                                         </td>
                                         <td>{{ $order->price }} €</td>
                                         <td>
