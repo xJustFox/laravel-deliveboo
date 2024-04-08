@@ -356,6 +356,7 @@ header {
 
 // HOMEPAGE
 #homepage {
+
   h1 {
     font-size: 60px;
   }
@@ -378,6 +379,14 @@ header {
 
   .section_margin {
     margin: 150px 0px;
+  }
+
+  @media screen and (min-width: 992px) {
+    .homepage_chart {
+      margin: 150px 0px;
+      display: flex;
+      align-items: center;
+    }
   }
 }
 
