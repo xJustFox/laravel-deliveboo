@@ -26,7 +26,7 @@ class OrderController extends Controller
         $restaurant = Restaurant::where('user_id', $user->id)->get();
 
         // filtro gli ordini in base all'id dei ristoranti
-        $orders = Order::where('restaurant_id', $restaurant[0]->id)->get();
+        $orders = Order::where('restaurant_id', $restaurant[0]->id)->orderBy('created_at', 'desc')->get();
 
         return view('user.orders.index', compact('user', 'restaurant', 'orders'));
     }
@@ -60,7 +60,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        
+
         return view('user.orders.show', compact('order'));
     }
 

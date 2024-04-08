@@ -408,10 +408,14 @@ header {
     background: transparent;
     box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
     position: relative;
-    width: 350px;
-    height: 250px;
+    width: 385px;
+    height: 370px;
     border-radius: 16px;
     overflow: hidden;
+        .w-img-100 {
+            width: 100px;
+            padding-bottom: 10px;
+        }
   }
 
   .wave {
@@ -491,12 +495,28 @@ header {
       transform: rotate(360deg);
     }
   }
+
+  @media screen and (max-width: 480px) {
+      .e-card {
+          width: 280px;
+          height: 300px;
+              .w-img-100 {
+                  width: 70px;
+                  padding-bottom: 10px;
+              }
+        }
+
+        .infotop {
+            top: 5.5rem;
+        }
+    }
 }
 
 .text-lightgray {
   color: lightgray;
   font-size: 18px;
 }
+
 
 // REGISTER PAGE
 #register-page {

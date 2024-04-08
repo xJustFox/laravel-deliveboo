@@ -2,9 +2,6 @@
 
 @section('content')
     <div class="container" id="dashboard">
-        <h2 class="fs-4 text-secondary my-4">
-            {{ __('Dashboard') }}
-        </h2>
         <div class="row justify-content-center">
             <div class="col">
 
@@ -24,7 +21,10 @@
                                 </div>
                             @endif
 
-                            {{ __('You are logged in!') }}
+                            <div class="super-ocean fs-3 d-flex justify-content-center align-items-center flex-column">
+                                <img class="w-img-100" src="{{ Vite::asset('public/img/logo-white.png') }}" alt="">
+                                {{ __('Benvenuto in DeliveBoo!') }}
+                            </div>
                         </div>
                     </div>
                 </div>

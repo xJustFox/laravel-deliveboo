@@ -42,7 +42,7 @@ let orders_table = new DataTable('#orders-table', {
     ordering: true,
     language: {
         url: 'https://cdn.datatables.net/plug-ins/2.0.3/i18n/it-IT.json',
-    },    
+    },
     "columns": [
         {
             "sortable": true
@@ -51,7 +51,7 @@ let orders_table = new DataTable('#orders-table', {
             "sortable": true
         },
         {
-            "sortable": true
+            "sortable": false
         },
         {
             "sortable": true
