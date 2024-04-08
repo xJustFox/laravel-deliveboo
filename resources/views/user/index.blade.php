@@ -23,7 +23,9 @@
 
                             <div class="super-ocean fs-3 d-flex justify-content-center align-items-center flex-column">
                                 <img class="w-img-100" src="{{ Vite::asset('public/img/logo-white.png') }}" alt="">
-                                {{ __('Benvenuto in DeliveBoo!') }}
+                                <div class="">
+                                    {{ __('Benvenuto in DeliveBoo!') }}
+                                </div>
                             </div>
                         </div>
                     </div>
