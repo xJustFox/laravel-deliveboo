@@ -1,5 +1,5 @@
 <header class="@yield('header-class')">
-    <div class="container-fluid px-4 py-2 d-flex justify-content-between">
+    <div class="container-fluid py-2 d-flex justify-content-between header_padding">
 
         {{-- Logo --}}
         <div class="d-flex align-items-center super-ocean" href="{{ url('/') }}">
