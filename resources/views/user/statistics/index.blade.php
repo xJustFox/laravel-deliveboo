@@ -17,7 +17,7 @@
 
             <div class="col-12 my-5 card bg-blur ">
                 <div class="card-header text-white super-ocean">
-                    <h3 class="my-4">Rapporto prezzo/ordini piatti</h3>
+                    <h3 class="my-4">Rapporto quantità/ordini piatti</h3>
                 </div>
                 <div class="card-body mb-4">
                     <canvas id="dishes-mixed-chart"></canvas>
