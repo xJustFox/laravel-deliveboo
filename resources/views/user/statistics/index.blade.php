@@ -141,7 +141,7 @@
             data: {
                 datasets: [{
                     type: 'bar',
-                    label: 'Prezzo',
+                    label: 'Quantità',
                     data: dishes.map(dish => dish.price),
                     borderWidth: 2,
                     borderColor: 'rgba(142, 250, 246, 1)',
