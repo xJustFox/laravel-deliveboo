@@ -22,7 +22,10 @@
                             <div class="col-12 col-md-6">
                                 <div class="info-restaurant">
                                     <i class="fa-solid fa-utensils"></i>
-                                    <span>{{ $restaurant->typologies[0]->name }}</span>
+                                    @foreach ($restaurant->typologies as $typology)
+                                    <span>- {{ $typology->name }}</span> 
+                                        
+                                    @endforeach
                                 </div>
 
                                 <div class="info-restaurant">
