@@ -14,7 +14,7 @@
                         <div class="text-center text-white">
                             <img class="img-fluid" src="./img/Logo.png" alt="">
                             <h1 class="super-ocean mt-5 mb-3">Benvenuto su <span class="txt-orange title">Delive</span><span class="txt-gold title">Boo</span></h1>
-                            <h5 class="mt-5 subtitle">Qui puoi gestire, modificare e creare i tuoi ristornanti con il relativo menù. hai a disposizione una dashboard per controllare l'andamento del tuo ristorante e dei singoli piatti.</h5>
+                            <h5 class="mt-5 subtitle">Qui puoi gestire, modificare e creare i tuoi ristoranti con il relativo menù. Hai a disposizione una dashboard per controllare l'andamento del tuo ristorante e dei singoli piatti.</h5>
                         </div>
                     </div>
                 </section>
